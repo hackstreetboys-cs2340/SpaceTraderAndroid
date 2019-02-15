@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="61dp"
-        android:text="Pilot Points"
+        android:text="Trade Points"
         android:textColor="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="@+id/trade_points"
         app:layout_constraintTop_toBottomOf="@+id/engineer_point_header" />
