@@ -59,6 +59,9 @@ public class Player {
     public void setFightSkill(int fightSkill) {
         this.fightSkill = fightSkill;
     }
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
     //toString
     public String toString() {
         return String.format(
