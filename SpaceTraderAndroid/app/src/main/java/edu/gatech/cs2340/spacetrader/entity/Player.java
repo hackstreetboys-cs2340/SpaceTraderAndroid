@@ -6,6 +6,7 @@ public class Player {
     private Ship ship;
     private Difficulty difficulty;
 
+    public Player () { this(""); }
     public Player(String name) {
         this(name, 0, 0, 0, 0, Difficulty.N);
     }
