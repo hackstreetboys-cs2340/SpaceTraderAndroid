@@ -6,6 +6,7 @@ import java.util.List;
 public class Ship {
     private static ShipType ship;
 
+    public Ship() {this(ShipType.Gnat);}
     public Ship(ShipType ship) {
         this.ship = ship;
     }
