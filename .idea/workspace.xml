@@ -12,6 +12,7 @@
     <session id="-401360427">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -67,6 +68,46 @@
               <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
               <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
+              <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
+              <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
+              <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
+              <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HackstreetBoysProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HackstreetBoysProject" type="462c0819:PsiDirectoryNode" />
+              <item name="SpaceTraderAndroid" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
