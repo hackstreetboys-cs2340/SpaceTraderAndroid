@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.spacetrader.views;
 
-import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Spinner;
@@ -59,7 +59,7 @@ public class ConfigureGameActivity extends AppCompatActivity {
         fightSkill.setText(player.getFightSkill());
         difficultySpinner.setSelection(player.getDifficulty().ordinal());
 
-        //viewModel = ViewModelProvider.of(this).get(PlayerViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
 
     }
 
