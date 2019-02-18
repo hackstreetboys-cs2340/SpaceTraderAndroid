@@ -22,17 +22,13 @@ public class ConfigureGameActivity extends AppCompatActivity {
     private EditText engSkill;
     private EditText tradeSkill;
     private EditText fightSkill;
-
     private Player player;
-
+    private PlayerViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configure_game);
-
-        // viewModel is private in M3 project
-        private PlayerViewModel viewModel;
 
         name = findViewById(R.id.name_input);
         pilotSkill = findViewById(R.id.pilot_points);
