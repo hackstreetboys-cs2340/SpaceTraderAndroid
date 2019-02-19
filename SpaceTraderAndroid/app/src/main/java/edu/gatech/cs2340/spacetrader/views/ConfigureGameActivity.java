@@ -64,7 +64,16 @@ public class ConfigureGameActivity extends AppCompatActivity {
         player.setPilotSkill(Integer.parseInt(pilotSkill.getText().toString()));
         player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
 
-        viewModel.addPlayer(player);
+        int totalPointValue = Integer.parseInt(engSkill.getText().toString())
+                + Integer.parseInt(fightSkill.getText().toString())
+                + Integer.parseInt(tradeSkill.getText().toString())
+                + Integer.parseInt(pilotSkill.getText().toString());
+
+        if (totalPointValue > 16 || totalPointValue < 0) {
+            return;
+        } else {
+            viewModel.addPlayer(player);
+        }
 
         finish();
     }
