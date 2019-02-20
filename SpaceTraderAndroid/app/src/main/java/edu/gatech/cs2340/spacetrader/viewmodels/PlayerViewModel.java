@@ -18,5 +18,4 @@ public class PlayerViewModel extends AndroidViewModel {
     public void addPlayer(Player player) {
         interactor.setMyPlayer(player);
     }
-
 }

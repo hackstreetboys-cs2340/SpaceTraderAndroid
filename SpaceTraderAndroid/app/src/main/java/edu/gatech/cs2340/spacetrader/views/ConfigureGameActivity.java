@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -47,7 +48,10 @@ public class ConfigureGameActivity extends AppCompatActivity {
         // add new player
         // perhaps if-else if we need to edit later
 
+        player = new Player();
+
         viewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
+        Log.d("Notice", "View created");
     }
 
     public void onStartPressed(View view) {
@@ -60,24 +64,30 @@ public class ConfigureGameActivity extends AppCompatActivity {
         player.setPilotSkill(Integer.parseInt(pilotSkill.getText().toString()));
         player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
 
+        Log.d("Notice", "player skills set");
+
         int totalPointValue = Integer.parseInt(engSkill.getText().toString())
                 + Integer.parseInt(fightSkill.getText().toString())
                 + Integer.parseInt(tradeSkill.getText().toString())
                 + Integer.parseInt(pilotSkill.getText().toString());
 
+        Log.d("Notice", "totalPointValue calculated");
+
+
         if (totalPointValue == 16) {
             viewModel.addPlayer(player);
-            Log.d("Notice", "Player model updated.");
+            Log.d("EntityData", "Player info:\n" + player.toString());
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         } else if (totalPointValue < 16) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
             toast.show();
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "You can only allocated 16 points. Try again!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "You can only allocate 16 points. Try again!", Toast.LENGTH_LONG);
             toast.show();
         }
-
-        Log.d("Notice", "Player info:\n" + player.toString());
-
-        finish();
+        Log.d("EntityData", "Player info:\n" + player.toString());
     }
 }
