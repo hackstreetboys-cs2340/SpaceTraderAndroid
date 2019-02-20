@@ -66,7 +66,7 @@ public class Player {
     //toString
     public String toString() {
         return String.format(
-                "Name: %s, Pilot Skill: %i, Engineering Skill: %i, Trade Skill: %i, Fighting Skill: %i, Ship: %s",
+                "Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d, Fighting Skill: %d, Ship: %s",
                 name, pilotSkill, engSkill, tradeSkill, fightSkill, ship.toString());
     }
 

@@ -40,14 +40,12 @@ public class ConfigureGameActivity extends AppCompatActivity {
         difficultySpinner = findViewById(R.id.difficulty_spinner);
         Button button = findViewById(R.id.start_game);
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onStartPressed(view);
             }
         });
-
 
         ArrayAdapter<edu.gatech.cs2340.spacetrader.entity.Difficulty> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, edu.gatech.cs2340.spacetrader.entity.Difficulty.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
