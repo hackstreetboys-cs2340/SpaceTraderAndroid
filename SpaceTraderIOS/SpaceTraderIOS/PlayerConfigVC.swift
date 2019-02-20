@@ -26,9 +26,12 @@ class PlayerConfigVC: UIViewController {
     let tradeSkillLbl = UILabel()
     let fightSkillLbl = UILabel()
     
-    let difficulties = ["Easy", "Medium", "Hard"]
+    let difficultiesText = ["Easy", "Medium", "Hard"]
+    let difficulties = [Difficulty.Easy, Difficulty.Medium, Difficulty.Hard]
     var skillLbls: [UILabel] = []
     var pointsAvailable = 16;
+    
+    var player = Player()
     override func viewDidLoad() {
         layoutUI()
     }
@@ -188,6 +191,9 @@ class PlayerConfigVC: UIViewController {
     
     @objc private func doneTapped(_ sender: UIButton) {
         if pointsAvailable == 0 {
+            player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)])
+            print(player)
+        } else {
             
         }
     }
@@ -199,7 +205,7 @@ extension PlayerConfigVC: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return difficulties.count
+        return difficultiesText.count
     }
     
     
@@ -207,7 +213,7 @@ extension PlayerConfigVC: UIPickerViewDataSource {
 
 extension PlayerConfigVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: difficulties[row],
+        return NSAttributedString(string: difficultiesText[row],
                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.textColor])
     }
 }
