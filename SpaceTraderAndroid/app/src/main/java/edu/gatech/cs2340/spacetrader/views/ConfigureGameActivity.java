@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetrader.views;
 import android.support.v7.app.AppCompatActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import edu.gatech.cs2340.spacetrader.entity.Player;
 import android.view.View;
 import edu.gatech.cs2340.spacetrader.entity.Difficulty;
 import android.widget.Button;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
@@ -38,6 +40,15 @@ public class ConfigureGameActivity extends AppCompatActivity {
         difficultySpinner = findViewById(R.id.difficulty_spinner);
         Button button = findViewById(R.id.start_game);
 
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onStartPressed(view);
+            }
+        });
+
+
         ArrayAdapter<edu.gatech.cs2340.spacetrader.entity.Difficulty> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, edu.gatech.cs2340.spacetrader.entity.Difficulty.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(difficultyAdapter);
@@ -45,18 +56,12 @@ public class ConfigureGameActivity extends AppCompatActivity {
         // add new player
         // perhaps if-else if we need to edit later
 
-        player = new Player("Player 1");
-        name.setText(player.getName());
-        pilotSkill.setText(player.getPilotSkill());
-        engSkill.setText(player.getPilotSkill());
-        tradeSkill.setText(player.getTradeSkill());
-        fightSkill.setText(player.getFightSkill());
-        difficultySpinner.setSelection(player.getDifficulty().ordinal());
-
         viewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
     }
 
     public void onStartPressed(View view) {
+        Log.d("Notice", "Button clicked");
+
         player.setName(name.getText().toString());
         player.setEngSkill(Integer.parseInt(engSkill.getText().toString()));
         player.setFightSkill(Integer.parseInt(fightSkill.getText().toString()));
@@ -69,11 +74,18 @@ public class ConfigureGameActivity extends AppCompatActivity {
                 + Integer.parseInt(tradeSkill.getText().toString())
                 + Integer.parseInt(pilotSkill.getText().toString());
 
-        if (totalPointValue > 16 || totalPointValue < 0) {
-            return;
-        } else {
+        if (totalPointValue == 16) {
             viewModel.addPlayer(player);
+            Log.d("Notice", "Player model updated.");
+        } else if (totalPointValue < 16) {
+            Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "You can only allocated 16 points. Try again!", Toast.LENGTH_SHORT);
+            toast.show();
         }
+
+        Log.d("Notice", "Player info:\n" + player.toString());
 
         finish();
     }
