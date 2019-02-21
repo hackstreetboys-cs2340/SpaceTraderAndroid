@@ -193,6 +193,9 @@ class PlayerConfigVC: UIViewController {
         if pointsAvailable == 0 {
             player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)])
             print(player)
+            let universe = Universe()
+            universe.generate()
+            print(universe)
         } else {
             
         }
