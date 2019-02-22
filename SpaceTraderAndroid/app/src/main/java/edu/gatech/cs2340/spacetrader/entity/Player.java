@@ -124,7 +124,7 @@ public class Player {
     /**
      * Setter for player name.
      *
-     * @param name
+     * @param name name of player
      */
     public void setName(String name) {
         this.name = name;
@@ -133,7 +133,7 @@ public class Player {
     /**
      * Setter for pilot skill points.
      *
-     * @param pilotSkill
+     * @param pilotSkill pilot skill points
      */
     public void setPilotSkill(int pilotSkill) {
         this.pilotSkill = pilotSkill;
@@ -142,7 +142,7 @@ public class Player {
     /**
      * Setter for engine skill points.
      *
-     * @param engSkill
+     * @param engSkill engine skill points
      */
     public void setEngSkill(int engSkill) {
         this.engSkill = engSkill;
@@ -151,7 +151,7 @@ public class Player {
     /**
      * Setter for trade skill points.
      *
-     * @param tradeSkill
+     * @param tradeSkill trade skill points
      */
     public void setTradeSkill(int tradeSkill) {
         this.tradeSkill = tradeSkill;
@@ -160,7 +160,7 @@ public class Player {
     /**
      * Setter for fight skill points.
      *
-     * @param fightSkill
+     * @param fightSkill fight skill points
      */
     public void setFightSkill(int fightSkill) {
         this.fightSkill = fightSkill;
@@ -169,7 +169,7 @@ public class Player {
     /**
      * Setter for Difficulty.
      *
-     * @param difficulty
+     * @param difficulty difficulty level
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
