@@ -82,4 +82,13 @@ public class SolarSystem {
     public void setPlanets(List<Planet> planets) {
         this.planets = planets;
     }
+
+    @Override
+    public String toString() {
+        String str = "Name: " + name + "\nCoordinates: " + coordinates + "\nPlanets:\n";
+        for (Planet pl : planets) {
+            str += pl + "\n";
+        }
+        return str;
+    }
 }
