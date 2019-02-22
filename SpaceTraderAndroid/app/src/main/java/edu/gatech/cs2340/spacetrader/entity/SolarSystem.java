@@ -13,7 +13,7 @@ public class SolarSystem {
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", Coordinates(), new ArrayList<Planet>());
+        this("", new Coordinates(), new ArrayList<Planet>());
     }
 
     /**
@@ -23,7 +23,7 @@ public class SolarSystem {
      * @param coordinates coordinates of solar system
      * @param planets list of planets
      */
-    public SolarSystem(String name, Coordinates coordinates, List<> planets){
+    public SolarSystem(String name, Coordinates coordinates, List<Planet> planets){
         this.name = name;
         this.coordinates = coordinates;
         this.planets = planets;

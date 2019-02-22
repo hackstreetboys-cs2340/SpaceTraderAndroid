@@ -17,7 +17,7 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", Coordinates.(), TechLevel.PreAgriculture, Resources.NoSpecialResources);
+        this("", new Coordinates(), TechLevel.PreAgriculture, Resources.NoSpecialResources);
 
     }
 
