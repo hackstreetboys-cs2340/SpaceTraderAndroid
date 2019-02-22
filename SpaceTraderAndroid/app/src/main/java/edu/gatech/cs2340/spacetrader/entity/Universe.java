@@ -15,4 +15,12 @@ public class Universe {
     public Universe() {
         solarSystems = new HashSet<SolarSystem>();
     }
+
+    /**
+     * solarSystems getter
+     * @return a list of solar systems in the universe
+     */
+    public HashSet<SolarSystem> getSolarSystems() {
+        return solarSystems;
+    }
 }
