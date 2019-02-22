@@ -12,8 +12,27 @@ public enum TechLevel {
 
     private final int level;
 
+    /**
+     * enum constructor for TechLevel
+     *
+     * @param level tech level
+     */
     TechLevel (int level) {
         this.level = level;
+    }
+
+    /**
+     * getter method for tech level
+     *
+     * @return level
+     */
+    public int getLevel() {
+        return this.level;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.level);
     }
 
 }
