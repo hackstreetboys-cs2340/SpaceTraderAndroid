@@ -23,4 +23,13 @@ public class Universe {
     public HashSet<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
+
+    @Override
+    public String toString() {
+        String str = "Universe (" + solarSystems.size() + " unique systems):\n";
+        for (SolarSystem system : solarSystems) {
+            str += system + "\n";
+        }
+        return str;
+    }
 }
