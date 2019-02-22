@@ -26,10 +26,20 @@ public class Model {
         interactorMap.put("Ship", new ShipInteractor(myRepository));
     }
 
+    /**
+     * getter method for player's interactor
+     *
+     * @return player interactor
+     */
     public PlayerInteractor getPlayerInteractor() {
         return (PlayerInteractor) interactorMap.get("Player");
     }
 
+    /**
+     * getter method for ship's interactor
+     *
+     * @return ship interactor
+     */
     public ShipInteractor getShipInteractor() {
         return (ShipInteractor) interactorMap.get("Ship");
     }

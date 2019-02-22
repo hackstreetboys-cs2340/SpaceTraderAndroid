@@ -20,7 +20,7 @@ public enum ShipType {
     /**
      * Getter for name of ShipType.
      *
-     * @return
+     * @return name of ship
      */
     public String getName() {
         return name;
