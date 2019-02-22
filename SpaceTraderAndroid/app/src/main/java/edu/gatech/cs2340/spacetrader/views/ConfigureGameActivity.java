@@ -17,6 +17,9 @@ import android.widget.Toast;
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
 
+/**
+ * Code behind adding a player and allocating points.
+ */
 public class ConfigureGameActivity extends AppCompatActivity {
 
     private Spinner difficultySpinner;
@@ -54,6 +57,11 @@ public class ConfigureGameActivity extends AppCompatActivity {
         Log.d("Notice", "View created");
     }
 
+    /**
+     * Button handler for start game button.
+     *
+     * @param view the button that was pressed
+     */
     public void onStartPressed(View view) {
         Log.d("Notice", "Button clicked");
 
