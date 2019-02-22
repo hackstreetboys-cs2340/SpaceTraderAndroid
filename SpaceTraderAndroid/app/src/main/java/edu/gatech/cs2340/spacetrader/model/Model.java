@@ -13,6 +13,11 @@ public class Model {
 
     private static Model instance = new Model();
 
+    /**
+     * getter method for instance
+     *
+     * @return this instance (of type Model)
+     */
     public static Model getInstance() { return instance;}
 
     private Model() {

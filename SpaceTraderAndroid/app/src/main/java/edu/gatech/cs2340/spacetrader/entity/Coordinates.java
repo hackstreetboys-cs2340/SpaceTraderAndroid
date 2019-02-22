@@ -9,8 +9,8 @@ public class Coordinates {
 
     /**
      * Constructor for Coordinates
-     * @param latitude
-     * @param longitude
+     * @param latitude lat
+     * @param longitude long
      */
     public Coordinates(double latitude, double longitude) {
         this.latitude = latitude;

@@ -7,7 +7,7 @@ import java.util.HashSet;
  * and all the solar systems within it.
  */
 public class Universe {
-    HashSet<SolarSystem> solarSystems;
+    private HashSet<SolarSystem> solarSystems;
 
     /**
      * No arg constructor initializes solarSystems to an empty HashSet
