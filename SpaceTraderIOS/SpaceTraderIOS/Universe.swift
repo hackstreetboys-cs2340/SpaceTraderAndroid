@@ -44,11 +44,13 @@ class Universe: CustomStringConvertible {
                     } else {
                         numPlanets = Int.random(in: 0 ..< planetNames.count)
                     }
+                    // make a planet
                     for _ in 0 ..< numPlanets {
                         let planetName = planetNames.randomElement()!
                         planetNames.removeAll { (string) -> Bool in
                             string == planetName
                         }
+                        
                         let planet = makePlanet(name: planetName, system: solarSystem)
                         solarSystem.planets.append(planet)
                     }

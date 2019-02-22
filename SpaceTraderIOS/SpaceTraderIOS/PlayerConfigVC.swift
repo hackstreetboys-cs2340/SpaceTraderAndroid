@@ -55,6 +55,7 @@ class PlayerConfigVC: UIViewController {
                                                              attributes: [NSAttributedString.Key.foregroundColor: Colors.textColor])
         nameField.textAlignment = .center
         nameField.textColor = Colors.textColor
+        nameField.delegate = self
         let underline = CALayer()
         var width:CGFloat = 2
         underline.borderColor = Colors.white.cgColor
@@ -64,9 +65,9 @@ class PlayerConfigVC: UIViewController {
         
         let displayLabels = [pilotLbl, engineLbl, tradeLbl, fightLbl]
         skillLbls = [pilotSkillLbl, engineSkillLbl, tradeSkillLbl, fightSkillLbl]
-        let skillLblTxts = ["Pilot:", "Engine:", "Trade:", "Fight:"]
+        let skillLblTxts = ["Pilot:", "Engineer:", "Trader:", "Fighter:"]
         
-        width = 80
+        width = 90
         var height: CGFloat = 40
         size = CGSize(width: width, height: height)
         pos = CGPoint(x: offset, y: view.frame.height / 3)
@@ -218,5 +219,12 @@ extension PlayerConfigVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: difficultiesText[row],
                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.textColor])
+    }
+}
+
+extension PlayerConfigVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
