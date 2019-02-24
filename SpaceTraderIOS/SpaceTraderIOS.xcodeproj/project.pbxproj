@@ -21,6 +21,8 @@
 		5A0AD90F221E745600E90E68 /* Universe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD90E221E745600E90E68 /* Universe.swift */; };
 		5A0AD911221E91FE00E90E68 /* Constants.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A0AD910221E91FE00E90E68 /* Constants.json */; };
 		5A0AD913221F280500E90E68 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD912221F280500E90E68 /* Coordinates.swift */; };
+		5A0AD91722222A5600E90E68 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */; };
+		5A0AD91922222B6300E90E68 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD91822222B6300E90E68 /* SeededGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		5A0AD90E221E745600E90E68 /* Universe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universe.swift; sourceTree = "<group>"; };
 		5A0AD910221E91FE00E90E68 /* Constants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Constants.json; path = SpaceTraderIOS/Constants.json; sourceTree = "<group>"; };
 		5A0AD912221F280500E90E68 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		5A0AD91822222B6300E90E68 /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				5A0AD912221F280500E90E68 /* Coordinates.swift */,
 				5A0AD90C221E706F00E90E68 /* Planet.swift */,
 				5A0AD90E221E745600E90E68 /* Universe.swift */,
+				5A0AD91822222B6300E90E68 /* SeededGenerator.swift */,
+				5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */,
 				5A0AD908221D493300E90E68 /* Player.swift */,
 				5A0AD904221CDF9000E90E68 /* Colors.swift */,
 				5A0AD8E8221CDD0C00E90E68 /* Main.storyboard */,
@@ -226,7 +232,9 @@
 				5A0AD905221CDF9000E90E68 /* Colors.swift in Sources */,
 				5A0AD90F221E745600E90E68 /* Universe.swift in Sources */,
 				5A0AD90B221E706400E90E68 /* SolarSystem.swift in Sources */,
+				5A0AD91722222A5600E90E68 /* UIKitExtensions.swift in Sources */,
 				5A0AD8E5221CDD0C00E90E68 /* AppDelegate.swift in Sources */,
+				5A0AD91922222B6300E90E68 /* SeededGenerator.swift in Sources */,
 				5A0AD90D221E706F00E90E68 /* Planet.swift in Sources */,
 				5A0AD913221F280500E90E68 /* Coordinates.swift in Sources */,
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
