@@ -32,6 +32,7 @@ class PlayerConfigVC: UIViewController {
     var pointsAvailable = 16;
     
     var player = Player()
+    var generator: SeededGenerator = SeededGenerator()
     override func viewDidLoad() {
         layoutUI()
     }
@@ -191,12 +192,23 @@ class PlayerConfigVC: UIViewController {
     }
     
     @objc private func doneTapped(_ sender: UIButton) {
+        showSpinner(onView: view)
         if pointsAvailable == 0 {
             player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)])
             print(player)
             let universe = Universe()
-            universe.generate()
-            print(universe)
+            // create a new seed for the random generator
+            let seed = UInt64.random(in: UInt64.min ... UInt64.max)
+            print(seed)
+            generator = SeededGenerator(seed: seed)
+            universe.generate(with: &generator, success: {
+                print(universe)
+                self.removeSpinner()
+                // transition to next screen after universe is done generating.
+            }, fail: { (error) in
+                print(error.localizedDescription)
+                self.removeSpinner()
+            })
         } else {
             
         }
