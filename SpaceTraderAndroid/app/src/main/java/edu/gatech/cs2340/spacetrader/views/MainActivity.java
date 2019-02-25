@@ -13,6 +13,9 @@ import android.view.MenuItem;
 
 import edu.gatech.cs2340.spacetrader.R;
 
+/**
+ * Start up activity for game.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
