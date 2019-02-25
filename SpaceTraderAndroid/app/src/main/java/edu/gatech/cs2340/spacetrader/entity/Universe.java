@@ -30,6 +30,7 @@ public class Universe {
         int numSystems = rand.nextInt(30) + 10;
 
         // list of planet names - is this ok or better to get it from a json file?
+        /*
         ArrayList<String> planetNames = new ArrayList<>(Arrays.asList("Acamar", "Adahn", "Aldea", "Andevian", "Antedi", "Balosnee", "Baratas", "Brax", "Bretel",
                 "Calondia", "Campor", "Capelle", "Carzon", "Castor", "Cestus", "Cheron", "Courteney",
                 "Daled", "Damast", "Davlos", "Deneb", "Deneva", "Devidia", "Draylon", "Drema", "Endor", "Esmee", "Exo", "Ferris", "Festen", "Fourmi", "Frolix",
@@ -41,6 +42,9 @@ public class Universe {
                 "Sarpeidon", "Sefalla", "Seltrice", "Sigma", "Sol", "Somari", "Stakoron", "Styris",
                 "Talani", "Tamus", "Tantalos", "Tanuga", "Tarchannen", "Terosa", "Thera", "Titan", "Torin", "Triacus", "Turkana", "Tyrus", "Umberlee", "Utopia",
                 "Vadera", "Vagra", "Vandor", "Ventax", "Xenon", "Xerxes", "Yew", "Yojimbo", "Zalkon", "Zuul"));
+                */
+        String[] names = Arrays.toString(PlanetNames.values()).replaceAll("^.|.$", "").split(", ");
+        ArrayList<String> planetNames = new ArrayList<>(Arrays.asList(names));
 
         // list of the coordinates that have been used (to avoid duplicates)
         Coordinates usedCoords[] = new Coordinates[numSystems];
