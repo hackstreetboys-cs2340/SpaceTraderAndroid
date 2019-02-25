@@ -1,8 +1,5 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Class for ship of Player.
  */
