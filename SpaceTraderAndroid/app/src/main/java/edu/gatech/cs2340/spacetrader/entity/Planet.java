@@ -10,7 +10,7 @@ import java.util.Random;
 public class Planet {
     private String name;
     private TechLevel techLevel;
-    private Resources resource;
+    private Resources resources;
 
     /**
      * No-arg constructor for the Planet class that uses constructor chaining
@@ -36,7 +36,7 @@ public class Planet {
     public Planet(String name, TechLevel techLevel, Resources resource) {
         this.name = name;
         this.techLevel = techLevel;
-        this.resource = resource;
+        this.resources = resource;
     }
 
     /**
@@ -76,7 +76,7 @@ public class Planet {
      * @param resource represents the resource that the planet is known for
      */
     public void setResources(Resources resource) {
-        this.resource = resource;
+        this.resources = resource;
     }
 
     /**
@@ -84,15 +84,19 @@ public class Planet {
      * @return resource of the planet
      */
     public Resources getResources() {
-        return resource;
+        return resources;
     }
 
     /**
      * assigns a random resource level and tech level
      */
-
     public void generate() {
-        this.resource = Resources.getRandomResources();
+        this.resources = Resources.getRandomResources();
         this.techLevel = TechLevel.getRandomTech();
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\tResource Level: " + resources.toString() + "\tTech Level: " + techLevel.toString();
     }
 }

@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:text="Character Name"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,20 +56,20 @@
         android:layout_width="59dp"
         android:layout_height="44dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="number"
         android:text="0"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+        app:layout_constraintTop_toBottomOf="@+id/difficulty_spinner" />
 
     <EditText
         android:id="@+id/engineer_points"
         android:layout_width="59dp"
         android:layout_height="44dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="number"
         android:text="0"
@@ -81,7 +82,7 @@
         android:layout_width="59dp"
         android:layout_height="44dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="number"
         android:text="0"
@@ -94,7 +95,7 @@
         android:layout_width="59dp"
         android:layout_height="44dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="number"
         android:text="0"
@@ -107,11 +108,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="48dp"
         android:text="Pilot Points"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/pilot_points"
-        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+        app:layout_constraintTop_toBottomOf="@+id/difficulty_header" />
 
     <TextView
         android:id="@+id/engineer_point_header"
@@ -121,6 +123,7 @@
         android:layout_marginTop="62dp"
         android:text="Engineer Points"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/engineer_points"
         app:layout_constraintTop_toBottomOf="@+id/pilot_point_header" />
 
@@ -132,6 +135,7 @@
         android:layout_marginTop="61dp"
         android:text="Trade Points"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/trade_points"
         app:layout_constraintTop_toBottomOf="@+id/engineer_point_header" />
 
@@ -141,53 +145,53 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="61dp"
+        android:layout_marginBottom="8dp"
         android:text="Fighter Points"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/start_game"
         app:layout_constraintStart_toEndOf="@+id/fighter_points"
-        app:layout_constraintTop_toBottomOf="@+id/trade_point_header" />
+        app:layout_constraintTop_toBottomOf="@+id/trade_point_header"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/difficulty_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="528dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="96dp"
         android:text="Difficulty"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.601"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/name_input" />
 
     <Spinner
         android:id="@+id/difficulty_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintEnd_toStartOf="@+id/difficulty_header"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulty_header" />
+        app:layout_constraintTop_toBottomOf="@+id/name_input" />
 
     <Button
         android:id="@+id/start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="36dp"
         android:onClick="onStartPressed"
         android:text="Save and Start"
         android:textColor="@color/design_default_color_primary_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulty_spinner"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

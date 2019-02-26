@@ -108,7 +108,7 @@ public class SolarSystem {
 
     @Override
     public String toString() {
-        String str = "Name: " + name + "\nCoordinates: " + coordinates + "\nPlanets:\n";
+        String str = "Name: " + name + "\nCoordinates: (" + coordinates.first + ", " + coordinates.second + ")\nPlanets:\n";
         for (Planet pl : planets) {
             str += pl + "\n";
         }

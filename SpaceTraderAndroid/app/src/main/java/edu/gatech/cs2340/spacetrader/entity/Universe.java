@@ -32,7 +32,7 @@ public class Universe {
      * populates the universe with solar systems
      */
     public void generate() {
-
+        //list of possible planet names
         List<String> planetNames = new ArrayList<>(Arrays.asList("Acamar", "Adahn", "Aldea", "Andevian", "Antedi", "Balosnee", "Baratas", "Brax", "Bretel",
                 "Calondia", "Campor", "Capelle", "Carzon", "Castor", "Cestus", "Cheron", "Courteney",
                 "Daled", "Damast", "Davlos", "Deneb", "Deneva", "Devidia", "Draylon", "Drema", "Endor", "Esmee", "Exo", "Ferris", "Festen", "Fourmi", "Frolix",
@@ -49,7 +49,7 @@ public class Universe {
         int numSystems = rand.nextInt(10) + 10;
         while (numSystems > 0) {
             //creates coordinates
-            int x = rand.nextInt(100);  //100x100 grid
+            int x = rand.nextInt(150);  //100x100 grid
             int y = rand.nextInt(100);
             Pair<Integer, Integer> newCoordinates = new Pair<>(x, y);
             //checks for duplicate coordinates
