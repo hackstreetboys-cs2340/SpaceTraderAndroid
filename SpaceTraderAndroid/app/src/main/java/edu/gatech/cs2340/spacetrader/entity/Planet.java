@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.Random;
+
 /**
  * Planet class allows Planet to be an instance class
  * Allows the player to jump to different planets which are a part of different
@@ -7,7 +9,6 @@ package edu.gatech.cs2340.spacetrader.entity;
  */
 public class Planet {
     private String name;
-    private Coordinates coordinates;
     private TechLevel techLevel;
     private Resources resource;
 
@@ -17,22 +18,23 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", new Coordinates(), TechLevel.PreAgriculture, Resources.NoSpecialResources);
+        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources);
 
+    }
+
+    public Planet(String name) {
+        this(name, TechLevel.PreAgriculture, Resources.NoSpecialResources);
     }
 
     /**
      * Second constructor for the Planet class that allows the Planet to be instantiated
      * by the Player.
      * @param name represents the name of the planet
-     * @param coordinates represents the location of the planet in latitude, longitude
-     *                    coordinates
      * @param techLevel represents the tech level of the planet
      * @param resource represents the resource that the planet is known for
      */
-    public Planet(String name, Coordinates coordinates, TechLevel techLevel, Resources resource) {
+    public Planet(String name, TechLevel techLevel, Resources resource) {
         this.name = name;
-        this.coordinates = coordinates;
         this.techLevel = techLevel;
         this.resource = resource;
     }
@@ -51,22 +53,6 @@ public class Planet {
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Setter method for coordinates of Planet
-     * @param coordinates in latitude, longitude for location of planet
-     */
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    /**
-     * Getter method for coordinates of Planet
-     * @return coordinates in latitude, longitude for location of planet
-     */
-    public Coordinates getCoordinates() {
-        return coordinates;
     }
 
     /**
@@ -101,4 +87,12 @@ public class Planet {
         return resource;
     }
 
+    /**
+     * assigns a random resource level and tech level
+     */
+
+    public void generate() {
+        this.resource = Resources.getRandomResources();
+        this.techLevel = TechLevel.getRandomTech();
+    }
 }
