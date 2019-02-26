@@ -22,6 +22,7 @@ public class Universe {
      */
     public Universe() {
         solarSystems = new ArrayList<>();
+        coordinates = new HashSet<>();
     }
 
     /**
@@ -56,7 +57,7 @@ public class Universe {
             if (coordinates.add(newCoordinates)) {
                 //random number of planets between 6 and 1
                 int numOfPlanets = rand.nextInt(5) + 1;
-                SolarSystem newSystem = new SolarSystem(numSystems + "", newCoordinates);
+                SolarSystem newSystem = new SolarSystem("Solar System " + numSystems, newCoordinates);
                 newSystem.generateSystem(numOfPlanets, planetNames);
                 solarSystems.add(newSystem);
                 numSystems--;
