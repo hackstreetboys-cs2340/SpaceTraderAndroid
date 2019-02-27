@@ -2,12 +2,15 @@ package edu.gatech.cs2340.spacetrader.model;
 
 import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.entity.Ship;
+import edu.gatech.cs2340.spacetrader.entity.Universe;
 
 public class Repository {
 
     private Ship myShip;
 
     private Player myPlayer;
+
+    private Universe myUniverse;
 
     /**
      * constructor for repository
@@ -46,4 +49,11 @@ public class Repository {
     public void setMyPlayer(Player myPlayer) {
         this.myPlayer = myPlayer;
     }
+
+    /**
+     * setter method for universe
+     *
+     * @param myUniverse new universe
+     */
+    public void setMyUniverse(Universe myUniverse) { this.myUniverse = myUniverse; }
 }
