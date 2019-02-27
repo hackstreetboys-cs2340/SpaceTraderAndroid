@@ -41,6 +41,14 @@ public class Model {
     }
 
     /**
+     * getter method for player's interactor
+     * @return universe interactor
+     */
+    public UniverseInteractor getUniverseInteractor() {
+        return (UniverseInteractor) interactorMap.get("Universe");
+    }
+
+    /**
      * getter method for ship's interactor
      *
      * @return ship interactor
