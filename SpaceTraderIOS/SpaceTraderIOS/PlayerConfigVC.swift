@@ -32,6 +32,7 @@ class PlayerConfigVC: UIViewController {
     var pointsAvailable = 16;
     
     var player = Player()
+    var generator: SeededGenerator = SeededGenerator()
     override func viewDidLoad() {
         layoutUI()
     }
@@ -55,6 +56,7 @@ class PlayerConfigVC: UIViewController {
                                                              attributes: [NSAttributedString.Key.foregroundColor: Colors.textColor])
         nameField.textAlignment = .center
         nameField.textColor = Colors.textColor
+        nameField.delegate = self
         let underline = CALayer()
         var width:CGFloat = 2
         underline.borderColor = Colors.white.cgColor
@@ -64,9 +66,9 @@ class PlayerConfigVC: UIViewController {
         
         let displayLabels = [pilotLbl, engineLbl, tradeLbl, fightLbl]
         skillLbls = [pilotSkillLbl, engineSkillLbl, tradeSkillLbl, fightSkillLbl]
-        let skillLblTxts = ["Pilot:", "Engine:", "Trade:", "Fight:"]
+        let skillLblTxts = ["Pilot:", "Engineer:", "Trader:", "Fighter:"]
         
-        width = 80
+        width = 90
         var height: CGFloat = 40
         size = CGSize(width: width, height: height)
         pos = CGPoint(x: offset, y: view.frame.height / 3)
@@ -190,12 +192,23 @@ class PlayerConfigVC: UIViewController {
     }
     
     @objc private func doneTapped(_ sender: UIButton) {
+        showSpinner(onView: view)
         if pointsAvailable == 0 {
             player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)])
             print(player)
             let universe = Universe()
-            universe.generate()
-            print(universe)
+            // create a new seed for the random generator
+            let seed = UInt64.random(in: UInt64.min ... UInt64.max)
+            print(seed)
+            generator = SeededGenerator(seed: seed)
+            universe.generate(with: &generator, success: {
+                print(universe)
+                self.removeSpinner()
+                // transition to next screen after universe is done generating.
+            }, fail: { (error) in
+                print(error.localizedDescription)
+                self.removeSpinner()
+            })
         } else {
             
         }
@@ -218,5 +231,12 @@ extension PlayerConfigVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: difficultiesText[row],
                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.textColor])
+    }
+}
+
+extension PlayerConfigVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -13,6 +13,11 @@ public class Model {
 
     private static Model instance = new Model();
 
+    /**
+     * getter method for instance
+     *
+     * @return this instance (of type Model)
+     */
     public static Model getInstance() { return instance;}
 
     private Model() {
@@ -26,10 +31,20 @@ public class Model {
         interactorMap.put("Ship", new ShipInteractor(myRepository));
     }
 
+    /**
+     * getter method for player's interactor
+     *
+     * @return player interactor
+     */
     public PlayerInteractor getPlayerInteractor() {
         return (PlayerInteractor) interactorMap.get("Player");
     }
 
+    /**
+     * getter method for ship's interactor
+     *
+     * @return ship interactor
+     */
     public ShipInteractor getShipInteractor() {
         return (ShipInteractor) interactorMap.get("Ship");
     }
