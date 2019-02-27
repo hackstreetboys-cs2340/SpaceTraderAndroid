@@ -1,0 +1,4 @@
+#Tue Feb 26 19:18:58 EST 2019
+base.0=/Users/carolinedevlin/cs2340/SpaceTraderAndroid/SpaceTraderAndroid/app/build/intermediates/transforms/dexMerger/debug/5
+path.0=classes.dex
+renamed.0=classes.dex
