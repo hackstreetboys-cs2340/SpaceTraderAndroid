@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.Random;
+
 public enum TechLevel {
     PreAgriculture (0),
     Agriculture (1),
@@ -28,6 +30,17 @@ public enum TechLevel {
      */
     public int getLevel() {
         return this.level;
+    }
+
+    /**
+     * generates a random tech level
+     *
+     * @return random tech level
+     */
+
+    public static TechLevel getRandomTech() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
     }
 
     @Override
