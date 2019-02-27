@@ -14,6 +14,8 @@ import edu.gatech.cs2340.spacetrader.entity.Difficulty;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
@@ -105,12 +107,15 @@ public class ConfigureGameActivity extends AppCompatActivity {
 
 
             if (totalPointValue == 16) {
-                playerViewModel.addPlayer(player);
                 Log.d("EntityData", "Player info:\n" + player.toString());
+                Random rand = new Random();
+                long seed = rand.nextLong();
+                player.setSeed(seed);
                 Universe generatedUniverse = new Universe();
-                generatedUniverse.generate();
+                generatedUniverse.generate(seed);
                 universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
                 universeViewModel.addUniverse(generatedUniverse);
+                playerViewModel.addPlayer(player);
                 Log.d("EntityData", "Universe Info: \n" + generatedUniverse.toString());
                 Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
                 startActivity(intent);
