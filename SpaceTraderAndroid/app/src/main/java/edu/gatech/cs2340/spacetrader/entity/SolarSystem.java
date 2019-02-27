@@ -1,19 +1,26 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SolarSystem {
 
     private String name;
-    private Coordinates coordinates;
+    private Pair<Integer, Integer> coordinates;
     private List<Planet> planets;
 
     /**
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", new Coordinates(), new ArrayList<Planet>());
+        this("", new Pair<>(0, 0), new ArrayList<Planet>());
+    }
+
+    public SolarSystem(String name, Pair coordinates) {
+        this(name, coordinates, new ArrayList<Planet>());
     }
 
     /**
@@ -23,7 +30,7 @@ public class SolarSystem {
      * @param coordinates coordinates of solar system
      * @param planets list of planets
      */
-    public SolarSystem(String name, Coordinates coordinates, List<Planet> planets){
+    public SolarSystem(String name, Pair coordinates, List<Planet> planets){
         this.name = name;
         this.coordinates = coordinates;
         this.planets = planets;
@@ -43,7 +50,7 @@ public class SolarSystem {
      *
      * @return solar system's coordinates
      */
-    public Coordinates getCoordinates() {
+    public Pair getCoordinates() {
         return coordinates;
     }
 
@@ -70,7 +77,7 @@ public class SolarSystem {
      *
      * @param coordinates new coordinates for solar system
      */
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(Pair coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -83,9 +90,25 @@ public class SolarSystem {
         this.planets = planets;
     }
 
+    /**
+     * populates the system with planets
+     * @param numOfPlanets number of planets to be added
+     * @param planetNames list of possible planet names
+     */
+
+    public void generateSystem(int numOfPlanets, List<String> planetNames) {
+        Random rnd = new Random();
+        while (numOfPlanets > 0) {
+            Planet newPlanet = new Planet(planetNames.remove(rnd.nextInt(planetNames.size())));
+            newPlanet.generate();
+            planets.add(newPlanet);
+            numOfPlanets--;
+        }
+    }
+
     @Override
     public String toString() {
-        String str = "Name: " + name + "\nCoordinates: " + coordinates + "\nPlanets:\n";
+        String str = "Name: " + name + "\nCoordinates: (" + coordinates.first + ", " + coordinates.second + ")\n" + planets.size() + " Planet(s):\n";
         for (Planet pl : planets) {
             str += pl + "\n";
         }
