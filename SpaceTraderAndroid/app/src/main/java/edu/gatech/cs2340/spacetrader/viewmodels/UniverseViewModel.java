@@ -29,5 +29,4 @@ import edu.gatech.cs2340.spacetrader.model.UniverseInteractor;
         public void addUniverse(Universe universe) {
             interactor.setMyUniverse(universe);
         }
-    }
 }
