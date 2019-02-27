@@ -34,6 +34,10 @@ public class Repository {
      */
     public Ship getMyShip() {return myShip;}
 
+    public Universe getMyUniverse() {
+        return myUniverse;
+    }
+
     /**
      * setter method for ship
      *

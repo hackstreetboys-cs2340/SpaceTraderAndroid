@@ -29,6 +29,7 @@ public class Model {
     private void registerInteractors() {
         interactorMap.put("Player", new PlayerInteractor(myRepository));
         interactorMap.put("Ship", new ShipInteractor(myRepository));
+        interactorMap.put("Universe", new UniverseInteractor(myRepository));
     }
 
     /**
@@ -48,4 +49,6 @@ public class Model {
     public ShipInteractor getShipInteractor() {
         return (ShipInteractor) interactorMap.get("Ship");
     }
+
+    public UniverseInteractor getUniverseInteractor() { return (UniverseInteractor) interactorMap.get("Universe"); }
 }
