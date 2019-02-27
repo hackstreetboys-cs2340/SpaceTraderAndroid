@@ -30,7 +30,8 @@ public class ConfigureGameActivity extends AppCompatActivity {
     private EditText tradeSkill;
     private EditText fightSkill;
     private Player player;
-    private PlayerViewModel viewModel;
+    private PlayerViewModel playerViewModel;
+    private UniverseViewModel universeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,10 @@ public class ConfigureGameActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(difficultyAdapter);
 
         // add new player
-        // perhaps if-else if we need to edit later
 
         player = new Player();
 
-        viewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
+        playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
         Log.d("Notice", "View created");
     }
 
@@ -105,14 +105,14 @@ public class ConfigureGameActivity extends AppCompatActivity {
 
 
             if (totalPointValue == 16) {
-                viewModel.addPlayer(player);
+                playerViewModel.addPlayer(player);
                 Log.d("EntityData", "Player info:\n" + player.toString());
                 Universe generatedUniverse = new Universe();
                 generatedUniverse.generate();
+                universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
+                universeViewModel.addUniverse(generatedUniverse);
                 Log.d("EntityData", "Universe Info: \n" + generatedUniverse.toString());
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
                 startActivity(intent);
             } else if (totalPointValue < 16) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
