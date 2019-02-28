@@ -2,21 +2,21 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
-public class Water extends TradeGood{
+public class Ore extends TradeGood {
 
-    public Water() {
-        super("Water", 0, 0, 2, 30, 3, 4);
+    public Ore() {
+        super("Ore", 2, 2, 3, 350, 20, 10);
     }
 
     @Override
     boolean checkConditions(Resources res) {
-        if (res.equals(Resources.Desert)) {
+        if (res.equals(Resources.MineralPoor)) {
             finalPrice = basePrice * 1.3;
             return true;
-        } else if (res.equals(Resources.LotsOfWater)) {
+        } else if (res.equals(Resources.MineralRich)) {
             finalPrice = basePrice * .6;
             return true;
-        } else if (res.equals(Resources.Drought)) {
+        } else if (res.equals(Resources.War)) {
             finalPrice = basePrice * 2;
             return true;
         } else {

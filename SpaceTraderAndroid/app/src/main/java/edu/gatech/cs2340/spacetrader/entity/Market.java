@@ -3,6 +3,14 @@ package edu.gatech.cs2340.spacetrader.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Firearms;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Food;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Furs;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Games;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Machines;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Medicine;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Narcotics;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Ore;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Water;
 
@@ -31,6 +39,14 @@ public class Market {
 
     public void generateMarket() {
         tradeGoods.add(new Water());
+        tradeGoods.add(new Furs());
+        tradeGoods.add(new Food());
+        tradeGoods.add(new Ore());
+        tradeGoods.add(new Games());
+        tradeGoods.add(new Firearms());
+        tradeGoods.add(new Medicine());
+        tradeGoods.add(new Machines());
+        tradeGoods.add(new Narcotics());
         for (TradeGood i : tradeGoods) {
             i.calculatePrice(techLevel, resources);
         }
