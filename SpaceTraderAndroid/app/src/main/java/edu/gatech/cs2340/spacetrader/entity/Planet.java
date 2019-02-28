@@ -11,6 +11,7 @@ public class Planet {
     private String name;
     private TechLevel techLevel;
     private Resources resources;
+    private Market market;
 
     /**
      * No-arg constructor for the Planet class that uses constructor chaining
@@ -37,6 +38,7 @@ public class Planet {
         this.name = name;
         this.techLevel = techLevel;
         this.resources = resource;
+        this.market = new Market();
     }
 
     /**
@@ -93,10 +95,13 @@ public class Planet {
     public void generate() {
         this.resources = Resources.getRandomResources();
         this.techLevel = TechLevel.getRandomTech();
+        market.setResources(resources);
+        market.setTechLevel(techLevel);
+        market.generateMarket();
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + "\tResource Level: " + resources.toString() + "\tTech Level: " + techLevel.toString();
+        return "Name: " + name + "\tResources: " + resources.toString() + "\tTech Level: " + techLevel.toString() + "\nMarket:\n" + market.toString();
     }
 }
