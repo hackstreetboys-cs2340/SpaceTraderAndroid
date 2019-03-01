@@ -24,6 +24,7 @@
 		5A0AD91722222A5600E90E68 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */; };
 		5A0AD91922222B6300E90E68 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0AD91822222B6300E90E68 /* SeededGenerator.swift */; };
 		5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */; };
+		5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14F222986BD00715AA6 /* PlanetVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		5A0AD91822222B6300E90E68 /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
 		5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseGenerator.swift; sourceTree = "<group>"; };
+		5AF5B14F222986BD00715AA6 /* PlanetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				5A0AD908221D493300E90E68 /* Player.swift */,
 				5A0AD904221CDF9000E90E68 /* Colors.swift */,
 				5A0AD8E8221CDD0C00E90E68 /* Main.storyboard */,
+				5AF5B14F222986BD00715AA6 /* PlanetVC.swift */,
 				5A0AD8EB221CDD1200E90E68 /* Assets.xcassets */,
 				5A0AD8ED221CDD1200E90E68 /* LaunchScreen.storyboard */,
 				5A0AD8F0221CDD1200E90E68 /* Info.plist */,
@@ -240,6 +243,7 @@
 				5A0AD91922222B6300E90E68 /* SeededGenerator.swift in Sources */,
 				5A0AD90D221E706F00E90E68 /* Planet.swift in Sources */,
 				5A0AD913221F280500E90E68 /* Coordinates.swift in Sources */,
+				5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */,
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
 				5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,

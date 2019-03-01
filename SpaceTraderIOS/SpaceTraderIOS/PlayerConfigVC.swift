@@ -33,6 +33,7 @@ class PlayerConfigVC: UIViewController {
     
     var player = Player()
     var generator: SeededGenerator = SeededGenerator()
+    var universe = Universe()
     override func viewDidLoad() {
         layoutUI()
     }
@@ -174,6 +175,17 @@ class PlayerConfigVC: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? PlanetVC {
+            dest.universe = universe
+            if let planet = universe.solarSystems.randomElement()?.planets.randomElement() {
+                dest.planet = planet
+            } else {
+                print("For some reason, the universe has no solar systems or one of the solar systems has no planets.")
+            }
+        }
+    }
+    
     @objc private func skillChangeBtnTapped(_ sender: UIButton) {
         let tag = sender.tag
         
@@ -200,10 +212,11 @@ class PlayerConfigVC: UIViewController {
             player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)], seed: seed)
             generator = SeededGenerator(seed: seed)
             UniverseGenerator.generate(using: &generator, success: { (_universe) in
-                let universe = _universe
-                print(universe)
+                self.universe = _universe
+                print(self.universe)
                 self.removeSpinner()
                 // transition to next screen after universe is done generating.
+                self.performSegue(withIdentifier: "ConfigureToPlanet", sender: sender)
             }) { (error) in
                 print(error)
                 self.removeSpinner()

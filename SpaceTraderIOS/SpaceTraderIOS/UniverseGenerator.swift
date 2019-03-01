@@ -38,7 +38,7 @@ class UniverseGenerator {
                         numPlanets = Int.random(in: 1 ..< 10, using: &generator)
                     } else {
                         // unless there are less than 10 planets left
-                        numPlanets = Int.random(in: 1 ..< planetNames.count, using: &generator)
+                        numPlanets = numPlanets == 1 ? 1 : Int.random(in: 1 ..< planetNames.count, using: &generator)
                     }
                     
                     // If there will be 0 planet names left
