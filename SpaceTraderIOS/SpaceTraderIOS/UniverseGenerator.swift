@@ -10,6 +10,8 @@ import Foundation
 
 class UniverseGenerator {
     
+    @available (*, unavailable) init() {}
+    
     static func generate(using generator: inout SeededGenerator, success: @escaping (_ universe: Universe) -> Void, fail: @escaping (_ error: Error) -> Void) {
         // 10 to 40 solar systems in a universe
         //let numSystems = Int.random(in: 10 ..< 40)
