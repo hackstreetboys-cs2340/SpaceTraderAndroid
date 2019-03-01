@@ -9,13 +9,11 @@
 import Foundation
 
 class UniverseGenerator {
+    private static let maxPlanetsPerSolarSystem = 10
     
     @available (*, unavailable) init() {}
     
     static func generate(using generator: inout SeededGenerator, success: @escaping (_ universe: Universe) -> Void, fail: @escaping (_ error: Error) -> Void) {
-        // 10 to 40 solar systems in a universe
-        //let numSystems = Int.random(in: 10 ..< 40)
-        let numSystems = Int.random(in: 10 ..< 40, using: &generator)
         let universe = Universe()
         if let path = Bundle.main.path(forResource: "Constants", ofType: "json") {
             do {
@@ -23,6 +21,8 @@ class UniverseGenerator {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : Any]
                 guard var planetNames = json?["PlanetNames"] as? [String] else {return}
+                // 10 to 40 solar systems in a universe
+                var numSystems = Int.random(in: 10 ..< 40, using: &generator)
                 var usedCoordinates: [Coordinates] = []
                 // Make each solar system
                 for index in 0 ..< numSystems - 1 {
@@ -32,12 +32,20 @@ class UniverseGenerator {
                     solarSystem.name = "System \(index)"
                     solarSystem.coordinates = coords
                     var numPlanets = 0
-                    // 0 to 10 planets in a solar system
+                    
+                    // 1 to 10 planets in a solar system
                     if planetNames.count >= 10 {
-                        numPlanets = Int.random(in: 0 ..< 10, using: &generator)
+                        numPlanets = Int.random(in: 1 ..< 10, using: &generator)
                     } else {
-                        numPlanets = Int.random(in: 0 ..< planetNames.count, using: &generator)
+                        // unless there are less than 10 planets left
+                        numPlanets = Int.random(in: 1 ..< planetNames.count, using: &generator)
                     }
+                    
+                    // If there will be 0 planet names left
+                    if (planetNames.count - numPlanets == 0) {
+                        numSystems = index
+                    }
+                    
                     // make a planet
                     for _ in 0 ..< numPlanets {
                         let planetName = planetNames.randomElement(using: &generator)!
