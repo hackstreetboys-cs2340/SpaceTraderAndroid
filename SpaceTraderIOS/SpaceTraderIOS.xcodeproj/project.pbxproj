@@ -106,10 +106,8 @@
 			children = (
 				5A0AD8E4221CDD0C00E90E68 /* AppDelegate.swift */,
 				5AF5B1542229BE6100715AA6 /* Entities */,
-				5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */,
-				5A0AD91822222B6300E90E68 /* SeededGenerator.swift */,
-				5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */,
-				5A0AD904221CDF9000E90E68 /* Colors.swift */,
+				5AF5B156222A393E00715AA6 /* Model */,
+				5AF5B155222A392E00715AA6 /* Other */,
 				5A0AD8E8221CDD0C00E90E68 /* Main.storyboard */,
 				5AF5B1532229BE0700715AA6 /* ViewControllers */,
 				5A0AD8EB221CDD1200E90E68 /* Assets.xcassets */,
@@ -149,6 +147,24 @@
 				5A0AD908221D493300E90E68 /* Player.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		5AF5B155222A392E00715AA6 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5A0AD91822222B6300E90E68 /* SeededGenerator.swift */,
+				5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */,
+				5A0AD904221CDF9000E90E68 /* Colors.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		5AF5B156222A393E00715AA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
