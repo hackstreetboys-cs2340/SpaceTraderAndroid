@@ -9,5 +9,11 @@
 import Foundation
 
 class Market {
-    
+    let planet: Planet
+    init(planet: Planet) {
+        self.planet = planet
+    }
+    func generateGoods() {
+        
+    }
 }

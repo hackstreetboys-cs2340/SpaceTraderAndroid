@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class MarketVC: UIViewController {
+    let market: Market? = nil
     override func viewDidLoad() {
         layoutUI()
     }

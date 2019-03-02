@@ -40,13 +40,3 @@ class Player: CustomStringConvertible {
         self.seed = seed
     }
 }
-
-enum ShipType: CaseIterable {
-    case Gnat
-}
-
-enum Difficulty: CaseIterable {
-    case Easy
-    case Medium
-    case Hard
-}

@@ -27,6 +27,10 @@
 		5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14F222986BD00715AA6 /* PlanetVC.swift */; };
 		5AF5B1522229BDA800715AA6 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B1512229BDA800715AA6 /* MarketVC.swift */; };
 		5AF5B158222A396B00715AA6 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B157222A396B00715AA6 /* Market.swift */; };
+		5AF5B15A222A450300715AA6 /* ShipType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B159222A450300715AA6 /* ShipType.swift */; };
+		5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15B222A463100715AA6 /* Difficulty.swift */; };
+		5AF5B15E222A467800715AA6 /* TechLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15D222A467800715AA6 /* TechLevel.swift */; };
+		5AF5B160222A482A00715AA6 /* ResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15F222A482A00715AA6 /* ResourceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,10 @@
 		5AF5B14F222986BD00715AA6 /* PlanetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetVC.swift; sourceTree = "<group>"; };
 		5AF5B1512229BDA800715AA6 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
 		5AF5B157222A396B00715AA6 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		5AF5B159222A450300715AA6 /* ShipType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipType.swift; sourceTree = "<group>"; };
+		5AF5B15B222A463100715AA6 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		5AF5B15D222A467800715AA6 /* TechLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechLevel.swift; sourceTree = "<group>"; };
+		5AF5B15F222A482A00715AA6 /* ResourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +153,12 @@
 				5A0AD912221F280500E90E68 /* Coordinates.swift */,
 				5A0AD90A221E706400E90E68 /* SolarSystem.swift */,
 				5A0AD90C221E706F00E90E68 /* Planet.swift */,
+				5AF5B15D222A467800715AA6 /* TechLevel.swift */,
+				5AF5B15F222A482A00715AA6 /* ResourceType.swift */,
 				5A0AD90E221E745600E90E68 /* Universe.swift */,
 				5A0AD908221D493300E90E68 /* Player.swift */,
+				5AF5B15B222A463100715AA6 /* Difficulty.swift */,
+				5AF5B159222A450300715AA6 /* ShipType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -286,7 +298,11 @@
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
 				5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,
+				5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */,
+				5AF5B160222A482A00715AA6 /* ResourceType.swift in Sources */,
 				5AF5B158222A396B00715AA6 /* Market.swift in Sources */,
+				5AF5B15E222A467800715AA6 /* TechLevel.swift in Sources */,
+				5AF5B15A222A450300715AA6 /* ShipType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
