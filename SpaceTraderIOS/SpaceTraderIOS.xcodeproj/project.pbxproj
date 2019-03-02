@@ -153,12 +153,9 @@
 				5A0AD912221F280500E90E68 /* Coordinates.swift */,
 				5A0AD90A221E706400E90E68 /* SolarSystem.swift */,
 				5A0AD90C221E706F00E90E68 /* Planet.swift */,
-				5AF5B15D222A467800715AA6 /* TechLevel.swift */,
-				5AF5B15F222A482A00715AA6 /* ResourceType.swift */,
 				5A0AD90E221E745600E90E68 /* Universe.swift */,
 				5A0AD908221D493300E90E68 /* Player.swift */,
-				5AF5B15B222A463100715AA6 /* Difficulty.swift */,
-				5AF5B159222A450300715AA6 /* ShipType.swift */,
+				5AF5B161222A4BC400715AA6 /* Enums */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -180,6 +177,17 @@
 				5AF5B157222A396B00715AA6 /* Market.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5AF5B161222A4BC400715AA6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				5AF5B15F222A482A00715AA6 /* ResourceType.swift */,
+				5AF5B15D222A467800715AA6 /* TechLevel.swift */,
+				5AF5B15B222A463100715AA6 /* Difficulty.swift */,
+				5AF5B159222A450300715AA6 /* ShipType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
