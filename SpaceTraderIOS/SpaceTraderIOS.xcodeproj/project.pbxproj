@@ -26,6 +26,7 @@
 		5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */; };
 		5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14F222986BD00715AA6 /* PlanetVC.swift */; };
 		5AF5B1522229BDA800715AA6 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B1512229BDA800715AA6 /* MarketVC.swift */; };
+		5AF5B158222A396B00715AA6 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B157222A396B00715AA6 /* Market.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseGenerator.swift; sourceTree = "<group>"; };
 		5AF5B14F222986BD00715AA6 /* PlanetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetVC.swift; sourceTree = "<group>"; };
 		5AF5B1512229BDA800715AA6 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
+		5AF5B157222A396B00715AA6 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */,
+				5AF5B157222A396B00715AA6 /* Market.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
 				5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,
+				5AF5B158222A396B00715AA6 /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
