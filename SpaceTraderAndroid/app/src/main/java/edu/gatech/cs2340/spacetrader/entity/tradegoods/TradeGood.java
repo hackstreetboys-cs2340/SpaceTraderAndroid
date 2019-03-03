@@ -10,14 +10,32 @@ public abstract class TradeGood {
     private String name;
     private int MTLP, MTLU, TTP, IPL, variance;
     double basePrice, finalPrice;
+
+    /**
+     * no args constructor
+     */
     public TradeGood() {
         this("", 0, 0, 0, 0, 0, 0);
     }
 
+    /**
+     * 1 arg constructor
+     * @param name given name for the good
+     */
     public TradeGood(String name) {
         this(name, 0, 0, 0, 0, 0, 0);
     }
 
+    /**
+     * full constructor
+     * @param name good name
+     * @param MTLP Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
+     * @param MTLU Minimum Tech Level to Use this resource (You can't sell on planets below this level)
+     * @param TTP Tech Level which produces the most of this item
+     * @param basePrice base price of good
+     * @param IPL Price increase per tech level
+     * @param variance variance is the maximum percentage that the price can vary above or below the base
+     */
     public TradeGood(String name, int MTLP, int MTLU, int TTP, double basePrice, int IPL, int variance) {
         this.name = name;
         this.MTLP = MTLP;
@@ -29,10 +47,27 @@ public abstract class TradeGood {
         this.finalPrice = basePrice;
     }
 
-    public void setFinalPrice(double finalPrice) {
-        this.finalPrice = finalPrice;
+    /**
+     * get name
+     * @return name of good
+     */
+    public String getName() {
+        return name;
     }
 
+    /**
+     * get final price
+     * @return final price after adjustments
+     */
+    public double getFinalPrice() {
+        return finalPrice;
+    }
+
+    /**
+     * calculates price given resources and tech
+     * @param tech tech level of planet
+     * @param res resources of planet
+     */
     public void calculatePrice(TechLevel tech, Resources res) {
         Random rnd = new Random();
         if (MTLP > tech.getLevel() && MTLU > tech.getLevel()) {
@@ -59,7 +94,13 @@ public abstract class TradeGood {
         }
     }
 
+    /**
+     * check resource conditions
+     * @param res resources of planet
+     * @return true if final price changed
+     */
     abstract boolean checkConditions(Resources res);
+
 
     public String toString() {
         if (finalPrice == -3) {

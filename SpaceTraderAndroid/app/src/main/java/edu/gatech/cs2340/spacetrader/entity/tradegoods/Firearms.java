@@ -5,7 +5,7 @@ import edu.gatech.cs2340.spacetrader.entity.Resources;
 public class Firearms extends TradeGood {
 
     public Firearms() {
-        super("Firearms", 3, 1, 5, 1250, -75, 100);
+        super("Firearms", 3, 1, 5, 1250, -75, 75);
     }
 
     @Override

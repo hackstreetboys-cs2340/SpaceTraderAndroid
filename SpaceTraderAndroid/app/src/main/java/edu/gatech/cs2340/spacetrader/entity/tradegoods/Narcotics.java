@@ -5,7 +5,7 @@ import edu.gatech.cs2340.spacetrader.entity.Resources;
 public class Narcotics extends TradeGood {
 
     public Narcotics() {
-        super("Narcotics", 5, 0, 5, 3500, -125, 150);
+        super("Narcotics", 5, 0, 5, 3500, -125, 75);
     }
 
     @Override

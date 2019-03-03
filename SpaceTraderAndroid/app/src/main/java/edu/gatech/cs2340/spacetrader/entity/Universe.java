@@ -50,7 +50,7 @@ public class Universe {
         int numSystems = rand.nextInt(10) + 10;
         while (numSystems > 0) {
             //creates coordinates
-            int x = rand.nextInt(150);  //100x100 grid
+            int x = rand.nextInt(150);  //150x100 grid
             int y = rand.nextInt(100);
             Pair<Integer, Integer> newCoordinates = new Pair<>(x, y);
             //checks for duplicate coordinates
@@ -67,6 +67,7 @@ public class Universe {
 
     /**
      * solarSystems getter
+     *
      * @return a list of solar systems in the universe
      */
     public List<SolarSystem> getSolarSystems() {

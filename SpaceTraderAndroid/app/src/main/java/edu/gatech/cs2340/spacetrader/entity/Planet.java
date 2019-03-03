@@ -2,6 +2,8 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.Random;
 
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
+
 /**
  * Planet class allows Planet to be an instance class
  * Allows the player to jump to different planets which are a part of different
@@ -90,7 +92,7 @@ public class Planet {
     }
 
     /**
-     * assigns a random resource level and tech level
+     * assigns a random resource level and tech level and generates a market
      */
     public void generate() {
         this.resources = Resources.getRandomResources();
