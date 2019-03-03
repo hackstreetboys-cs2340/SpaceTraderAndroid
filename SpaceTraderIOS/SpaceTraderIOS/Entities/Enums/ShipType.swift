@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum ShipType: CaseIterable {
-    case Gnat
+enum ShipType: Int, CaseIterable {
+    case Gnat = 100
 }

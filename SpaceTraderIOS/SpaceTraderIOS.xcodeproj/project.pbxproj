@@ -36,6 +36,7 @@
 		5AF5B167222A5B1C00715AA6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B166222A5B1C00715AA6 /* Resource.swift */; };
 		5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B168222A5E4300715AA6 /* Resources.swift */; };
 		5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16A222C87B300715AA6 /* MarketGood.swift */; };
+		5AF5B16D222C8BED00715AA6 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16C222C8BED00715AA6 /* Ship.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		5AF5B166222A5B1C00715AA6 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5AF5B168222A5E4300715AA6 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		5AF5B16A222C87B300715AA6 /* MarketGood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGood.swift; sourceTree = "<group>"; };
+		5AF5B16C222C8BED00715AA6 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				5A0AD908221D493300E90E68 /* Player.swift */,
 				5AF5B166222A5B1C00715AA6 /* Resource.swift */,
 				5AF5B16A222C87B300715AA6 /* MarketGood.swift */,
+				5AF5B16C222C8BED00715AA6 /* Ship.swift */,
 				5AF5B161222A4BC400715AA6 /* Enums */,
 			);
 			path = Entities;
@@ -316,6 +319,7 @@
 				5A0AD91722222A5600E90E68 /* UIKitExtensions.swift in Sources */,
 				5A0AD8E5221CDD0C00E90E68 /* AppDelegate.swift in Sources */,
 				5AF5B1522229BDA800715AA6 /* MarketVC.swift in Sources */,
+				5AF5B16D222C8BED00715AA6 /* Ship.swift in Sources */,
 				5A0AD91922222B6300E90E68 /* SeededGenerator.swift in Sources */,
 				5A0AD90D221E706F00E90E68 /* Planet.swift in Sources */,
 				5A0AD913221F280500E90E68 /* Coordinates.swift in Sources */,
