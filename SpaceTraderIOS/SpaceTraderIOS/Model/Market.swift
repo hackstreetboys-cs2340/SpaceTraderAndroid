@@ -25,7 +25,8 @@ class Market {
         for resource in Resources.allCases {
             if resource.rawValue.canBuy(from: planet) {
                 let price = resource.rawValue.price(on: planet)
-                let good = MarketGood(good: resource.rawValue, price: price, quantity: <#T##Int#>)
+                let quantity = Int.random(in: 0...100)
+                let good = MarketGood(good: resource.rawValue, price: price, quantity: quantity)
                 goodsForSale.append(good)
             }
         }
@@ -33,7 +34,15 @@ class Market {
     func generateGoodsToSell() {
         for resource in Resources.allCases {
             if resource.rawValue.canSell(to: planet) {
-                goodsForSale[resource.rawValue] = resource.rawValue.price(on: planet)
+                let price = resource.rawValue.price(on: planet)
+                if let quantity = player.ship.cargo[resource.rawValue] {
+                    let good = MarketGood(good: resource.rawValue, price: price, quantity: quantity)
+                    goodsForSale.append(good)
+                } else {
+                    let good = MarketGood(good: resource.rawValue, price: price, quantity: 0)
+                    goodsForSale.append(good)
+                }
+                
             }
         }
     }
