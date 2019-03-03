@@ -32,7 +32,7 @@ public class Universe {
     /**
      * populates the universe with solar systems
      */
-    public void generate() {
+    public void generate(long seed) {
         //list of possible planet names
         List<String> planetNames = new ArrayList<>(Arrays.asList("Acamar", "Adahn", "Aldea", "Andevian", "Antedi", "Balosnee", "Baratas", "Brax", "Bretel",
                 "Calondia", "Campor", "Capelle", "Carzon", "Castor", "Cestus", "Cheron", "Courteney",
@@ -46,7 +46,7 @@ public class Universe {
                 "Talani", "Tamus", "Tantalos", "Tanuga", "Tarchannen", "Terosa", "Thera", "Titan", "Torin", "Triacus", "Turkana", "Tyrus", "Umberlee", "Utopia",
                 "Vadera", "Vagra", "Vandor", "Ventax", "Xenon", "Xerxes", "Yew", "Yojimbo", "Zalkon", "Zuul"));
         // random number of solar systems between 10 and 20
-        Random rand = new Random();
+        Random rand = new Random(seed);
         int numSystems = rand.nextInt(10) + 10;
         while (numSystems > 0) {
             //creates coordinates

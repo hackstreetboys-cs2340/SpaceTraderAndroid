@@ -136,13 +136,13 @@ public class Player {
     }
     
     /**
-     * Getter for seed
-     * @return seed
+     * Getter for seed that generates universe.
+     * @return the seed
      */
     public long getSeed() {
         return seed;
     }
-    
+  
     /**
      * Setter for player name.
      *
@@ -230,6 +230,14 @@ public class Player {
     
     /**
      * Setter for seed
+     * @param seed the seed
+     */
+    public void setSeed(long seed) {
+        this.seed = seed;
+    }
+
+    /**
+     * Setter for the seed that generates the universe.
      * @param seed the seed
      */
     public void setSeed(long seed) {
