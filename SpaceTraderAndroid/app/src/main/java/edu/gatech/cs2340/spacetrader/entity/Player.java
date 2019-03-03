@@ -236,14 +236,6 @@ public class Player {
         this.seed = seed;
     }
 
-    /**
-     * Setter for the seed that generates the universe.
-     * @param seed the seed
-     */
-    public void setSeed(long seed) {
-        this.seed = seed;
-    }
-
     @Override
     public String toString() {
         return String.format("Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d," +
