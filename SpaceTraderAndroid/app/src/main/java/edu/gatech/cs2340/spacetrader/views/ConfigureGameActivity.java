@@ -14,8 +14,12 @@ import edu.gatech.cs2340.spacetrader.entity.Difficulty;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import edu.gatech.cs2340.spacetrader.R;
+import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
+import edu.gatech.cs2340.spacetrader.viewmodels.UniverseViewModel;
 
 /**
  * Code behind adding a player and allocating points.
@@ -29,7 +33,8 @@ public class ConfigureGameActivity extends AppCompatActivity {
     private EditText tradeSkill;
     private EditText fightSkill;
     private Player player;
-    private PlayerViewModel viewModel;
+    private PlayerViewModel playerViewModel;
+    private UniverseViewModel universeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +54,10 @@ public class ConfigureGameActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(difficultyAdapter);
 
         // add new player
-        // perhaps if-else if we need to edit later
 
         player = new Player();
 
-        viewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
+        playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
         Log.d("Notice", "View created");
     }
 
@@ -65,36 +69,64 @@ public class ConfigureGameActivity extends AppCompatActivity {
     public void onStartPressed(View view) {
         Log.d("Notice", "Button clicked");
 
-        player.setName(name.getText().toString());
-        player.setEngSkill(Integer.parseInt(engSkill.getText().toString()));
-        player.setFightSkill(Integer.parseInt(fightSkill.getText().toString()));
-        player.setTradeSkill(Integer.parseInt(tradeSkill.getText().toString()));
-        player.setPilotSkill(Integer.parseInt(pilotSkill.getText().toString()));
-        player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
-
-        Log.d("Notice", "player skills set");
-
-        int totalPointValue = Integer.parseInt(engSkill.getText().toString())
-                + Integer.parseInt(fightSkill.getText().toString())
-                + Integer.parseInt(tradeSkill.getText().toString())
-                + Integer.parseInt(pilotSkill.getText().toString());
-
-        Log.d("Notice", "totalPointValue calculated");
-
-
-        if (totalPointValue == 16) {
-            viewModel.addPlayer(player);
-            Log.d("EntityData", "Player info:\n" + player.toString());
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        } else if (totalPointValue < 16) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
+        if (name.getText().toString().equals("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "You must set a player name", Toast.LENGTH_LONG);
             toast.show();
+
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "You can only allocate 16 points. Try again!", Toast.LENGTH_LONG);
-            toast.show();
+            player.setName(name.getText().toString());
+            if (engSkill.getText().toString().equals("")) {
+                player.setEngSkill(0);
+            } else {
+                player.setEngSkill(Integer.parseInt(engSkill.getText().toString()));
+            }
+            if (fightSkill.getText().toString().equals("")) {
+                player.setFightSkill(0);
+            } else {
+                player.setFightSkill(Integer.parseInt(fightSkill.getText().toString()));
+            }
+            if (tradeSkill.getText().toString().equals("")) {
+                player.setTradeSkill(0);
+            } else {
+                player.setTradeSkill(Integer.parseInt(tradeSkill.getText().toString()));
+            }
+            if (pilotSkill.getText().toString().equals("")) {
+                player.setPilotSkill(0);
+            } else {
+                player.setPilotSkill(Integer.parseInt(pilotSkill.getText().toString()));
+            }
+            player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
+
+            Log.d("Notice", "player skills set");
+
+            int totalPointValue = player.getEngSkill()
+                    + player.getFightSkill()
+                    + player.getTradeSkill()
+                    + player.getPilotSkill();
+
+            Log.d("Notice", "totalPointValue calculated");
+
+
+            if (totalPointValue == 16) {
+                Log.d("EntityData", "Player info:\n" + player.toString());
+                Random rand = new Random();
+                long seed = rand.nextLong();
+                player.setSeed(seed);
+                Universe generatedUniverse = new Universe();
+                generatedUniverse.generate(seed);
+                universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
+                universeViewModel.addUniverse(generatedUniverse);
+                playerViewModel.addPlayer(player);
+                Log.d("EntityData", "Universe Info: \n" + generatedUniverse.toString());
+                Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
+                startActivity(intent);
+            } else if (totalPointValue < 16) {
+                Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
+                toast.show();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "You can only allocate 16 points. Try again!", Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
         Log.d("EntityData", "Player info:\n" + player.toString());
     }

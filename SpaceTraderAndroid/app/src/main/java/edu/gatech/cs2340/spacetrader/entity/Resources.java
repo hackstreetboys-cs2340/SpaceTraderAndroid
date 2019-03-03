@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.Random;
+
 public enum Resources {
     NoSpecialResources(0),
     MineralRich(1),
@@ -33,6 +35,17 @@ public enum Resources {
      */
     public int getLevel() {
         return this.level;
+    }
+
+    /**
+     * generates a random resource level
+     *
+     * @return random resource level
+     */
+
+    public static Resources getRandomResources() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
     }
 
     @Override

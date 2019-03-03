@@ -8,6 +8,7 @@ public class Player {
     private String name;
     private Ship ship;
     private Difficulty difficulty;
+    private long seed;
 
     /**
      * No args constructor for Player class.
@@ -122,6 +123,14 @@ public class Player {
     }
 
     /**
+     * Getter for seed that generates universe.
+     * @return the seed
+     */
+    public long getSeed() {
+        return seed;
+    }
+
+    /**
      * Setter for player name.
      *
      * @param name name of player
@@ -175,11 +184,19 @@ public class Player {
         this.difficulty = difficulty;
     }
 
+    /**
+     * Setter for the seed that generates the universe.
+     * @param seed the seed
+     */
+    public void setSeed(long seed) {
+        this.seed = seed;
+    }
+
     @Override
     public String toString() {
         return String.format("Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d," +
-                " Fighting Skill: %d, Ship: %s", name, pilotSkill, engSkill, tradeSkill,
-                fightSkill, ship.toString());
+                " Fighting Skill: %d, Ship: %s, Difficulty: %s", name, pilotSkill, engSkill, tradeSkill,
+                fightSkill, ship.toString(), difficulty.toString());
     }
 
 }
