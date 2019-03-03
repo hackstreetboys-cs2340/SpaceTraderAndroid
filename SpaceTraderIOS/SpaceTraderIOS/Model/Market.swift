@@ -10,20 +10,23 @@ import Foundation
 
 class Market {
     let planet: Planet
-    var goodsForSale: [Resource : Int]
-    var goodsToSell: [Resource : Int]
-    init(planet: Planet) {
+    let player: Player
+    var goodsForSale: [MarketGood]
+    var goodsToSell: [MarketGood]
+    init(planet: Planet, player: Player) {
         self.planet = planet
-        goodsForSale = [:]
-        goodsToSell = [:]
+        self.player = player
+        goodsForSale = []
+        goodsToSell = []
         generateGoodsForSale()
-        generateGoodsToSell()
     }
     
     func generateGoodsForSale() {
         for resource in Resources.allCases {
             if resource.rawValue.canBuy(from: planet) {
-                goodsForSale[resource.rawValue] = resource.rawValue.price(on: planet)
+                let price = resource.rawValue.price(on: planet)
+                let good = MarketGood(good: resource.rawValue, price: price, quantity: <#T##Int#>)
+                goodsForSale.append(good)
             }
         }
     }

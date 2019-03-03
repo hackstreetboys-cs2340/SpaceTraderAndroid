@@ -35,6 +35,7 @@
 		5AF5B165222A53B500715AA6 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B164222A53B500715AA6 /* Condition.swift */; };
 		5AF5B167222A5B1C00715AA6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B166222A5B1C00715AA6 /* Resource.swift */; };
 		5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B168222A5E4300715AA6 /* Resources.swift */; };
+		5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16A222C87B300715AA6 /* MarketGood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		5AF5B164222A53B500715AA6 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		5AF5B166222A5B1C00715AA6 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5AF5B168222A5E4300715AA6 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		5AF5B16A222C87B300715AA6 /* MarketGood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				5A0AD90E221E745600E90E68 /* Universe.swift */,
 				5A0AD908221D493300E90E68 /* Player.swift */,
 				5AF5B166222A5B1C00715AA6 /* Resource.swift */,
+				5AF5B16A222C87B300715AA6 /* MarketGood.swift */,
 				5AF5B161222A4BC400715AA6 /* Enums */,
 			);
 			path = Entities;
@@ -320,6 +323,7 @@
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
 				5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */,
 				5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */,
+				5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */,
 				5AF5B165222A53B500715AA6 /* Condition.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,
 				5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */,
