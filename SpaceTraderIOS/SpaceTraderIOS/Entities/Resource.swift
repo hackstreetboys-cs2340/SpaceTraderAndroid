@@ -38,11 +38,11 @@ class Resource: Equatable, ExpressibleByStringLiteral {
         self.MTH = MTH
     }
     
-    public func price(on planet: Planet) -> Double {
+    public func price(on planet: Planet) -> Int {
         let price = basePrice + (IPL * (planet.techLevel.rawValue - MTLP))
         let direction = Int.random(in: 0...1) == 1 ? -1 : 1
         let computedVariance = 0.01 * Double(Int.random(in: 0...variance) * direction)
-        let computedPrice = Double(price) + computedVariance
+        let computedPrice = price + Int(computedVariance)
         return computedPrice
     }
     
