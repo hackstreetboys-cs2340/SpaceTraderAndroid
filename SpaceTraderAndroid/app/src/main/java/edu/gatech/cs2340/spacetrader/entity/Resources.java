@@ -15,7 +15,15 @@ public enum Resources {
     WeirdMushrooms(9),
     LotsOfHerbs(10),
     Artistic(11),
-    Warlike(12);
+    Warlike(12),
+    Drought(13),
+    Cold(14),
+    CropFail(15),
+    War(16),
+    Boredom(17),
+    Plague(18),
+    LackOfWorkers(19);
+
 
     private final int level;
 
@@ -46,10 +54,5 @@ public enum Resources {
     public static Resources getRandomResources() {
         Random random = new Random();
         return values()[random.nextInt(values().length)];
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(level);
     }
 }

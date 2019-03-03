@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
+
 /**
  * Player class including attributes of player for the game.
  */
@@ -9,6 +11,7 @@ public class Player {
     private Ship ship;
     private Difficulty difficulty;
     private long seed;
+    private double wallet;
 
     /**
      * No args constructor for Player class.
@@ -57,6 +60,7 @@ public class Player {
         this.fightSkill = fightSkill;
         this.ship = ship;
         this.difficulty = difficulty;
+        this.wallet = difficulty.getWallet();
     }
 
     /**
@@ -123,13 +127,22 @@ public class Player {
     }
 
     /**
+     * Getter for wallet
+     *
+      * @return wallet
+     */
+    public double getWallet() {
+        return wallet;
+    }
+    
+    /**
      * Getter for seed that generates universe.
      * @return the seed
      */
     public long getSeed() {
         return seed;
     }
-
+  
     /**
      * Setter for player name.
      *
@@ -176,12 +189,51 @@ public class Player {
     }
 
     /**
-     * Setter for Difficulty.
+     * Setter for Difficulty
      *
      * @param difficulty difficulty level
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+        setWallet(difficulty.getWallet());
+    }
+
+    /**
+     * Setter for wallet
+     *
+     * @param wallet wallet amount
+     */
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
+    }
+
+    /**
+     * player buys a good and updates their wallet
+     *
+     * @param good good being bought
+     */
+    public void buy(TradeGood good) {
+        double cost = ship.add(good);
+        if (cost != 0 && wallet - cost >= 0) {
+            wallet -= cost;
+        }
+    }
+
+    /**
+     * player sells a good and updates their wallet
+     *
+     * @param good good being sold
+     */
+    public void sell(TradeGood good) {
+        wallet += ship.remove(good);
+    }
+    
+    /**
+     * Setter for seed
+     * @param seed the seed
+     */
+    public void setSeed(long seed) {
+        this.seed = seed;
     }
 
     /**
@@ -195,8 +247,8 @@ public class Player {
     @Override
     public String toString() {
         return String.format("Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d," +
-                " Fighting Skill: %d, Ship: %s, Difficulty: %s", name, pilotSkill, engSkill, tradeSkill,
-                fightSkill, ship.toString(), difficulty.toString());
+                " Fighting Skill: %d,\nShip: %sDifficulty: %s, Wallet: %.2f", name, pilotSkill, engSkill, tradeSkill,
+                fightSkill, ship.toString(), difficulty.toString(), wallet);
     }
 
 }
