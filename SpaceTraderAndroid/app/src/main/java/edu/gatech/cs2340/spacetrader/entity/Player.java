@@ -10,6 +10,7 @@ public class Player {
     private String name;
     private Ship ship;
     private Difficulty difficulty;
+    private long seed;
     private double wallet;
 
     /**
@@ -133,7 +134,15 @@ public class Player {
     public double getWallet() {
         return wallet;
     }
-
+    
+    /**
+     * Getter for seed
+     * @return seed
+     */
+    public long getSeed() {
+        return seed;
+    }
+    
     /**
      * Setter for player name.
      *
@@ -217,6 +226,14 @@ public class Player {
      */
     public void sell(TradeGood good) {
         wallet += ship.remove(good);
+    }
+    
+    /**
+     * Setter for seed
+     * @param seed the seed
+     */
+    public void setSeed(long seed) {
+        this.seed = seed;
     }
 
     @Override
