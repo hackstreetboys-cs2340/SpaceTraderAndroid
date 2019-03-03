@@ -30,4 +30,6 @@ class SolarSystem: CustomStringConvertible {
         self.name = name
         self.coordinates = coordinates
     }
+    
+    
 }

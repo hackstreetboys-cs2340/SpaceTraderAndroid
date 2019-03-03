@@ -1,34 +1,28 @@
 //
-//  Universe.swift
+//  UniverseGenerator.swift
 //  SpaceTraderIOS
 //
-//  Created by Rahil Patel on 2/21/19.
+//  Created by Rahil Patel on 3/1/19.
 //  Copyright © 2019 HackstreetBoys. All rights reserved.
 //
 
 import Foundation
 
-class Universe: CustomStringConvertible {
-    var solarSystems: [SolarSystem] = []
+class UniverseGenerator {
+    private static let maxPlanetsPerSolarSystem = 10
     
-    var description: String {
-        var str = "Universe (\(solarSystems.count) unique systems):"
-        for system in solarSystems {
-            str = "\(str)\n\(system)\n"
-        }
-        return str
-    }
+    @available (*, unavailable) init() {}
     
-    func generate(with generator: inout SeededGenerator, success: @escaping () -> Void, fail: @escaping (_ error: Error) -> Void) {
-        // 10 to 40 solar systems in a universe
-        //let numSystems = Int.random(in: 10 ..< 40)
-        let numSystems = Int.random(in: 10 ..< 40, using: &generator)
+    static func generate(using generator: inout SeededGenerator, success: @escaping (_ universe: Universe) -> Void, fail: @escaping (_ error: Error) -> Void) {
+        let universe = Universe()
         if let path = Bundle.main.path(forResource: "Constants", ofType: "json") {
             do {
                 // get the list of planet names from the "Constants.json" file
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : Any]
                 guard var planetNames = json?["PlanetNames"] as? [String] else {return}
+                // 10 to 40 solar systems in a universe
+                var numSystems = Int.random(in: 10 ..< 40, using: &generator)
                 var usedCoordinates: [Coordinates] = []
                 // Make each solar system
                 for index in 0 ..< numSystems - 1 {
@@ -38,12 +32,20 @@ class Universe: CustomStringConvertible {
                     solarSystem.name = "System \(index)"
                     solarSystem.coordinates = coords
                     var numPlanets = 0
-                    // 0 to 10 planets in a solar system
+                    
+                    // 1 to 10 planets in a solar system
                     if planetNames.count >= 10 {
-                        numPlanets = Int.random(in: 0 ..< 10, using: &generator)
+                        numPlanets = Int.random(in: 1 ..< 10, using: &generator)
                     } else {
-                        numPlanets = Int.random(in: 0 ..< planetNames.count, using: &generator)
+                        // unless there are less than 10 planets left
+                        numPlanets = numPlanets == 1 ? 1 : Int.random(in: 1 ..< planetNames.count, using: &generator)
                     }
+                    
+                    // If there will be 0 planet names left
+                    if (planetNames.count - numPlanets == 0) {
+                        numSystems = index
+                    }
+                    
                     // make a planet
                     for _ in 0 ..< numPlanets {
                         let planetName = planetNames.randomElement(using: &generator)!
@@ -52,9 +54,9 @@ class Universe: CustomStringConvertible {
                         let planet = makePlanet(name: planetName, system: solarSystem, using: &generator)
                         solarSystem.planets.append(planet)
                     }
-                    solarSystems.append(solarSystem)
+                    universe.solarSystems.append(solarSystem)
                 }
-                success()
+                success(universe)
             } catch {
                 print(error)
                 fail(error)
@@ -62,7 +64,7 @@ class Universe: CustomStringConvertible {
         }
     }
     
-    private func makePlanet(name: String, system: SolarSystem, using generator: inout SeededGenerator) -> Planet {
+    private static func makePlanet(name: String, system: SolarSystem, using generator: inout SeededGenerator) -> Planet {
         var resources = ResourceType.NoSpecialResources
         // 25% chance of randomly choosing a resource type
         // 75% chance of being a guaranteed NoSpecialResources
@@ -74,7 +76,7 @@ class Universe: CustomStringConvertible {
         return planet
     }
     
-    private func generateCoordinates(without coordinates: [Coordinates], using generator: inout SeededGenerator) -> Coordinates {
+    private static func generateCoordinates(without coordinates: [Coordinates], using generator: inout SeededGenerator) -> Coordinates {
         var coords = Coordinates()
         var validCoords = false
         var count = 0
