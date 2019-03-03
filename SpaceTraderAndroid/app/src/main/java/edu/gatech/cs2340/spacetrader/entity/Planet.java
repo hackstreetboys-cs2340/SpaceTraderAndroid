@@ -2,6 +2,8 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.Random;
 
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
+
 /**
  * Planet class allows Planet to be an instance class
  * Allows the player to jump to different planets which are a part of different
@@ -11,6 +13,7 @@ public class Planet {
     private String name;
     private TechLevel techLevel;
     private Resources resources;
+    private Market market;
 
     /**
      * No-arg constructor for the Planet class that uses constructor chaining
@@ -37,6 +40,7 @@ public class Planet {
         this.name = name;
         this.techLevel = techLevel;
         this.resources = resource;
+        this.market = new Market();
     }
 
     /**
@@ -88,15 +92,18 @@ public class Planet {
     }
 
     /**
-     * assigns a random resource level and tech level
+     * assigns a random resource level and tech level and generates a market
      */
     public void generate() {
         this.resources = Resources.getRandomResources();
         this.techLevel = TechLevel.getRandomTech();
+        market.setResources(resources);
+        market.setTechLevel(techLevel);
+        market.generateMarket();
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + "\tResource Level: " + resources.toString() + "\tTech Level: " + techLevel.toString();
+        return "Name: " + name + "\tResources: " + resources.toString() + "\tTech Level: " + techLevel.toString() + "\nMarket:\n" + market.toString();
     }
 }
