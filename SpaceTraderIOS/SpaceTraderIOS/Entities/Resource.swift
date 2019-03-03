@@ -107,3 +107,9 @@ class Resource: Equatable, ExpressibleByStringLiteral {
         self.init(stringLiteral: value)
     }
 }
+
+extension Resource: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
