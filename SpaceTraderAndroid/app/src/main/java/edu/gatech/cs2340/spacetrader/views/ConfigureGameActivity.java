@@ -116,8 +116,8 @@ public class ConfigureGameActivity extends AppCompatActivity {
                 generatedUniverse.generate(seed);
                 universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
                 universeViewModel.addUniverse(generatedUniverse);
+                largeLog("EntityData", "Universe Info: \n" + generatedUniverse.toString());
                 playerViewModel.addPlayer(player);
-                Log.d("EntityData", "Universe Info: \n" + generatedUniverse.toString());
                 Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
                 startActivity(intent);
             } else if (totalPointValue < 16) {
@@ -129,5 +129,19 @@ public class ConfigureGameActivity extends AppCompatActivity {
             }
         }
         Log.d("EntityData", "Player info:\n" + player.toString());
+    }
+
+    /**
+     * handles a large log
+     * @param tag tag for log
+     * @param content message for log
+     */
+    private static void largeLog(String tag, String content) {
+        if (content.length() > 4000) {
+            Log.d(tag, content.substring(0, 4000));
+            largeLog(tag, content.substring(4000));
+        } else {
+            Log.d(tag, content);
+        }
     }
 }
