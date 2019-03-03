@@ -31,6 +31,10 @@
 		5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15B222A463100715AA6 /* Difficulty.swift */; };
 		5AF5B15E222A467800715AA6 /* TechLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15D222A467800715AA6 /* TechLevel.swift */; };
 		5AF5B160222A482A00715AA6 /* ResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B15F222A482A00715AA6 /* ResourceType.swift */; };
+		5AF5B163222A536100715AA6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B162222A536100715AA6 /* Event.swift */; };
+		5AF5B165222A53B500715AA6 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B164222A53B500715AA6 /* Condition.swift */; };
+		5AF5B167222A5B1C00715AA6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B166222A5B1C00715AA6 /* Resource.swift */; };
+		5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B168222A5E4300715AA6 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		5AF5B15B222A463100715AA6 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		5AF5B15D222A467800715AA6 /* TechLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechLevel.swift; sourceTree = "<group>"; };
 		5AF5B15F222A482A00715AA6 /* ResourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceType.swift; sourceTree = "<group>"; };
+		5AF5B162222A536100715AA6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5AF5B164222A53B500715AA6 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		5AF5B166222A5B1C00715AA6 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		5AF5B168222A5E4300715AA6 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 				5A0AD90C221E706F00E90E68 /* Planet.swift */,
 				5A0AD90E221E745600E90E68 /* Universe.swift */,
 				5A0AD908221D493300E90E68 /* Player.swift */,
+				5AF5B166222A5B1C00715AA6 /* Resource.swift */,
 				5AF5B161222A4BC400715AA6 /* Enums */,
 			);
 			path = Entities;
@@ -184,8 +193,11 @@
 			children = (
 				5AF5B15F222A482A00715AA6 /* ResourceType.swift */,
 				5AF5B15D222A467800715AA6 /* TechLevel.swift */,
+				5AF5B168222A5E4300715AA6 /* Resources.swift */,
 				5AF5B15B222A463100715AA6 /* Difficulty.swift */,
 				5AF5B159222A450300715AA6 /* ShipType.swift */,
+				5AF5B162222A536100715AA6 /* Event.swift */,
+				5AF5B164222A53B500715AA6 /* Condition.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -295,7 +307,9 @@
 				5A0AD8E7221CDD0C00E90E68 /* ViewController.swift in Sources */,
 				5A0AD905221CDF9000E90E68 /* Colors.swift in Sources */,
 				5A0AD90F221E745600E90E68 /* Universe.swift in Sources */,
+				5AF5B167222A5B1C00715AA6 /* Resource.swift in Sources */,
 				5A0AD90B221E706400E90E68 /* SolarSystem.swift in Sources */,
+				5AF5B163222A536100715AA6 /* Event.swift in Sources */,
 				5A0AD91722222A5600E90E68 /* UIKitExtensions.swift in Sources */,
 				5A0AD8E5221CDD0C00E90E68 /* AppDelegate.swift in Sources */,
 				5AF5B1522229BDA800715AA6 /* MarketVC.swift in Sources */,
@@ -304,7 +318,9 @@
 				5A0AD913221F280500E90E68 /* Coordinates.swift in Sources */,
 				5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */,
 				5A0AD909221D493300E90E68 /* Player.swift in Sources */,
+				5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */,
 				5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */,
+				5AF5B165222A53B500715AA6 /* Condition.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,
 				5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */,
 				5AF5B160222A482A00715AA6 /* ResourceType.swift in Sources */,

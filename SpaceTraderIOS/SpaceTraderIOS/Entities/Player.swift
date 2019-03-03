@@ -38,5 +38,6 @@ class Player: CustomStringConvertible {
         self.ship = shipType
         self.difficulty = difficulty
         self.seed = seed
+        
     }
 }
