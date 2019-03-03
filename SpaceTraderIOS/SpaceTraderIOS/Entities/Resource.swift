@@ -46,10 +46,10 @@ class Resource: Equatable, ExpressibleByStringLiteral {
         return computedPrice
     }
     
-    public func canSell(on planet: Planet) -> Bool {
+    public func canBuy(from planet: Planet) -> Bool {
         return planet.techLevel.rawValue > MTLP
     }
-    public func canBuy(on planet: Planet) -> Bool {
+    public func canSell(to planet: Planet) -> Bool {
         return planet.techLevel.rawValue > MTLU
     }
     
