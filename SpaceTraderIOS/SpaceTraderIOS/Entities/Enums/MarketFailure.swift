@@ -9,7 +9,7 @@
 import Foundation
 
 enum MarketFailure: String {
-    case soldOut = "This item is sold out."
+    case unavailable = "The market does not have enough of this item."
     case cannotAfford = "You cannot afford this item."
     case outOfItem = "You do not have any more of this item to sell."
     case cargoFull = "Your ship's cargo hold is full"

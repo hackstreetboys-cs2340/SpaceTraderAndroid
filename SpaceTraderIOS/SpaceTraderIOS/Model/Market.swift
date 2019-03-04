@@ -47,10 +47,10 @@ class Market {
         }
     }
     
-    func buy(good: MarketGood, fail: @escaping (MarketFailure) -> Void) {
-        if isAvailable(good) {
-            if canAfford(good) {
-                if hasSpace() {
+    func buy(good: MarketGood, amount: Int, fail: @escaping (MarketFailure) -> Void) {
+        if isAvailable(good, amount: amount) {
+            if canAfford(good, amount: amount) {
+                if hasSpace(amount: amount) {
                     let marketGood = goodsForSale.first(where: {$0 == good})!
                     marketGood.quantity -= 1
                     player.wallet -= marketGood.price
@@ -62,11 +62,11 @@ class Market {
                 fail(.cannotAfford)
             }
         } else {
-            fail(.soldOut)
+            fail(.unavailable)
         }
     }
-    func sell(good: MarketGood, fail: @escaping (MarketFailure) -> Void) {
-        if hasItem(good) {
+    func sell(good: MarketGood, amount: Int, fail: @escaping (MarketFailure) -> Void) {
+        if hasItem(good, amount: amount) {
             player.ship.cargo[good.good]! -= 1
             player.wallet += goodsToSell.first(where: { $0 == good})!.price
             if let good = goodsForSale.first(where: { $0 == good}) {
@@ -79,21 +79,21 @@ class Market {
         }
     }
     
-    private func isAvailable(_ good: MarketGood) -> Bool {
+    private func isAvailable(_ good: MarketGood, amount: Int) -> Bool {
         if let good = goodsForSale.first(where: {$0 == good}) {
-            return good.quantity > 0
+            return good.quantity >= amount
         }
         return false
     }
-    private func canAfford(_ good: MarketGood) -> Bool {
-        return good.price < player.wallet
+    private func canAfford(_ good: MarketGood, amount: Int) -> Bool {
+        return good.price * amount < player.wallet
     }
-    private func hasSpace() -> Bool {
-        return player.ship.cargo.count < player.ship.capacity
+    private func hasSpace(amount: Int) -> Bool {
+        return player.ship.cargo.count + amount <= player.ship.capacity
     }
-    private func hasItem(_ good: MarketGood) -> Bool {
+    private func hasItem(_ good: MarketGood, amount: Int) -> Bool {
         if let quantity = player.ship.cargo[good.good] {
-            return quantity > 0
+            return quantity >= amount
         }
         return false
     }
