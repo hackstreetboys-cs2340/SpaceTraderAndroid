@@ -134,6 +134,11 @@ extension MarketVC: UITableViewDataSource {
                 cell.good = good
                 cell.goodNameLbl.text = good.good.name
                 cell.goodPriceLbl.text = "$\(good.price)"
+                if let item = player?.ship.cargo.first(where: { $0.key == good.good }) {
+                    cell.goodQuantityLbl.text = "In cargo: \(item.value)"
+                } else {
+                    cell.goodQuantityLbl.text = "In cargo: 0"
+                }
                 cell.sellBtn.tag = indexPath.row
                 cell.sellBtn.addTarget(self, action: #selector(sell(_:)), for: .touchUpInside)
                 return cell

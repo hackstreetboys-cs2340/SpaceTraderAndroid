@@ -19,7 +19,7 @@ class BuyItemCell: UITableViewCell {
     override func layoutSubviews() {
         backgroundColor = Colors.backgroundColor
         let offset: CGFloat = 20
-        var width: CGFloat = 80
+        var width: CGFloat = 60
         let height: CGFloat = 40
         var size: CGSize = CGSize(width: width, height: height)
         var xPos: CGFloat = offset
@@ -33,8 +33,10 @@ class BuyItemCell: UITableViewCell {
         goodPriceLbl.frame = CGRect(origin: pos, size: size)
         goodPriceLbl.textAlignment = .left
         goodPriceLbl.textColor = Colors.textColor
-        xPos = goodPriceLbl.frame.maxX + offset
+        xPos = goodPriceLbl.frame.maxX
         pos = CGPoint(x: xPos, y: yPos)
+        width = 100
+        size = CGSize(width: width, height: height)
         goodQuantityLbl.frame = CGRect(origin: pos, size: size)
         goodQuantityLbl.textAlignment = .left
         goodQuantityLbl.textColor = Colors.textColor
@@ -68,6 +70,7 @@ class BuyItemCell: UITableViewCell {
 class SellItemCell: UITableViewCell {
     let goodNameLbl = UILabel()
     let goodPriceLbl = UILabel()
+    let goodQuantityLbl = UILabel()
     let quantityToSellField = UITextField()
     let sellBtn = UIButton()
     var good: MarketGood? = nil
@@ -88,6 +91,13 @@ class SellItemCell: UITableViewCell {
         goodPriceLbl.frame = CGRect(origin: pos, size: size)
         goodPriceLbl.textAlignment = .left
         goodPriceLbl.textColor = Colors.textColor
+        xPos = goodPriceLbl.frame.maxX
+        pos = CGPoint(x: xPos, y: yPos)
+        width = 100
+        size = CGSize(width: width, height: height)
+        goodQuantityLbl.frame = CGRect(origin: pos, size: size)
+        goodQuantityLbl.textAlignment = .left
+        goodQuantityLbl.textColor = Colors.textColor
         width = 40
         size = CGSize(width: width, height: height)
         yPos = contentView.frame.midY - height / 2
@@ -107,6 +117,7 @@ class SellItemCell: UITableViewCell {
         
         contentView.addSubview(goodNameLbl)
         contentView.addSubview(goodPriceLbl)
+        contentView.addSubview(goodQuantityLbl)
         contentView.addSubview(sellBtn)
         contentView.addSubview(quantityToSellField)
     }
