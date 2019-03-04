@@ -38,6 +38,7 @@
 		5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16A222C87B300715AA6 /* MarketGood.swift */; };
 		5AF5B16D222C8BED00715AA6 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16C222C8BED00715AA6 /* Ship.swift */; };
 		5AF5B16F222CC38900715AA6 /* MarketFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16E222CC38900715AA6 /* MarketFailure.swift */; };
+		5AF5B171222CC91D00715AA6 /* CustomTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B170222CC91D00715AA6 /* CustomTableViewCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		5AF5B16A222C87B300715AA6 /* MarketGood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGood.swift; sourceTree = "<group>"; };
 		5AF5B16C222C8BED00715AA6 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AF5B16E222CC38900715AA6 /* MarketFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFailure.swift; sourceTree = "<group>"; };
+		5AF5B170222CC91D00715AA6 /* CustomTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				5A0AD91822222B6300E90E68 /* SeededGenerator.swift */,
 				5A0AD91622222A5600E90E68 /* UIKitExtensions.swift */,
 				5A0AD904221CDF9000E90E68 /* Colors.swift */,
+				5AF5B170222CC91D00715AA6 /* CustomTableViewCells.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0AD8E7221CDD0C00E90E68 /* ViewController.swift in Sources */,
+				5AF5B171222CC91D00715AA6 /* CustomTableViewCells.swift in Sources */,
 				5A0AD905221CDF9000E90E68 /* Colors.swift in Sources */,
 				5A0AD90F221E745600E90E68 /* Universe.swift in Sources */,
 				5AF5B167222A5B1C00715AA6 /* Resource.swift in Sources */,
