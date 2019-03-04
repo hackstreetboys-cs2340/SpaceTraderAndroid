@@ -15,7 +15,7 @@ class BuyItemCell: UITableViewCell {
     let goodQuantityLbl = UILabel()
     let quantityToBuyField = UITextField()
     let buyBtn = UIButton()
-    let good: MarketGood? = nil
+    var good: MarketGood? = nil
     override func layoutSubviews() {
         let offset: CGFloat = 20
         var width: CGFloat = 80
@@ -61,7 +61,7 @@ class SellItemCell: UITableViewCell {
     let goodPriceLbl = UILabel()
     let quantityToSellField = UITextField()
     let sellBtn = UIButton()
-    let good: MarketGood? = nil
+    var good: MarketGood? = nil
     override func layoutSubviews() {
         let offset: CGFloat = 20
         var width: CGFloat = 80
