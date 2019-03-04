@@ -118,7 +118,7 @@ public class ConfigureGameActivity extends AppCompatActivity {
                 universeViewModel.addUniverse(generatedUniverse);
                 largeLog("EntityData", "Universe Info: \n" + generatedUniverse.toString());
                 playerViewModel.addPlayer(player);
-                Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
+                Intent intent = new Intent(ConfigureGameActivity.this, PlanetActivity.class);
                 startActivity(intent);
             } else if (totalPointValue < 16) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
