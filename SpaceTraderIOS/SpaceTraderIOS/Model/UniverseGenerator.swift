@@ -25,7 +25,8 @@ class UniverseGenerator {
                 var numSystems = Int.random(in: 10 ..< 40, using: &generator)
                 var usedCoordinates: [Coordinates] = []
                 // Make each solar system
-                for index in 0 ..< numSystems - 1 {
+                solarSystemLoop: for index in 0 ..< numSystems - 1 {
+                    var lastLoop = false
                     let coords = generateCoordinates(without: usedCoordinates, using: &generator)
                     usedCoordinates.append(coords)
                     let solarSystem = SolarSystem()
@@ -38,12 +39,13 @@ class UniverseGenerator {
                         numPlanets = Int.random(in: 1 ..< 10, using: &generator)
                     } else {
                         // unless there are less than 10 planets left
-                        numPlanets = numPlanets == 1 ? 1 : Int.random(in: 1 ..< planetNames.count, using: &generator)
+                        print(planetNames.count)
+                        numPlanets = planetNames.count == 1 ? 1 : Int.random(in: 1 ..< planetNames.count, using: &generator)
                     }
                     
                     // If there will be 0 planet names left
                     if (planetNames.count - numPlanets == 0) {
-                        numSystems = index
+                        lastLoop = true
                     }
                     
                     // make a planet
@@ -55,6 +57,9 @@ class UniverseGenerator {
                         solarSystem.planets.append(planet)
                     }
                     universe.solarSystems.append(solarSystem)
+                    if lastLoop {
+                        break solarSystemLoop
+                    }
                 }
                 success(universe)
             } catch {

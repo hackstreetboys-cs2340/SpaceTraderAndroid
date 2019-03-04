@@ -11,7 +11,7 @@ import Foundation
 class Ship {
     let type: ShipType
     let capacity: Int
-    let cargo: [Resource : Int]
+    var cargo: [Resource : Int]
     init(type: ShipType, cargo: [Resource : Int]) {
         self.type = type
         self.capacity = type.rawValue
@@ -22,5 +22,17 @@ class Ship {
     }
     convenience init() {
         self.init(type: .Gnat)
+    }
+    func loadCargo(_ resource: Resource, amount: Int) {
+        if cargo.contains(where: { $0.key == resource }) {
+            cargo[resource]! += amount
+        } else {
+            cargo[resource] = amount
+        }
+    }
+    func removeCargo(_ resource: Resource, amount: Int) {
+        if cargo.contains(where: { $0.key == resource }) {
+            cargo[resource]! -= amount
+        }
     }
 }

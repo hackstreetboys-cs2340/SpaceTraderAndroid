@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="2005" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--MarketVC-->
         <scene sceneID="ICc-L4-uOk">
             <objects>
-                <viewController id="oWd-XE-EJF" sceneMemberID="viewController">
+                <viewController id="oWd-XE-EJF" customClass="MarketVC" customModule="SpaceTraderIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AlW-v9-qrh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -41,6 +41,7 @@ class Resource: Equatable, ExpressibleByStringLiteral {
     public func price(on planet: Planet) -> Int {
         let price = basePrice + (IPL * (planet.techLevel.rawValue - MTLP))
         let direction = Int.random(in: 0...1) == 1 ? -1 : 1
+        print(variance)
         let computedVariance = 0.01 * Double(Int.random(in: 0...variance) * direction)
         let computedPrice = price + Int(computedVariance)
         return computedPrice
@@ -50,6 +51,7 @@ class Resource: Equatable, ExpressibleByStringLiteral {
         return planet.techLevel.rawValue > MTLP
     }
     public func canSell(to planet: Planet) -> Bool {
+        print("\(planet.techLevel.rawValue) > \(MTLU) ???")
         return planet.techLevel.rawValue > MTLU
     }
     
@@ -78,14 +80,14 @@ class Resource: Equatable, ExpressibleByStringLiteral {
             if let ttp = Int(components[3]) { self.TTP = ttp } else { self.TTP = 0 }
             if let basePrice = Int(components[4]) { self.basePrice = basePrice } else { self.basePrice = 0 }
             if let ipl = Int(components[5]) { self.IPL = ipl } else { self.IPL = 0 }
-            if let variance = Int(components[5]) { self.variance = variance } else {  self.variance = 0 }
-            if let ie = Event(rawValue: components[6]) { self.IE = ie } else { self.IE = nil }
-            if let cr = Condition(rawValue: components[7]) { self.CR = cr } else { self.CR = nil }
-            if let er = Condition(rawValue: components[8]) { self.ER = er } else { self.ER = nil }
-            if let mtl = Int(components[9]) { self.MTL = mtl } else { self.MTL = 0 }
-            if let mth = Int(components[10]) { self.MTH = mth } else { self.MTH = 0}
+            if let variance = Int(components[6]) { self.variance = variance } else {  self.variance = 0 }
+            if let ie = Event(rawValue: components[7]) { self.IE = ie } else { self.IE = nil }
+            if let cr = Condition(rawValue: components[8]) { self.CR = cr } else { self.CR = nil }
+            if let er = Condition(rawValue: components[9]) { self.ER = er } else { self.ER = nil }
+            if let mtl = Int(components[10]) { self.MTL = mtl } else { self.MTL = 0 }
+            if let mth = Int(components[11]) { self.MTH = mth } else { self.MTH = 0}
         } else {
-            print("The enum's string value was not determined properly (has too many or too few words)")
+            print("The enum's string value was not determined properly (has too many or too few words): \(components.count) words\nValue was: \(value)")
             self.name = ""
             self.MTLP = 0
             self.MTLU = 0

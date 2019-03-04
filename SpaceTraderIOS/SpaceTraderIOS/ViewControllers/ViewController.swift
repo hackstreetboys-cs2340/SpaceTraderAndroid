@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func startTapped(_ sender: Any) {
+        print("Tapped")
         performSegue(withIdentifier: "mainToConfig", sender: sender)
     }
 
