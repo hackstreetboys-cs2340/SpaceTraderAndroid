@@ -86,11 +86,13 @@ public abstract class TradeGood {
                     finalPrice = basePrice + IPL * (tech.getLevel() - MTLP) + (basePrice * (double)(var / 100));
                 }
             }
+            /*
             //by a lot of good fortune sometimes the final price goes negative or to zero
             //this condition sets the price to a penny if that is the case
             if (finalPrice <= 0) {
                 finalPrice = .01;
             }
+            */
         }
     }
 
