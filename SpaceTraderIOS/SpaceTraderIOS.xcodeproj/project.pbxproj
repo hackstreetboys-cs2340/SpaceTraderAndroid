@@ -37,6 +37,7 @@
 		5AF5B169222A5E4300715AA6 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B168222A5E4300715AA6 /* Resources.swift */; };
 		5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16A222C87B300715AA6 /* MarketGood.swift */; };
 		5AF5B16D222C8BED00715AA6 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16C222C8BED00715AA6 /* Ship.swift */; };
+		5AF5B16F222CC38900715AA6 /* MarketFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16E222CC38900715AA6 /* MarketFailure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		5AF5B168222A5E4300715AA6 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		5AF5B16A222C87B300715AA6 /* MarketGood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGood.swift; sourceTree = "<group>"; };
 		5AF5B16C222C8BED00715AA6 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		5AF5B16E222CC38900715AA6 /* MarketFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFailure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				5AF5B15B222A463100715AA6 /* Difficulty.swift */,
 				5AF5B159222A450300715AA6 /* ShipType.swift */,
 				5AF5B162222A536100715AA6 /* Event.swift */,
+				5AF5B16E222CC38900715AA6 /* MarketFailure.swift */,
 				5AF5B164222A53B500715AA6 /* Condition.swift */,
 			);
 			path = Enums;
@@ -330,6 +333,7 @@
 				5AF5B16B222C87B300715AA6 /* MarketGood.swift in Sources */,
 				5AF5B165222A53B500715AA6 /* Condition.swift in Sources */,
 				5A0AD907221CE55900E90E68 /* PlayerConfigVC.swift in Sources */,
+				5AF5B16F222CC38900715AA6 /* MarketFailure.swift in Sources */,
 				5AF5B15C222A463100715AA6 /* Difficulty.swift in Sources */,
 				5AF5B160222A482A00715AA6 /* ResourceType.swift in Sources */,
 				5AF5B158222A396B00715AA6 /* Market.swift in Sources */,

@@ -46,4 +46,55 @@ class Market {
             }
         }
     }
+    
+    func buy(good: MarketGood, fail: @escaping (MarketFailure) -> Void) {
+        if isAvailable(good) {
+            if canAfford(good) {
+                if hasSpace() {
+                    let marketGood = goodsForSale.first(where: {$0 == good})!
+                    marketGood.quantity -= 1
+                    player.wallet -= marketGood.price
+                    player.ship.cargo[good.good]! += 1
+                } else {
+                    fail(.cargoFull)
+                }
+            } else {
+                fail(.cannotAfford)
+            }
+        } else {
+            fail(.soldOut)
+        }
+    }
+    func sell(good: MarketGood, fail: @escaping (MarketFailure) -> Void) {
+        if hasItem(good) {
+            player.ship.cargo[good.good]! -= 1
+            player.wallet += goodsToSell.first(where: { $0 == good})!.price
+            if let good = goodsForSale.first(where: { $0 == good}) {
+             good.quantity += 1
+            } else {
+                goodsForSale.append(MarketGood(good: good.good, price: good.price, quantity: 1))
+            }
+        } else {
+            fail(.outOfItem)
+        }
+    }
+    
+    private func isAvailable(_ good: MarketGood) -> Bool {
+        if let good = goodsForSale.first(where: {$0 == good}) {
+            return good.quantity > 0
+        }
+        return false
+    }
+    private func canAfford(_ good: MarketGood) -> Bool {
+        return good.price < player.wallet
+    }
+    private func hasSpace() -> Bool {
+        return player.ship.cargo.count < player.ship.capacity
+    }
+    private func hasItem(_ good: MarketGood) -> Bool {
+        if let quantity = player.ship.cargo[good.good] {
+            return quantity > 0
+        }
+        return false
+    }
 }

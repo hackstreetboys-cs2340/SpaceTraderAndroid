@@ -11,7 +11,7 @@ import Foundation
 class Ship {
     let type: ShipType
     let capacity: Int
-    let cargo: [Resource : Int]
+    var cargo: [Resource : Int]
     init(type: ShipType, cargo: [Resource : Int]) {
         self.type = type
         self.capacity = type.rawValue
