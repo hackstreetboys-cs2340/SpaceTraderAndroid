@@ -13,6 +13,10 @@ public class Player {
     private long seed;
     private double wallet;
 
+
+
+    private Planet location;
+
     /**
      * No args constructor for Player class.
      */
@@ -142,6 +146,14 @@ public class Player {
     public long getSeed() {
         return seed;
     }
+
+    /**
+     * getter for planet where the player is located
+     * @return location
+     */
+    public Planet getLocation() {
+        return location;
+    }
   
     /**
      * Setter for player name.
@@ -205,6 +217,14 @@ public class Player {
      */
     public void setWallet(double wallet) {
         this.wallet = wallet;
+    }
+
+    /**
+     * setter for location
+     * @param location planet where the player is
+     */
+    public void setLocation(Planet location) {
+        this.location = location;
     }
 
     /**
