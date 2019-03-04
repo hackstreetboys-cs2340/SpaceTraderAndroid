@@ -178,6 +178,7 @@ class PlayerConfigVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? PlanetVC {
             dest.universe = universe
+            dest.player = player
             if let planet = universe.solarSystems.randomElement()?.planets.randomElement() {
                 dest.planet = planet
             } else {

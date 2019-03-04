@@ -23,4 +23,16 @@ class Ship {
     convenience init() {
         self.init(type: .Gnat)
     }
+    func loadCargo(_ resource: Resource, amount: Int) {
+        if cargo.contains(where: { $0.key == resource }) {
+            cargo[resource]! += amount
+        } else {
+            cargo[resource] = amount
+        }
+    }
+    func removeCargo(_ resource: Resource, amount: Int) {
+        if cargo.contains(where: { $0.key == resource }) {
+            cargo[resource]! -= amount
+        }
+    }
 }

@@ -17,6 +17,7 @@ class BuyItemCell: UITableViewCell {
     let buyBtn = UIButton()
     var good: MarketGood? = nil
     override func layoutSubviews() {
+        backgroundColor = Colors.backgroundColor
         let offset: CGFloat = 20
         var width: CGFloat = 80
         let height: CGFloat = 40
@@ -26,13 +27,18 @@ class BuyItemCell: UITableViewCell {
         var pos = CGPoint(x: xPos, y: yPos)
         goodNameLbl.frame = CGRect(origin: pos, size: size)
         goodNameLbl.textAlignment = .left
-        yPos = contentView.frame.midY + height
+        goodNameLbl.textColor = Colors.textColor
+        yPos = contentView.frame.midY
+        pos = CGPoint(x: xPos, y: yPos)
         goodPriceLbl.frame = CGRect(origin: pos, size: size)
         goodPriceLbl.textAlignment = .left
+        goodPriceLbl.textColor = Colors.textColor
         xPos = goodPriceLbl.frame.maxX + offset
         pos = CGPoint(x: xPos, y: yPos)
         goodQuantityLbl.frame = CGRect(origin: pos, size: size)
         goodQuantityLbl.textAlignment = .left
+        goodQuantityLbl.textColor = Colors.textColor
+
         width = 40
         size = CGSize(width: width, height: height)
         yPos = contentView.frame.midY - height / 2
@@ -43,10 +49,13 @@ class BuyItemCell: UITableViewCell {
         buyBtn.backgroundColor = Colors.primaryColor
         buyBtn.setTitleColor(Colors.textColor, for: .normal)
         buyBtn.layer.cornerRadius = 5
+
         xPos = buyBtn.frame.minX - width - offset
         pos = CGPoint(x: xPos, y: yPos)
         quantityToBuyField.frame = CGRect(origin: pos, size: size)
         quantityToBuyField.textAlignment = .center
+        quantityToBuyField.textColor = Colors.textColor
+        quantityToBuyField.text = "0"
         
         contentView.addSubview(goodNameLbl)
         contentView.addSubview(goodPriceLbl)
@@ -63,6 +72,7 @@ class SellItemCell: UITableViewCell {
     let sellBtn = UIButton()
     var good: MarketGood? = nil
     override func layoutSubviews() {
+        backgroundColor = Colors.backgroundColor
         let offset: CGFloat = 20
         var width: CGFloat = 80
         let height: CGFloat = 40
@@ -72,9 +82,12 @@ class SellItemCell: UITableViewCell {
         var pos = CGPoint(x: xPos, y: yPos)
         goodNameLbl.frame = CGRect(origin: pos, size: size)
         goodNameLbl.textAlignment = .left
-        yPos = contentView.frame.midY + height
+        goodNameLbl.textColor = Colors.textColor
+        yPos = contentView.frame.midY
+        pos = CGPoint(x: xPos, y: yPos)
         goodPriceLbl.frame = CGRect(origin: pos, size: size)
         goodPriceLbl.textAlignment = .left
+        goodPriceLbl.textColor = Colors.textColor
         width = 40
         size = CGSize(width: width, height: height)
         yPos = contentView.frame.midY - height / 2
@@ -89,6 +102,8 @@ class SellItemCell: UITableViewCell {
         pos = CGPoint(x: xPos, y: yPos)
         quantityToSellField.frame = CGRect(origin: pos, size: size)
         quantityToSellField.textAlignment = .center
+        quantityToSellField.textColor = Colors.textColor
+        quantityToSellField.text = "0"
         
         contentView.addSubview(goodNameLbl)
         contentView.addSubview(goodPriceLbl)

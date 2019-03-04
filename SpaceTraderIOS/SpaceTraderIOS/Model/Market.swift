@@ -19,30 +19,40 @@ class Market {
         goodsForSale = []
         goodsToSell = []
         generateGoodsForSale()
+        generateGoodsToSell()
     }
     
     func generateGoodsForSale() {
+        print("Generating buy goods...")
         for resource in Resources.allCases {
             if resource.rawValue.canBuy(from: planet) {
                 let price = resource.rawValue.price(on: planet)
                 let quantity = Int.random(in: 0...100)
                 let good = MarketGood(good: resource.rawValue, price: price, quantity: quantity)
                 goodsForSale.append(good)
+            } else {
+                print("Cannot buy \(resource.rawValue.name) from \(planet.name)")
             }
         }
     }
     func generateGoodsToSell() {
+        print("Generating sell goods...")
         for resource in Resources.allCases {
             if resource.rawValue.canSell(to: planet) {
+                print("Can sell \(resource.rawValue.name) to \(planet.name)")
                 let price = resource.rawValue.price(on: planet)
                 if let quantity = player.ship.cargo[resource.rawValue] {
+                    print("Resource \"\(resource.rawValue.name)\" is in the cargo")
                     let good = MarketGood(good: resource.rawValue, price: price, quantity: quantity)
-                    goodsForSale.append(good)
+                    goodsToSell.append(good)
                 } else {
+                    print("Resource \"\(resource.rawValue.name)\" is not in the cargo")
                     let good = MarketGood(good: resource.rawValue, price: price, quantity: 0)
-                    goodsForSale.append(good)
+                    goodsToSell.append(good)
                 }
                 
+            } else {
+                print("Cannot sell \(resource.rawValue.name) to \(planet.name)")
             }
         }
     }
@@ -51,10 +61,10 @@ class Market {
         if isAvailable(good, amount: amount) {
             if canAfford(good, amount: amount) {
                 if hasSpace(amount: amount) {
-                    let marketGood = goodsForSale.first(where: {$0 == good})!
-                    marketGood.quantity -= 1
-                    player.wallet -= marketGood.price
-                    player.ship.cargo[good.good]! += 1
+                    let marketGood = goodsForSale.first(where: {$0.good == good.good})!
+                    marketGood.quantity -= amount
+                    player.wallet -= marketGood.price * amount
+                    player.ship.loadCargo(good.good, amount: amount)
                 } else {
                     fail(.cargoFull)
                 }
@@ -67,12 +77,14 @@ class Market {
     }
     func sell(good: MarketGood, amount: Int, fail: @escaping (MarketFailure) -> Void) {
         if hasItem(good, amount: amount) {
-            player.ship.cargo[good.good]! -= 1
-            player.wallet += goodsToSell.first(where: { $0 == good})!.price
-            if let good = goodsForSale.first(where: { $0 == good}) {
-             good.quantity += 1
+            player.ship.removeCargo(good.good, amount: amount)
+            player.wallet += goodsToSell.first(where: { $0 == good})!.price * amount
+            if let good = goodsForSale.first(where: { $0.good == good.good}) {
+                good.quantity += amount
+                print("New quantity: \(good.quantity).")
             } else {
-                goodsForSale.append(MarketGood(good: good.good, price: good.price, quantity: 1))
+                goodsForSale.append(MarketGood(good: good.good, price: good.price, quantity: amount))
+                print("Good wasn't in market before.")
             }
         } else {
             fail(.outOfItem)
@@ -80,7 +92,7 @@ class Market {
     }
     
     private func isAvailable(_ good: MarketGood, amount: Int) -> Bool {
-        if let good = goodsForSale.first(where: {$0 == good}) {
+        if let good = goodsForSale.first(where: {$0.good == good.good}) {
             return good.quantity >= amount
         }
         return false
