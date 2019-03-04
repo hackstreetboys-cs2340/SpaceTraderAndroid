@@ -8,6 +8,8 @@ import android.util.Log;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+
+import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 import android.view.View;
 import edu.gatech.cs2340.spacetrader.entity.Difficulty;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import edu.gatech.cs2340.spacetrader.R;
+import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.UniverseViewModel;
@@ -117,9 +120,27 @@ public class ConfigureGameActivity extends AppCompatActivity {
                 universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
                 universeViewModel.addUniverse(generatedUniverse);
                 largeLog("EntityData", "Universe Info: \n" + generatedUniverse.toString());
+
+                // choose a random planet for the player to start on
+                boolean hasPlanets = false;
+                while (!hasPlanets) {
+                    int numSystems = generatedUniverse.getSolarSystems().size()-1;
+                    int randSystem = rand.nextInt(numSystems);
+                    SolarSystem currSystem = generatedUniverse.getSolarSystems().get(randSystem);
+                    if (currSystem.getPlanets().size() == 1) {
+                        player.setLocation(currSystem.getPlanets().get(0));
+                        hasPlanets = true;
+                    } else if (currSystem.getPlanets().size() != 0) {
+                        int randPlanet = rand.nextInt(currSystem.getPlanets().size());
+                        Planet currPlanet = currSystem.getPlanets().get(randPlanet);
+                        player.setLocation(currPlanet);
+                        hasPlanets = true;
+                    }
+                }
                 playerViewModel.addPlayer(player);
-                Intent intent = new Intent(ConfigureGameActivity.this, TransitionActivity.class);
+                Intent intent = new Intent(ConfigureGameActivity.this, PlanetActivity.class);
                 startActivity(intent);
+
             } else if (totalPointValue < 16) {
                 Toast toast = Toast.makeText(getApplicationContext(), "You did not allocate all 16 points. Try again!", Toast.LENGTH_LONG);
                 toast.show();
@@ -129,6 +150,8 @@ public class ConfigureGameActivity extends AppCompatActivity {
             }
         }
         Log.d("EntityData", "Player info:\n" + player.toString());
+
+
     }
 
     /**
