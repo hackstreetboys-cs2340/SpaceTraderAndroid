@@ -56,10 +56,10 @@ class BuyItemCell: UITableViewCell {
 }
 
 class SellItemCell: UITableViewCell {
-    var goodNameLbl = UILabel()
-    var goodPriceLbl = UILabel()
-    var quantityToSellField = UITextField()
-    var sellBtn = UIButton()
+    let goodNameLbl = UILabel()
+    let goodPriceLbl = UILabel()
+    let quantityToSellField = UITextField()
+    let sellBtn = UIButton()
     override func layoutSubviews() {
         let offset: CGFloat = 20
         var width: CGFloat = 80
