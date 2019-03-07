@@ -259,8 +259,8 @@ public class Player {
     @Override
     public String toString() {
         return String.format("Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d," +
-                " Fighting Skill: %d,\nShip: %sDifficulty: %s, Wallet: %.2f", name, pilotSkill, engSkill, tradeSkill,
-                fightSkill, ship.toString(), difficulty.toString(), wallet);
+                " Fighting Skill: %d,\nShip: %sDifficulty: %s,\nWallet: %.2f\nLocation: %s", name, pilotSkill, engSkill, tradeSkill,
+                fightSkill, ship.toString(), difficulty.toString(), wallet, location);
     }
 
 }
