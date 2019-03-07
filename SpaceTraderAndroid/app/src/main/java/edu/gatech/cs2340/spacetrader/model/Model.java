@@ -30,6 +30,7 @@ public class Model {
         interactorMap.put("Player", new PlayerInteractor(myRepository));
         interactorMap.put("Ship", new ShipInteractor(myRepository));
         interactorMap.put("Universe", new UniverseInteractor(myRepository));
+        interactorMap.put("BuyGoods", new BuyGoodInteractor(myRepository));
     }
 
     /**
@@ -51,4 +52,8 @@ public class Model {
     }
 
     public UniverseInteractor getUniverseInteractor() { return (UniverseInteractor) interactorMap.get("Universe"); }
+
+    public BuyGoodInteractor getBuyGoodInteractor() {
+        return (BuyGoodInteractor) interactorMap.get("BuyGoods");
+    }
 }
