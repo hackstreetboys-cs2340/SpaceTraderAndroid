@@ -73,4 +73,12 @@ public class Repository {
         }
         return toReturn;
     }
+
+    public List<TradeGood> getTradeGoodsForPlayer(Player player) {
+        List<TradeGood> toReturn = new ArrayList<>();
+        for (TradeGood t : player.getCargoHold()) {
+            toReturn.add(t);
+        }
+        return toReturn;
+    }
 }

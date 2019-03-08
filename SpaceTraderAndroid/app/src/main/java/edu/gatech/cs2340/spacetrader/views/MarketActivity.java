@@ -18,12 +18,16 @@ import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.viewmodels.BuyGoodListingViewModel;
+import edu.gatech.cs2340.spacetrader.viewmodels.SellGoodListingViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
-    private BuyGoodListingViewModel viewModel;
+    private BuyGoodListingViewModel buyViewModel;
     private BuyMarketItemAdapter buyAdapter;
+    private SellGoodListingViewModel sellViewModel;
+    private SellMarketItemAdapter sellAdapter;
     private Planet currentPlanet;
+    private Player currentPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +37,26 @@ public class MarketActivity extends AppCompatActivity {
         //seems redundant to do this since it is done in the Planet Activity but IDK how else to do it
         Model model = Model.getInstance();
         PlayerInteractor playerInteractor = model.getPlayerInteractor();
-        Player player = playerInteractor.getMyPlayer();
-        currentPlanet = player.getLocation();
+        currentPlayer = playerInteractor.getMyPlayer();
+        currentPlanet = currentPlayer.getLocation();
 
         RecyclerView buyRecyclerView = findViewById(R.id.buy_market_list);
-        //RecyclerView sellRecyclerView = findViewById(R.id.sell_market_list);
+        RecyclerView sellRecyclerView = findViewById(R.id.sell_market_list);
 
         buyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //sellRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        sellRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         buyAdapter = new BuyMarketItemAdapter();
         buyRecyclerView.setAdapter(buyAdapter);
-        //sellRecyclerView.setAdapter(buyAdapter);
+        sellAdapter = new SellMarketItemAdapter();
+        sellRecyclerView.setAdapter(sellAdapter);
 
-        viewModel = ViewModelProviders.of(this).get(BuyGoodListingViewModel.class);
-        viewModel.setCurrentPlanet(currentPlanet);
+        buyViewModel = ViewModelProviders.of(this).get(BuyGoodListingViewModel.class);
+        buyViewModel.setCurrentPlanet(currentPlanet);
+        sellViewModel = ViewModelProviders.of(this).get(SellGoodListingViewModel.class);
+        sellViewModel.setCurrentPlayer(currentPlayer);
+
+
 
         TextView buyLabel = findViewById(R.id.buy_textview);
         TextView sellLabel = findViewById(R.id.sell_textview);
@@ -55,13 +64,14 @@ public class MarketActivity extends AppCompatActivity {
 
         buyLabel.setText("Buy");
         sellLabel.setText("Sell");
-        walletLabel.setText("Wallet: $" + String.format("%.2f", player.getWallet()));
+        walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        buyAdapter.setGoods(viewModel.getBuyTradeGoods());
+        buyAdapter.setGoods(buyViewModel.getBuyTradeGoods());
+        sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
     }
 
 }
