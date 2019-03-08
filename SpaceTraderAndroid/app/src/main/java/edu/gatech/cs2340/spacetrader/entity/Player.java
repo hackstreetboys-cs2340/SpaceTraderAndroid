@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.List;
+
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
 /**
@@ -153,6 +155,10 @@ public class Player {
      */
     public Planet getLocation() {
         return location;
+    }
+
+    public List<TradeGood> getCargoHold() {
+        return ship.getCargoHold();
     }
   
     /**
