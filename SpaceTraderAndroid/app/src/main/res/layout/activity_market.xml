@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             tools:layout_editor_absoluteY="715dp"
-            tools:listitem="@layout/market_item">
+            tools:listitem="@layout/market_buy_item">
 
         </android.support.v7.widget.RecyclerView>
 
@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/market_item">
+            tools:listitem="@layout/market_sell_item">
 
         </android.support.v7.widget.RecyclerView>
 

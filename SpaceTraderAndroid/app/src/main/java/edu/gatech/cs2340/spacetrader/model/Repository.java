@@ -81,4 +81,12 @@ public class Repository {
         }
         return toReturn;
     }
+
+    public void addPlayerGood(TradeGood tradeGood) {
+        myPlayer.buy(tradeGood);
+    }
+
+    public void removePlayerGood(TradeGood tradeGood) {
+        myPlayer.sell(tradeGood);
+    }
 }

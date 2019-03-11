@@ -11,6 +11,10 @@ public class SellGoodInteractor extends Interactor {
         super(repo);
     }
 
+    public void addPlayerGood(TradeGood tradeGood) {
+        getRepository().addPlayerGood(tradeGood);
+    }
+
     public List<TradeGood> getTradeGoodsForPlayer(Player player) {
         return getRepository().getTradeGoodsForPlayer(player);
     }
