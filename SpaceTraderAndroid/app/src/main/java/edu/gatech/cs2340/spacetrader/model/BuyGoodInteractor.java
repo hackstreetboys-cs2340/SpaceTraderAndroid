@@ -11,6 +11,10 @@ public class BuyGoodInteractor extends Interactor{
         super(repo);
     }
 
+    public void removePlayerGood(TradeGood tradeGood) {
+        getRepository().removePlayerGood(tradeGood);
+    }
+
     public List<TradeGood> getTradeGoodsForPlanet(Planet planet) {
         return getRepository().getTradeGoodsForPlanet(planet);
     }

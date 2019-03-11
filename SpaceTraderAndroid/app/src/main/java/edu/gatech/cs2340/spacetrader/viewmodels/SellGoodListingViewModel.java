@@ -24,6 +24,10 @@ public class SellGoodListingViewModel extends AndroidViewModel {
         currentPlayer = player;
     }
 
+    public void addPlayerGood(TradeGood tradeGood) {
+        interactor.addPlayerGood(tradeGood);
+    }
+
     public List<TradeGood> getSellTradeGoods() {
         return interactor.getTradeGoodsForPlayer(currentPlayer);
     }

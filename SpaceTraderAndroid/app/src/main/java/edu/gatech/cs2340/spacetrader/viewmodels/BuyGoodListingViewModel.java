@@ -24,6 +24,10 @@ public class BuyGoodListingViewModel extends AndroidViewModel {
         currentPlanet = planet;
     }
 
+    public void removePlayerGood(TradeGood tradeGood) {
+        interactor.removePlayerGood(tradeGood);
+    }
+
     public List<TradeGood> getBuyTradeGoods() {
         return interactor.getTradeGoodsForPlanet(currentPlanet);
     }

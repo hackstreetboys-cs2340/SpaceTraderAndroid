@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Water;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.viewmodels.BuyGoodListingViewModel;
@@ -72,6 +75,25 @@ public class MarketActivity extends AppCompatActivity {
         super.onResume();
         buyAdapter.setGoods(buyViewModel.getBuyTradeGoods());
         sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
-    }
 
+        buyAdapter.setOnBuyGoodClickListener(new BuyMarketItemAdapter.OnBuyGoodClickListener() {
+            @Override
+            public void onBuyGoodClicked(TradeGood good) {
+                sellViewModel.addPlayerGood(good);
+                sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
+                TextView walletLabel = findViewById(R.id.wallet_textview);
+                walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
+            }
+        });
+
+        sellAdapter.setOnSellGoodClickListener(new SellMarketItemAdapter.OnSellGoodClickListener() {
+            @Override
+            public void onSellGoodClicked(TradeGood good) {
+                buyViewModel.removePlayerGood(good);
+                sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
+                TextView walletLabel = findViewById(R.id.wallet_textview);
+                walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
+            }
+        });
+    }
 }
