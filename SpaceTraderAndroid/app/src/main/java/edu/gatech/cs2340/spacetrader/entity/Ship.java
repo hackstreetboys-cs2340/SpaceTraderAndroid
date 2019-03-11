@@ -55,12 +55,16 @@ public class Ship {
      */
     public double remove(TradeGood good) {
         double price = cargoHold.get(cargoHold.indexOf(good)).getFinalPrice();
-        if (cargoHold.get(cargoHold.indexOf(good)).getQuantity() > 1) {
+        if (!cargoHold.contains(good)) {
+            return 0;
+        } else if (cargoHold.get(cargoHold.indexOf(good)).getQuantity() > 1) {
             cargoHold.get(cargoHold.indexOf(good)).setQuantity(
                     cargoHold.get(cargoHold.indexOf(good)).getQuantity() - 1);
+            size--;
             return price;
         } else {
             cargoHold.remove(good);
+            size--;
             return price;
         }
     }
