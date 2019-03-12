@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetrader.views;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class PlanetActivity extends AppCompatActivity {
     }
 
     public void onMarketPressed(View view) {
+        Log.d("_test1", "market button pressed");
         Intent intent = new Intent(PlanetActivity.this, MarketActivity.class);
         startActivity(intent);
     }

@@ -15,9 +15,9 @@ import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Water;
 
 public class Market {
-    List<TradeGood> tradeGoods;
-    TechLevel techLevel;
-    Resources resources;
+    private List<TradeGood> tradeGoods;
+    private TechLevel techLevel;
+    private Resources resources;
 
     /**
      * no args constructor
@@ -51,6 +51,10 @@ public class Market {
      */
     public void setResources(Resources resources) {
         this.resources = resources;
+    }
+
+    public List<TradeGood> getTradeGoods() {
+        return tradeGoods;
     }
 
     /**

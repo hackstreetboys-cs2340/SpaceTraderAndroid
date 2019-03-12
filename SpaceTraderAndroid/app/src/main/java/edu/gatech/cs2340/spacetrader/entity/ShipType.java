@@ -4,7 +4,7 @@ package edu.gatech.cs2340.spacetrader.entity;
  * ShipType enum for Ship class.
  */
 public enum ShipType {
-    Gnat ("Gnat", 10);
+    Gnat ("Gnat", 15);
 
     private final String name;
     private final int capacity;

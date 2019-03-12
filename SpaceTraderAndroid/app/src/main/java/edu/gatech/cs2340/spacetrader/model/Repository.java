@@ -1,8 +1,13 @@
 package edu.gatech.cs2340.spacetrader.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.entity.Ship;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
 public class Repository {
 
@@ -60,4 +65,28 @@ public class Repository {
      * @param myUniverse new universe
      */
     public void setMyUniverse(Universe myUniverse) { this.myUniverse = myUniverse; }
+
+    public List<TradeGood> getTradeGoodsForPlanet(Planet planet) {
+        List<TradeGood> toReturn = new ArrayList<>();
+        for(TradeGood t : planet.getGoods()) {
+            toReturn.add(t);
+        }
+        return toReturn;
+    }
+
+    public List<TradeGood> getTradeGoodsForPlayer(Player player) {
+        List<TradeGood> toReturn = new ArrayList<>();
+        for (TradeGood t : player.getCargoHold()) {
+            toReturn.add(t);
+        }
+        return toReturn;
+    }
+
+    public void addPlayerGood(TradeGood tradeGood) {
+        myPlayer.buy(tradeGood);
+    }
+
+    public void removePlayerGood(TradeGood tradeGood) {
+        myPlayer.sell(tradeGood);
+    }
 }
