@@ -160,7 +160,15 @@ public class Player {
     public List<TradeGood> getCargoHold() {
         return ship.getCargoHold();
     }
-  
+
+    public int getCapacity() {
+        return ship.getCapacity();
+    }
+
+    public int getSize() {
+        return ship.getSize();
+    }
+
     /**
      * Setter for player name.
      *
