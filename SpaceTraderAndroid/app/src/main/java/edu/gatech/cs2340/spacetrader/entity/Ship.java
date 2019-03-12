@@ -47,6 +47,14 @@ public class Ship {
         return cargoHold;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
     /**
      * removes good from the cargo hold
      *
