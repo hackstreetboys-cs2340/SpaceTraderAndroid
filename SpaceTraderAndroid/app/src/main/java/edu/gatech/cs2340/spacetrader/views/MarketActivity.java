@@ -64,10 +64,12 @@ public class MarketActivity extends AppCompatActivity {
         TextView buyLabel = findViewById(R.id.buy_textview);
         TextView sellLabel = findViewById(R.id.sell_textview);
         TextView walletLabel = findViewById(R.id.wallet_textview);
+        TextView capacityLabel = findViewById(R.id.capacity_textview);
 
         buyLabel.setText("Buy");
         sellLabel.setText("Sell");
         walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
+        capacityLabel.setText("Capacity: " + currentPlayer.getSize() + " / " + currentPlayer.getCapacity());
     }
 
     @Override
@@ -83,6 +85,8 @@ public class MarketActivity extends AppCompatActivity {
                 sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
                 TextView walletLabel = findViewById(R.id.wallet_textview);
                 walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
+                TextView capacityLabel = findViewById(R.id.capacity_textview);
+                capacityLabel.setText("Capacity: " + currentPlayer.getSize() + " / " + currentPlayer.getCapacity());
             }
         });
 
@@ -93,6 +97,8 @@ public class MarketActivity extends AppCompatActivity {
                 sellAdapter.setGoods(sellViewModel.getSellTradeGoods());
                 TextView walletLabel = findViewById(R.id.wallet_textview);
                 walletLabel.setText("Wallet: $" + String.format("%.2f", currentPlayer.getWallet()));
+                TextView capacityLabel = findViewById(R.id.capacity_textview);
+                capacityLabel.setText("Capacity: " + currentPlayer.getSize() + " / " + currentPlayer.getCapacity());
             }
         });
     }
