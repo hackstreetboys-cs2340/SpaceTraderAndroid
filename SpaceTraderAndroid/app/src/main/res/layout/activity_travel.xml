@@ -50,7 +50,7 @@
             android:background="?android:attr/listDivider" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/buy_market_list"
+            android:id="@+id/solar_systems_list"
             android:layout_width="match_parent"
             android:layout_height="280dp"
             tools:layout_editor_absoluteY="715dp"
@@ -89,7 +89,7 @@
             android:background="?android:attr/listDivider" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/sell_market_list"
+            android:id="@+id/planets_list"
             android:layout_width="match_parent"
             android:layout_height="280dp"
             android:layout_marginStart="8dp"
