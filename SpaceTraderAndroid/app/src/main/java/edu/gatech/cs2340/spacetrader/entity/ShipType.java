@@ -4,19 +4,21 @@ package edu.gatech.cs2340.spacetrader.entity;
  * ShipType enum for Ship class.
  */
 public enum ShipType {
-    Gnat ("Gnat", 15);
+    Gnat ("Gnat", 15, 20);
 
     private final String name;
     private final int capacity;
+    private final int fuelCapacity;
 
     /**
      * Full constructor for ShipType.
      *
      * @param name name of ShipType
      */
-    ShipType(String name, int capacity) {
+    ShipType(String name, int capacity, int fuelCapacity) {
         this.name = name;
         this.capacity = capacity;
+        this.fuelCapacity = fuelCapacity;
     }
 
     /**
@@ -36,6 +38,13 @@ public enum ShipType {
     public int getCapacity() {
         return capacity;
     }
+
+    /**
+     * getter for the ship's fuel capacity
+     *
+     * @return fuel capacity
+     */
+    public int getFuelCapacity() { return fuelCapacity; }
 
     @Override
     public String toString() {
