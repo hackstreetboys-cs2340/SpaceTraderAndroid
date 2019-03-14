@@ -21,4 +21,5 @@ public class PlayerInteractor extends Interactor {
     public void setMyPlayer(Player player) {
         getRepository().setMyPlayer(player);
     }
+    public Player getMyPlayer() { return getRepository().getMyPlayer(); }
 }

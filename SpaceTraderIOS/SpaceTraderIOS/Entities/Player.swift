@@ -17,6 +17,7 @@ class Player: CustomStringConvertible {
     var ship: Ship
     var difficulty: Difficulty
     var seed: UInt64
+    var wallet: Int
     
     var description: String {return "Name: \(name)\nPilot Skill: \(pilotSkill)\nEngine Skill: \(engineSkill)\nTrade Skill: \(tradeSkill)\nFight Skill: \(fightSkill)\nShip Type: \(ship)\nDifficulty: \(difficulty)"}
     
@@ -24,12 +25,12 @@ class Player: CustomStringConvertible {
         self.init(name: "", pilotSkill: 0, engineSkill: 0, tradeSkill: 0, fightSkill: 0, difficulty: .Easy, seed: 0)
     }
     
-    // Uses default ship type
+    // Uses default ship type and empty wallet
     convenience init(name: String, pilotSkill: Int, engineSkill: Int, tradeSkill: Int, fightSkill: Int, difficulty: Difficulty, seed: UInt64) {
-        self.init(name: name, pilotSkill: pilotSkill, engineSkill: engineSkill, tradeSkill: tradeSkill, fightSkill: fightSkill, ship: Ship(type: .Gnat), difficulty: difficulty, seed: seed)
+        self.init(name: name, pilotSkill: pilotSkill, engineSkill: engineSkill, tradeSkill: tradeSkill, fightSkill: fightSkill, ship: Ship(type: .Gnat), difficulty: difficulty, seed: seed, wallet: 0)
     }
     
-    init(name: String, pilotSkill: Int, engineSkill: Int, tradeSkill: Int, fightSkill: Int, ship: Ship, difficulty: Difficulty, seed: UInt64) {
+    init(name: String, pilotSkill: Int, engineSkill: Int, tradeSkill: Int, fightSkill: Int, ship: Ship, difficulty: Difficulty, seed: UInt64, wallet: Int) {
         self.name = name
         self.pilotSkill = pilotSkill
         self.engineSkill = engineSkill
@@ -38,6 +39,6 @@ class Player: CustomStringConvertible {
         self.ship = ship
         self.difficulty = difficulty
         self.seed = seed
-        
+        self.wallet = wallet
     }
 }

@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.List;
+
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
 /**
@@ -154,7 +156,19 @@ public class Player {
     public Planet getLocation() {
         return location;
     }
-  
+
+    public List<TradeGood> getCargoHold() {
+        return ship.getCargoHold();
+    }
+
+    public int getCapacity() {
+        return ship.getCapacity();
+    }
+
+    public int getSize() {
+        return ship.getSize();
+    }
+
     /**
      * Setter for player name.
      *
@@ -233,8 +247,9 @@ public class Player {
      * @param good good being bought
      */
     public void buy(TradeGood good) {
-        double cost = ship.add(good);
-        if (cost != 0 && wallet - cost >= 0) {
+        double cost = good.getFinalPrice();
+        if (cost != 0 && wallet - cost >= 0 && ship.testCapacity()) {
+            ship.add(good);
             wallet -= cost;
         }
     }
@@ -259,8 +274,8 @@ public class Player {
     @Override
     public String toString() {
         return String.format("Name: %s, Pilot Skill: %d, Engineering Skill: %d, Trade Skill: %d," +
-                " Fighting Skill: %d,\nShip: %sDifficulty: %s, Wallet: %.2f", name, pilotSkill, engSkill, tradeSkill,
-                fightSkill, ship.toString(), difficulty.toString(), wallet);
+                " Fighting Skill: %d,\nShip: %sDifficulty: %s,\nWallet: %.2f\nLocation: %s", name, pilotSkill, engSkill, tradeSkill,
+                fightSkill, ship.toString(), difficulty.toString(), wallet, location);
     }
 
 }

@@ -9,6 +9,7 @@ import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 public abstract class TradeGood {
     private String name;
     private int MTLP, MTLU, TTP, IPL, variance;
+    private int quantity;
     double basePrice, finalPrice;
 
     /**
@@ -45,6 +46,7 @@ public abstract class TradeGood {
         this.IPL = IPL;
         this.variance = variance;
         this.finalPrice = basePrice;
+        quantity = 1;
     }
 
     /**
@@ -61,6 +63,14 @@ public abstract class TradeGood {
      */
     public double getFinalPrice() {
         return finalPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int q) {
+        this.quantity = q;
     }
 
     /**
