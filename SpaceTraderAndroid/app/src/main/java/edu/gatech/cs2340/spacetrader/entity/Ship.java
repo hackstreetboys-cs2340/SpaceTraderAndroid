@@ -11,6 +11,7 @@ import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 public class Ship {
     private static ShipType ship;
     private List<TradeGood> cargoHold;
+    private int size;
     private int capacity;
 
     /**
@@ -46,6 +47,14 @@ public class Ship {
         return cargoHold;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
     /**
      * removes good from the cargo hold
      *
@@ -54,8 +63,18 @@ public class Ship {
      */
     public double remove(TradeGood good) {
         double price = cargoHold.get(cargoHold.indexOf(good)).getFinalPrice();
-        cargoHold.remove(good);
-        return price;
+        if (!cargoHold.contains(good)) {
+            return 0;
+        } else if (cargoHold.get(cargoHold.indexOf(good)).getQuantity() > 1) {
+            cargoHold.get(cargoHold.indexOf(good)).setQuantity(
+                    cargoHold.get(cargoHold.indexOf(good)).getQuantity() - 1);
+            size--;
+            return price;
+        } else {
+            cargoHold.remove(good);
+            size--;
+            return price;
+        }
     }
 
     /**
@@ -64,13 +83,22 @@ public class Ship {
      * @param good good to be added
      * @return cost of the good added
      */
-    public double add(TradeGood good) {
-        if (cargoHold.size() < capacity) {
+    public void add(TradeGood good) {
+        if (good.getFinalPrice() <= 0) {
+            return;
+        }else if (cargoHold.contains(good) && testCapacity()) {
+            cargoHold.get(cargoHold.indexOf(good)).setQuantity(good.getQuantity() + 1);
+            size++;
+        } else if (testCapacity()) {
             cargoHold.add(good);
-            return good.getFinalPrice();
+            size++;
         } else {
-            return 0;
+            return;
         }
+    }
+
+    public boolean testCapacity() {
+        return size < capacity;
     }
 
     @Override

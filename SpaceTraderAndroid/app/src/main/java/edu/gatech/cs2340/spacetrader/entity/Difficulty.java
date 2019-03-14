@@ -4,9 +4,9 @@ package edu.gatech.cs2340.spacetrader.entity;
  */
 
 public enum Difficulty {
-    E ("Easy", 20000),
-    N ("Normal", 15000),
-    H ("Hard", 10000),
+    E ("Easy", 15000),
+    N ("Normal", 10000),
+    H ("Hard", 7500),
     I ("Impossible", 5000);
 
     private final String diff;

@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
@@ -100,6 +102,14 @@ public class Planet {
         market.setResources(resources);
         market.setTechLevel(techLevel);
         market.generateMarket();
+    }
+
+    public List<TradeGood> getGoods() {
+        List<TradeGood> toReturn = new ArrayList<>();
+        for (TradeGood t: market.getTradeGoods()) {
+            toReturn.add(t);
+        }
+        return toReturn;
     }
 
     @Override
