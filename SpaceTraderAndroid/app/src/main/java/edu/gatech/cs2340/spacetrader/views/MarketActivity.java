@@ -37,7 +37,6 @@ public class MarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
 
-        //seems redundant to do this since it is done in the Planet Activity but IDK how else to do it
         Model model = Model.getInstance();
         PlayerInteractor playerInteractor = model.getPlayerInteractor();
         currentPlayer = playerInteractor.getMyPlayer();
