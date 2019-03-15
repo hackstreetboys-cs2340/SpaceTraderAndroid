@@ -7,12 +7,19 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import edu.gatech.cs2340.spacetrader.R;
+import edu.gatech.cs2340.spacetrader.entity.Planet;
+import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.viewmodels.BuyGoodListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.SellGoodListingViewModel;
 
 public class TravelActivity extends AppCompatActivity {
+
+    private SolarSystemItemAdapter solarSystemAdapter;
+    private PlanetItemAdapter planetAdapter;
+    private Planet currentPlanet;
+    private Player currentPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +31,15 @@ public class TravelActivity extends AppCompatActivity {
         currentPlayer = playerInteractor.getMyPlayer();
         currentPlanet = currentPlayer.getLocation();
 
-        RecyclerView buyRecyclerView = findViewById(R.id.buy_market_list);
-        RecyclerView sellRecyclerView = findViewById(R.id.sell_market_list);
+        RecyclerView solarSystemRecyclerView = findViewById(R.id.solar_systems_list);
+        RecyclerView planetsRecyclerView = findViewById(R.id.planets_list);
 
-        buyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        sellRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        solarSystemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        planetsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        buyAdapter = new BuyMarketItemAdapter();
-        buyRecyclerView.setAdapter(buyAdapter);
-        sellAdapter = new SellMarketItemAdapter();
-        sellRecyclerView.setAdapter(sellAdapter);
-
-        buyViewModel = ViewModelProviders.of(this).get(BuyGoodListingViewModel.class);
-        buyViewModel.setCurrentPlanet(currentPlanet);
-        sellViewModel = ViewModelProviders.of(this).get(SellGoodListingViewModel.class);
-        sellViewModel.setCurrentPlayer(currentPlayer);
+        solarSystemAdapter = new SolarSystemItemAdapter();
+        solarSystemRecyclerView.setAdapter(solarSystemAdapter);
+        planetAdapter = new PlanetItemAdapter();
+        planetsRecyclerView.setAdapter(planetAdapter);
     }
 }
