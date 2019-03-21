@@ -99,7 +99,7 @@ public class SolarSystem {
     public void generateSystem(int numOfPlanets, List<String> planetNames) {
         Random rnd = new Random();
         while (numOfPlanets > 0) {
-            Planet newPlanet = new Planet(planetNames.remove(rnd.nextInt(planetNames.size())));
+            Planet newPlanet = new Planet(planetNames.remove(rnd.nextInt(planetNames.size())), this.coordinates);
             newPlanet.generate();
             planets.add(newPlanet);
             numOfPlanets--;
