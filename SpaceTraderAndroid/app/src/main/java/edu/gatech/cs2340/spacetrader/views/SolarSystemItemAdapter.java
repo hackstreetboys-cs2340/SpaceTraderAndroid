@@ -36,11 +36,10 @@ public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItem
 
         Log.d("APP", "Binding: " + i + " " + systems.get(i));
 
-        int fuelCostNum = currPlanet.distanceTo(system.getCoordinates());
+        //int fuelCostNum = currPlanet.distanceTo(system.getCoordinates());
 
         solarSystemItemViewHolder.systemName.setText(system.getName());
         solarSystemItemViewHolder.location.setText("(" + system.getCoordinates().first + ", " + system.getCoordinates().second + ")");
-        solarSystemItemViewHolder.fuelCost.setText(fuelCostNum);
     }
 
     @Override
@@ -48,7 +47,7 @@ public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItem
         return systems.size();
     }
 
-    public void setSystems(List<SolarSystem> goods) {
+    public void setSystems(List<SolarSystem> systems) {
         this.systems = systems;
         notifyDataSetChanged();
     }

@@ -30,4 +30,8 @@ public class UniverseViewModel extends AndroidViewModel {
     public void addUniverse(Universe universe) {
         interactor.setMyUniverse(universe);
     }
+
+    public Universe getMyUniverse() {
+        return interactor.getMyUniverse();
+    }
 }

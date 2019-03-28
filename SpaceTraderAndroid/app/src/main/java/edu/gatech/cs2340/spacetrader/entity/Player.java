@@ -248,7 +248,7 @@ public class Player {
      */
     public void buy(TradeGood good) {
         double cost = good.getFinalPrice();
-        if (cost != 0 && wallet - cost >= 0 && ship.testCapacity()) {
+        if (cost > 0 && wallet - cost >= 0 && ship.testCapacity()) {
             ship.add(good);
             wallet -= cost;
         }
