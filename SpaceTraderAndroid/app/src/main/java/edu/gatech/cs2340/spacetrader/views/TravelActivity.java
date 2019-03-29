@@ -77,7 +77,11 @@ public class TravelActivity extends AppCompatActivity {
             public void onSolarSystemClicked(SolarSystem system) {
                 planetViewModel.setCurrentSystem(system);
                 planetAdapter.setPlanets(planetViewModel.getPlanets());
+
                 TextView distance = findViewById(R.id.travel_info_textview);
+                TextView planetsForSystem = findViewById(R.id.planets_textview);
+
+                planetsForSystem.setText("Planets for " + system.getName());
                 distance.setText("Distance from " + currentPlanet.getName() + ": " + currentPlanet.distanceTo(system.getCoordinates()));
             }
         });
