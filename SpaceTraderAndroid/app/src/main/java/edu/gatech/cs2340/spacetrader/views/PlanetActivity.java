@@ -35,4 +35,10 @@ public class PlanetActivity extends AppCompatActivity {
         Intent intent = new Intent(PlanetActivity.this, MarketActivity.class);
         startActivity(intent);
     }
+
+    public void onMapPressed(View view) {
+        Log.d("_test1", "map button pressed");
+        Intent intent = new Intent(PlanetActivity.this, TravelActivity.class);
+        startActivity(intent);
+    }
 }

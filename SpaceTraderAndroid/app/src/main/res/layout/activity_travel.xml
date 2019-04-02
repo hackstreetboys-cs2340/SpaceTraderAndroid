@@ -64,23 +64,16 @@
             android:layout_height="5dp"
             android:background="?android:attr/listDivider" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/planets_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/planets_textview"
-                android:layout_width="215dp"
-                android:layout_height="wrap_content"
-                android:text="Planets"
-                android:textAlignment="viewStart"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteY="715dp" />
-
-        </LinearLayout>
+            android:text="Planets"
+            android:textAlignment="viewStart"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteY="715dp" />
 
         <View
             android:id="@+id/divider2"
