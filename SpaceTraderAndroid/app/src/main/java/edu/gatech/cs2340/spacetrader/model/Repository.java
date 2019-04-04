@@ -6,6 +6,7 @@ import java.util.List;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.entity.Ship;
+import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
@@ -78,6 +79,22 @@ public class Repository {
         List<TradeGood> toReturn = new ArrayList<>();
         for (TradeGood t : player.getCargoHold()) {
             toReturn.add(t);
+        }
+        return toReturn;
+    }
+
+    public List<SolarSystem> getSolarSystemsForUniverse(Universe universe) {
+        List<SolarSystem> toReturn = new ArrayList<>();
+        for (SolarSystem s : universe.getSolarSystems()) {
+            toReturn.add(s);
+        }
+        return toReturn;
+    }
+
+    public List<Planet> getPlanetsForSystem(SolarSystem system) {
+        List<Planet> toReturn = new ArrayList<>();
+        for (Planet p : system.getPlanets()) {
+            toReturn.add(p);
         }
         return toReturn;
     }

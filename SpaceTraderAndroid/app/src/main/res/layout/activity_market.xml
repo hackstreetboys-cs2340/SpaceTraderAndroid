@@ -117,6 +117,13 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
+        <Button
+            android:id="@+id/return_to_planet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onReturnPressed"
+            android:text="Return" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
