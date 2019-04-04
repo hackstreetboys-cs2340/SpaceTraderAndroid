@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.List;
+import java.util.Random;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
@@ -169,6 +170,10 @@ public class Player {
         return ship.getSize();
     }
 
+    public String getShipName() {
+        return ship.getName();
+    }
+
     /**
      * Setter for player name.
      *
@@ -248,7 +253,7 @@ public class Player {
      */
     public void buy(TradeGood good) {
         double cost = good.getFinalPrice();
-        if (cost != 0 && wallet - cost >= 0 && ship.testCapacity()) {
+        if (cost > 0 && wallet - cost >= 0 && ship.testCapacity()) {
             ship.add(good);
             wallet -= cost;
         }
@@ -262,7 +267,27 @@ public class Player {
     public void sell(TradeGood good) {
         wallet += ship.remove(good);
     }
-    
+
+    public boolean travel(Planet location) {
+        if (ship.getFuel() >= this.location.distanceTo(location.getCoordinates())) {
+            Random rnd = new Random();
+            int chance = rnd.nextInt(200);
+
+            if (chance >= 0 && chance < 20) {
+                ship.setHealth((int) (ship.getHealth() * .75));
+            }
+            else if (chance >= 20 && chance < 25) {
+                ship.setHealth((int) (ship.getHealth() * .33));
+            }
+
+            ship.setFuel(ship.getFuel() - this.location.distanceTo(location.getCoordinates()));
+            setLocation(location);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Setter for seed
      * @param seed the seed

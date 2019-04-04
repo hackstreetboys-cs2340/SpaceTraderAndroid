@@ -125,7 +125,8 @@ public class Planet {
     }
 
     public int distanceTo(Pair<Integer, Integer> dest) {
-        int distance = (int)Math.sqrt(dest.first * dest.first + dest.second * dest.second);
+        int distance = (int)Math.sqrt((coordinates.first - dest.first) * (coordinates.first - dest.first)
+                + (coordinates.second - dest.second) * (coordinates.second - dest.second));
         return distance;
     }
 
