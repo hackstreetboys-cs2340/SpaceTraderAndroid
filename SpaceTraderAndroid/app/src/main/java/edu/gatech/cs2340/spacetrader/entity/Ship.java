@@ -13,6 +13,9 @@ public class Ship {
     private List<TradeGood> cargoHold;
     private int size;
     private int capacity;
+    private int fuel;
+    private int fuelCapacity;
+    private int health;
 
     /**
      * No args constructor for Ship. Sets ShipType to Gnat.
@@ -28,6 +31,9 @@ public class Ship {
         this.ship = ship;
         this.capacity = ship.getCapacity();
         this.cargoHold = new ArrayList<>(capacity);
+        this.fuelCapacity = ship.getFuelCapacity();
+        this.fuel = this.fuelCapacity;
+        this.health = ship.getHealth();
     }
 
     /**
@@ -47,14 +53,57 @@ public class Ship {
         return cargoHold;
     }
 
+    /**
+     * get the capacity of the ship
+     * @return the ship's capacity
+     */
     public int getCapacity() {
         return capacity;
     }
 
+    /**
+     * get the size of the ship
+     * @return the ship's size
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * get the max fuel capacity of the ship
+     * @return the ship's max fuel capacity
+     */
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+    /**
+     * get the fuel available for the ship to use
+     * @return the ship's current fuel level
+     */
+    public int getFuel() {
+        return fuel;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public String getName() {
+        return ship.getName();
+    }
+
+    /**
+     * set the fuel available for the ship to use
+     * @param fuel the fuel that is now available for the ship to use
+     */
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
     /**
      * removes good from the cargo hold
      *
@@ -100,6 +149,7 @@ public class Ship {
     public boolean testCapacity() {
         return size < capacity;
     }
+
 
     @Override
     public String toString(){
