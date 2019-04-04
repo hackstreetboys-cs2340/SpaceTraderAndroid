@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
@@ -89,9 +90,15 @@ public class TravelActivity extends AppCompatActivity {
         planetAdapter.setOnPlanetClickListener(new PlanetItemAdapter.OnPlanetClickListener() {
             @Override
             public void onPlanetClicked(Planet planet) {
-                currentPlayer.setLocation(planet);
-                Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
-                startActivityForResult(intent, 1);
+                if (currentPlayer.travel(planet)) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Travelling to " + planet.getName(), Toast.LENGTH_LONG);
+                    toast.show();
+                    Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
+                    startActivityForResult(intent, 1);
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Planet is too far away. Pick another system", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         });
     }
