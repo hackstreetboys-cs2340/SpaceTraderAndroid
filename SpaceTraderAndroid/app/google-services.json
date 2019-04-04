@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "82507931562",
+    "firebase_url": "https://spacetrader-461c1.firebaseio.com",
+    "project_id": "spacetrader-461c1",
+    "storage_bucket": "spacetrader-461c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82507931562:android:c25133699c9258e0",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.spacetrader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxU751Ot15ZxCG2yjjC0YMh75TrT8CNxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82507931562-7ucs5gec8lvdj9pfu3698ot50bvbik25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
