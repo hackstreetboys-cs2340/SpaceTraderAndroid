@@ -20,4 +20,8 @@ public class UniverseInteractor extends Interactor{
     public void setMyUniverse(Universe universe) {
         getRepository().setMyUniverse(universe);
     }
+
+    public Universe getMyUniverse() {
+        return getRepository().getMyUniverse();
+    }
 }
