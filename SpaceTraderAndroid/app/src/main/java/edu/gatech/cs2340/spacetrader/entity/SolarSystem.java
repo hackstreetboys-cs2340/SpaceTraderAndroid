@@ -16,7 +16,11 @@ public class SolarSystem {
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", new Pair<>(0, 0), new ArrayList<Planet>());
+        this("");
+    }
+
+    public SolarSystem(String name) {
+        this(name, new Pair<>(0, 0), new ArrayList<Planet>());
     }
 
     public SolarSystem(String name, Pair coordinates) {

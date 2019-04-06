@@ -26,8 +26,12 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources, new Pair<Integer, Integer>(0,0));
+        this("");
 
+    }
+
+    public Planet(String name) {
+        this(name, new Pair<Integer, Integer>(0,0));
     }
 
     public Planet(String name, Pair<Integer, Integer> coordinates) {
