@@ -210,7 +210,7 @@ class PlayerConfigVC: UIViewController {
             print(player)
             // create a new seed for the random generator
             let seed = UInt64.random(in: UInt64.min ... UInt64.max)
-            player = Player(name: nameField.text!, pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)], seed: seed)
+            player = Player(name: nameField.text ?? "", pilotSkill: Int(pilotSkillLbl.text!)!, engineSkill: Int(engineSkillLbl.text!)!, tradeSkill: Int(tradeSkillLbl.text!)!, fightSkill: Int(fightSkillLbl.text!)!, difficulty: difficulties[difficultyPicker.selectedRow(inComponent: 0)], seed: seed)
             generator = SeededGenerator(seed: seed)
             UniverseGenerator.generate(using: &generator, success: { (_universe) in
                 self.universe = _universe
