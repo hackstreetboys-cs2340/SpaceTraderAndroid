@@ -69,7 +69,7 @@
         <scene sceneID="8aL-uT-NCS">
             <objects>
                 <viewController id="1ua-B9-9xm" customClass="MapVC" customModule="SpaceTraderIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Dk6-Lq-14P">
+                    <view key="view" contentMode="scaleToFill" id="Dk6-Lq-14P" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

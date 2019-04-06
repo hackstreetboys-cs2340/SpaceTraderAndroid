@@ -36,13 +36,13 @@ class PlanetVC: UIViewController {
         marketButton.layer.cornerRadius = 5
         marketButton.addTarget(self, action: #selector(marketTapped(_:)), for: .touchUpInside)
         
-        pos = CGPoint(x: offset, y: marketButton.frame.minY - offset)
+        pos = CGPoint(x: offset, y: marketButton.frame.minY - offset - size.height)
         mapButton.frame = CGRect(origin: pos, size: size)
         mapButton.setTitle("Map", for: .normal)
         mapButton.backgroundColor = Colors.primaryColor
-        marketButton.setTitleColor(Colors.textColor, for: .normal)
-        marketButton.layer.cornerRadius = 5
-        marketButton.addTarget(self, action: #selector(mapTapped(_:)), for: .touchUpInside)
+        mapButton.setTitleColor(Colors.textColor, for: .normal)
+        mapButton.layer.cornerRadius = 5
+        mapButton.addTarget(self, action: #selector(mapTapped(_:)), for: .touchUpInside)
         
         width = view.frame.width
         height = 70
@@ -75,13 +75,18 @@ class PlanetVC: UIViewController {
             dest.market = market
             print("GOODS:\n\(market.goodsToSell)")
         }
+        
+        if let dest = segue.destination as? MapVC {
+            guard let systems = universe?.solarSystems else { return }
+            dest.solarSystems = systems
+        }
     }
     @objc private func marketTapped(_ sender: Any) {
         performSegue(withIdentifier: "PlanetToMarket", sender: sender)
     }
     
     @objc private func mapTapped(_ sender: Any) {
-        performSegue(withIdentifier: "PlanetToMarket", sender: sender)
+        performSegue(withIdentifier: "PlanetToMap", sender: sender)
     }
     
     private func setupTestData() {
