@@ -81,7 +81,7 @@ class PlanetVC: UIViewController {
     }
     
     @objc private func mapTapped(_ sender: Any) {
-        
+        performSegue(withIdentifier: "PlanetToMarket", sender: sender)
     }
     
     private func setupTestData() {
