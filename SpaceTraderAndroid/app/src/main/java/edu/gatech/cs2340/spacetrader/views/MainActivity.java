@@ -12,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import edu.gatech.cs2340.spacetrader.R;
 
@@ -23,6 +26,7 @@ import java.util.List;
  * Start up activity for game.
  */
 public class MainActivity extends AppCompatActivity {
+    public static final int CONFIGURE_GAME = 1;
     public static final int RC_SIGN_IN = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,21 @@ public class MainActivity extends AppCompatActivity {
                         RC_SIGN_IN);
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RC_SIGN_IN) {
+            IdpResponse response = IdpResponse.fromResultIntent(data);
+            if (resultCode == RESULT_OK) {
+                Intent intent = new Intent(MainActivity.this, ConfigureGameActivity.class);
+                startActivityForResult(intent, CONFIGURE_GAME);
+            } else {
+                if (response != null) {
+                    Log.d("Login Error", "Error " + response.getError().getErrorCode());
+                }
+            }
+        }
     }
 
     @Override
