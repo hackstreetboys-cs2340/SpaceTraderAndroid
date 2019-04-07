@@ -2,6 +2,7 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
