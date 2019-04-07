@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.spacetrader;
 
-import android.util.Log;
 import android.util.Pair;
 
 import org.junit.Test;
@@ -15,8 +14,6 @@ import edu.gatech.cs2340.spacetrader.entity.Resources;
 import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
-
-import static org.junit.Assert.*;
 
 public class GenerateTesting {
 

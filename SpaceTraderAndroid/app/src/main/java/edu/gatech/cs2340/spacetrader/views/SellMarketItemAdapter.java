@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +13,9 @@ import java.util.List;
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
+/**
+ * Sell Market Item Adapter Class
+ */
 public class SellMarketItemAdapter extends RecyclerView.Adapter<SellMarketItemAdapter.SellMarketItemViewHolder> {
 
     private List<TradeGood> goods = new ArrayList<>();
@@ -33,7 +35,7 @@ public class SellMarketItemAdapter extends RecyclerView.Adapter<SellMarketItemAd
         TradeGood good = goods.get(i);
 
         sellMarketItemViewHolder.itemName.setText(good.getName());
-        sellMarketItemViewHolder.itemPrice.setText(good.getQuantity() + " x " + String.format("%.2f", good.getFinalPrice()));
+        sellMarketItemViewHolder.itemCount.setText("x" + good.getQuantity());
     }
 
     @Override
@@ -41,6 +43,10 @@ public class SellMarketItemAdapter extends RecyclerView.Adapter<SellMarketItemAd
         return goods.size();
     }
 
+    /**
+     * set the goods of the class
+     * @param goods list of goods
+     */
     public void setGoods(List<TradeGood> goods) {
         this.goods = goods;
         notifyDataSetChanged();
@@ -48,12 +54,12 @@ public class SellMarketItemAdapter extends RecyclerView.Adapter<SellMarketItemAd
 
     class SellMarketItemViewHolder extends RecyclerView.ViewHolder {
         private TextView itemName;
-        private TextView itemPrice;
+        private TextView itemCount;
 
         public SellMarketItemViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.text_good_name);
-            itemPrice = itemView.findViewById(R.id.text_price);
+            itemCount = itemView.findViewById(R.id.text_price);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,9 +73,17 @@ public class SellMarketItemAdapter extends RecyclerView.Adapter<SellMarketItemAd
         }
     }
     public interface OnSellGoodClickListener {
+        /**
+         * listener for a sell trade good to be clicked
+         * @param good good to be sold
+         */
         void onSellGoodClicked(TradeGood good);
     }
 
+    /**
+     * set the on sell good click listener
+     * @param listener sell good click listener
+     */
     public void setOnSellGoodClickListener(OnSellGoodClickListener listener) {
         this.listener = listener;
     }

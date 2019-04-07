@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -158,18 +159,34 @@ public class Player {
         return location;
     }
 
+    /**
+     * get the cargo hold of the player's ship
+     * @return list of trade goods
+     */
     public List<TradeGood> getCargoHold() {
         return ship.getCargoHold();
     }
 
+    /**
+     * get the capacity of the player's ship's cargo hold
+     * @return capacity of cargo hold
+     */
     public int getCapacity() {
         return ship.getCapacity();
     }
 
+    /**
+     * get the number of goods in the player's ship's cargo hold
+     * @return number of goods in cargo hold
+     */
     public int getSize() {
         return ship.getSize();
     }
 
+    /**
+     * get the name of the player's ship
+     * @return name of ship
+     */
     public String getShipName() {
         return ship.getName();
     }
@@ -252,10 +269,9 @@ public class Player {
      * @param good good being bought
      */
     public void buy(TradeGood good) {
-        double cost = good.getFinalPrice();
-        if (cost > 0 && wallet - cost >= 0 && ship.testCapacity()) {
+        if (ship.testCapacity()) {
             ship.add(good);
-            wallet -= cost;
+            wallet -= good.getFinalPrice();
         }
     }
 
@@ -265,9 +281,25 @@ public class Player {
      * @param good good being sold
      */
     public void sell(TradeGood good) {
-        wallet += ship.remove(good);
+        if (ship.getSize() != 0) {
+            List<String> planetGoods = new ArrayList<>();
+            for (TradeGood i : location.getGoods()) {
+                planetGoods.add(i.getName());
+            }
+            good = location.getGoods().get(planetGoods.indexOf(good.getName()));
+            ship.remove(good);
+            wallet += good.getFinalPrice();
+        }
     }
 
+    /**
+     * player travels to another planet
+     * calculates a possible event that could occur
+     * subtracts the distance from the ship's fuel
+     * sets the current location of the player to the new planet
+     * @param location planet to travel to
+     * @return travel was successful = true else false
+     */
     public boolean travel(Planet location) {
         if (ship.getFuel() >= this.location.distanceTo(location.getCoordinates())) {
             Random rnd = new Random();

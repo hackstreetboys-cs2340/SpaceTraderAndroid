@@ -2,7 +2,6 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import android.util.Pair;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,6 +30,7 @@ public class Universe {
 
     /**
      * populates the universe with solar systems
+     * @param seed seed for the player
      */
     public void generate(long seed) {
         //list of possible planet names

@@ -2,8 +2,15 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
+/**
+ * Furs Good Class
+ */
 public class Furs extends TradeGood {
 
+    /**
+     * constructor for fur
+     * numbers based on table given in Canvas
+     */
     public Furs () {
         super("Furs", 0, 0, 0, 250, 10, 10);
     }

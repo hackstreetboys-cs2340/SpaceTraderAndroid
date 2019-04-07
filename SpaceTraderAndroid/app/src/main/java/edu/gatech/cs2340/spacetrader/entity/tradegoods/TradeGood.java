@@ -2,10 +2,12 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import java.util.Random;
 
-import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 
+/**
+ * Abstract Class for TradeGoods
+ */
 public abstract class TradeGood {
     private String name;
     private int MTLP, MTLU, TTP, IPL, variance;
@@ -46,7 +48,7 @@ public abstract class TradeGood {
         this.IPL = IPL;
         this.variance = variance;
         this.finalPrice = basePrice;
-        quantity = 1;
+        quantity = 0;
     }
 
     /**
@@ -65,10 +67,18 @@ public abstract class TradeGood {
         return finalPrice;
     }
 
+    /**
+     * gets the number of a trade good
+     * @return amount of trade good
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * set the quantity of the trade good
+     * @param q amount of trade good
+     */
     public void setQuantity(int q) {
         this.quantity = q;
     }
@@ -113,6 +123,9 @@ public abstract class TradeGood {
      */
     abstract boolean checkConditions(Resources res);
 
+    public void setFinalPrice(double price) {
+        this.finalPrice = price;
+    }
 
     public String toString() {
         if (finalPrice == -3) {

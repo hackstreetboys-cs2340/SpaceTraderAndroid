@@ -2,6 +2,9 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.Random;
 
+/**
+ * Resources for a planet
+ */
 public enum Resources {
     NoSpecialResources(0),
     MineralRich(1),
