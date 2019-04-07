@@ -2,6 +2,7 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
@@ -130,19 +131,16 @@ public class Ship {
      * add good to the cargo hold
      *
      * @param good good to be added
-     * @return cost of the good added
      */
     public void add(TradeGood good) {
         if (good.getFinalPrice() <= 0) {
             return;
-        }else if (cargoHold.contains(good) && testCapacity()) {
+        } else if (cargoHold.contains(good) && testCapacity()) {
             cargoHold.get(cargoHold.indexOf(good)).setQuantity(good.getQuantity() + 1);
             size++;
         } else if (testCapacity()) {
             cargoHold.add(good);
             size++;
-        } else {
-            return;
         }
     }
 

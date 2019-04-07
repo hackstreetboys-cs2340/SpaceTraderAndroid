@@ -73,6 +73,8 @@ public abstract class TradeGood {
         this.quantity = q;
     }
 
+    public void setFinalPrice(int p) { this.finalPrice = p; }
+
     /**
      * calculates price given resources and tech
      * @param tech tech level of planet
@@ -123,6 +125,20 @@ public abstract class TradeGood {
             return "You can't buy " + name + " on this planet";
         } else {
             return "The price of " + name + " is $" + String.format("%.2f", finalPrice);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (getClass() != o.getClass()) {
+            return false;
+        } else if (o == null) {
+            return false;
+        } else {
+            TradeGood good = (TradeGood) o;
+            return good.getName().equals(getName());
         }
     }
 }
