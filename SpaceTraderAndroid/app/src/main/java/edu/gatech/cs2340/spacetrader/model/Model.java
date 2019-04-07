@@ -34,6 +34,7 @@ public class Model {
         interactorMap.put("SellGoods", new SellGoodInteractor(myRepository));
         interactorMap.put("SolarSystems", new SolarSystemInteractor(myRepository));
         interactorMap.put("Planets", new PlanetInteractor(myRepository));
+        interactorMap.put("Database", new DatabaseInteractor());
     }
 
     /**
@@ -70,5 +71,9 @@ public class Model {
 
     public PlanetInteractor getPlanetInteractor() {
         return (PlanetInteractor) interactorMap.get("Planets");
+    }
+
+    public DatabaseInteractor getDatabaseInteractor() {
+        return (DatabaseInteractor) interactorMap.get("Database");
     }
 }

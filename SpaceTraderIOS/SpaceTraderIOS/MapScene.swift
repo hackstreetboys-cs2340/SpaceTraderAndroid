@@ -16,6 +16,7 @@ class MapScene: SKScene {
     var solarSystems: [SolarSystem] = []
     var selectedNode: SKSpriteNode?
     var visibleLblNode: SKLabelNode?
+    var travelBtn: SKSpriteNode = SKSpriteNode()
     override func sceneDidLoad() {
         print("Scene loaded")
         scene?.anchorPoint = CGPoint.zero
@@ -25,6 +26,7 @@ class MapScene: SKScene {
     override func didMove(to view: SKView) {
         print("Did move to view")
         createSolarSystems()
+        setupButtonSprites()
     }
     private func createTestingNodes() {
         let node: SKSpriteNode = SKSpriteNode(imageNamed: "")
@@ -43,6 +45,7 @@ class MapScene: SKScene {
         let height = CGFloat(Constants.solarSystemHeight * Constants.universeMaxLat + 2 * Constants.mapOffset)
         mapNode!.size = CGSize(width: width, height: height)
         mapNode!.anchorPoint = CGPoint.zero
+        mapNode?.zPosition = 1
         addChild(mapNode!)
     }
     private func createSolarSystems() {
@@ -66,6 +69,21 @@ class MapScene: SKScene {
             solarSystemNodes.append(solarSystemNode)
             mapNode!.addChild(solarSystemNode)
         }
+    }
+    private func setupButtonSprites() {
+        let offset: CGFloat = 20
+        let buttonText = SKLabelNode(text: "Travel")
+        buttonText.fontColor = Colors.textColor
+        let width: CGFloat = 60
+        let height: CGFloat = 30
+        let size: CGSize = CGSize(width: width, height: height)
+        let pos = CGPoint(x: view!.frame.height - width - offset, y: height + offset)
+        travelBtn.color = Colors.secondaryColor
+        travelBtn.size = size
+        travelBtn.position = pos
+        travelBtn.zPosition = 2
+        travelBtn.addChild(buttonText)
+        addChild(travelBtn)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
