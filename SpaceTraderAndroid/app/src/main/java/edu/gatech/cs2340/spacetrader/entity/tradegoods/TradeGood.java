@@ -73,6 +73,8 @@ public abstract class TradeGood {
         this.quantity = q;
     }
 
+    public void setFinalPrice(int p) { this.finalPrice = p; }
+
     /**
      * calculates price given resources and tech
      * @param tech tech level of planet

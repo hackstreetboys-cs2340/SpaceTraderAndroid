@@ -49,7 +49,6 @@ public class TestAddGood {
 
         List<TradeGood> comp = new ArrayList<>();
         comp.add(furOne);
-        comp.add(furTwo);
 
         Ship ship = new Ship();
         ship.add(furOne);
@@ -60,6 +59,20 @@ public class TestAddGood {
         assertEquals(comp, ship.getCargoHold());
         assertEquals(2, ship.getSize());
         assertEquals(2, ship.getCargoHold().get(indexFur).getQuantity());
+    }
+
+    @Test
+    public void negativePrice() {
+        Furs fur = new Furs();
+        fur.setFinalPrice(0);
+
+        List<TradeGood> comp = new ArrayList<>();
+
+        Ship ship = new Ship();
+        ship.add(fur);
+
+        assertEquals(comp, ship.getCargoHold());
+        assertEquals(0, ship.getSize());
     }
 
 }
