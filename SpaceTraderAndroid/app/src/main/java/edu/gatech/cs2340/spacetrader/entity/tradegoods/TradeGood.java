@@ -2,10 +2,12 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import java.util.Random;
 
-import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 
+/**
+ * Abstract Class for TradeGoods
+ */
 public abstract class TradeGood {
     private String name;
     private int MTLP, MTLU, TTP, IPL, variance;
@@ -46,7 +48,7 @@ public abstract class TradeGood {
         this.IPL = IPL;
         this.variance = variance;
         this.finalPrice = basePrice;
-        quantity = 1;
+        quantity = 0;
     }
 
     /**
@@ -65,13 +67,23 @@ public abstract class TradeGood {
         return finalPrice;
     }
 
+    /**
+     * gets the number of a trade good
+     * @return amount of trade good
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * set the quantity of the trade good
+     * @param q amount of trade good
+     */
     public void setQuantity(int q) {
         this.quantity = q;
     }
+
+    public void setFinalPrice(int p) { this.finalPrice = p; }
 
     /**
      * calculates price given resources and tech
@@ -113,6 +125,9 @@ public abstract class TradeGood {
      */
     abstract boolean checkConditions(Resources res);
 
+    public void setFinalPrice(double price) {
+        this.finalPrice = price;
+    }
 
     public String toString() {
         if (finalPrice == -3) {
@@ -123,6 +138,20 @@ public abstract class TradeGood {
             return "You can't buy " + name + " on this planet";
         } else {
             return "The price of " + name + " is $" + String.format("%.2f", finalPrice);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (getClass() != o.getClass()) {
+            return false;
+        } else if (o == null) {
+            return false;
+        } else {
+            TradeGood good = (TradeGood) o;
+            return good.getName().equals(getName());
         }
     }
 }

@@ -13,6 +13,9 @@ import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 
+/**
+ * Planet Activity Class
+ */
 public class PlanetActivity extends AppCompatActivity {
 
     private TextView planetName;
@@ -42,6 +45,7 @@ public class PlanetActivity extends AppCompatActivity {
         planetName.setText(planet.getName());
 
         String planStats = "";
+        planStats += "Coordinates : (" + planet.getCoordinates().first + ", " + planet.getCoordinates().second + ")\n";
         planStats += "Resources : " + planet.getResources() + "\n";
         planStats += "Tech Level : " + planet.getTechLevel();
         planetStats.setText(planStats);
@@ -58,19 +62,27 @@ public class PlanetActivity extends AppCompatActivity {
         String sStats = "";
         sStats += "Health : " + player.getShip().getHealth() + "\n";
         sStats += "Fuel : " + player.getShip().getFuel() + "\n";
-        sStats += "Cargo : " + player.getShip().getCargoHold().size() + " / "
+        sStats += "Cargo : " + player.getShip().getSize() + " / "
                 + player.getShip().getCapacity() + "\n";
         shipStats.setText(sStats);
 
 
     }
 
+    /**
+     * button listener, when pressed takes to market activity
+     * @param view view
+     */
     public void onMarketPressed(View view) {
         Log.d("_test1", "market button pressed");
         Intent intent = new Intent(PlanetActivity.this, MarketActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * button listener, when pressed takes to travel activity
+     * @param view view
+     */
     public void onMapPressed(View view) {
         Log.d("_test1", "map button pressed");
         Intent intent = new Intent(PlanetActivity.this, TravelActivity.class);

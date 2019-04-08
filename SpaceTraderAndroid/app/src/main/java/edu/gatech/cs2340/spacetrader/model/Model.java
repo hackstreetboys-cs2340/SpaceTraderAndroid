@@ -3,8 +3,9 @@ package edu.gatech.cs2340.spacetrader.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.gatech.cs2340.spacetrader.entity.Player;
-
+/**
+ * Model Class
+ */
 public class Model {
 
     private Repository myRepository;
@@ -34,6 +35,7 @@ public class Model {
         interactorMap.put("SellGoods", new SellGoodInteractor(myRepository));
         interactorMap.put("SolarSystems", new SolarSystemInteractor(myRepository));
         interactorMap.put("Planets", new PlanetInteractor(myRepository));
+        interactorMap.put("Database", new DatabaseInteractor());
     }
 
     /**
@@ -54,21 +56,45 @@ public class Model {
         return (ShipInteractor) interactorMap.get("Ship");
     }
 
+    /**
+     * Getter method for universe interactor
+     * @return universe interactor
+     */
     public UniverseInteractor getUniverseInteractor() { return (UniverseInteractor) interactorMap.get("Universe"); }
 
+    /**
+     * Getter method for buy good interactor
+     * @return buy good interactor
+     */
     public BuyGoodInteractor getBuyGoodInteractor() {
         return (BuyGoodInteractor) interactorMap.get("BuyGoods");
     }
 
+    /**
+     * Getter method for sell good interactor
+     * @return sell good interactor
+     */
     public SellGoodInteractor getSellGoodInteractor() {
         return (SellGoodInteractor) interactorMap.get("SellGoods");
     }
 
+    /**
+     * Getter method for solar system interactor
+     * @return solar system interactor
+     */
     public SolarSystemInteractor getSolarSystemInteractor() {
         return (SolarSystemInteractor) interactorMap.get("SolarSystems");
     }
 
+    /**
+     * Getter method for planet interactor
+     * @return planet interactor
+     */
     public PlanetInteractor getPlanetInteractor() {
         return (PlanetInteractor) interactorMap.get("Planets");
+    }
+
+    public DatabaseInteractor getDatabaseInteractor() {
+        return (DatabaseInteractor) interactorMap.get("Database");
     }
 }

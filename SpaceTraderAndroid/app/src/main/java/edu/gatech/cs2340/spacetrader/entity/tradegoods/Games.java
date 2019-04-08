@@ -2,8 +2,15 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
+/**
+ * Games Good Class
+ */
 public class Games extends TradeGood {
 
+    /**
+     * constructor for games
+     * numbers based on table given in Canvas
+     */
     public Games() {
         super("Games", 3, 1, 6, 250, -10, 5);
     }

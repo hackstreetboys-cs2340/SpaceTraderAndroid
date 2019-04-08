@@ -16,6 +16,8 @@ import edu.gatech.cs2340.spacetrader.entity.Difficulty;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Random;
 
 import edu.gatech.cs2340.spacetrader.R;
@@ -70,7 +72,6 @@ public class ConfigureGameActivity extends AppCompatActivity {
      * @param view the button that was pressed
      */
     public void onStartPressed(View view) {
-        Log.d("Notice", "Button clicked");
 
         if (name.getText().toString().equals("")) {
             Toast toast = Toast.makeText(getApplicationContext(), "You must set a player name", Toast.LENGTH_LONG);
@@ -137,7 +138,9 @@ public class ConfigureGameActivity extends AppCompatActivity {
                         hasPlanets = true;
                     }
                 }
+                String uid = FirebaseAuth.getInstance().getUid();
                 playerViewModel.addPlayer(player);
+                playerViewModel.uploadPlayer(player, uid);
                 Intent intent = new Intent(ConfigureGameActivity.this, PlanetActivity.class);
                 startActivity(intent);
 

@@ -10,6 +10,9 @@ import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
+/**
+ * Repository
+ */
 public class Repository {
 
     private Ship myShip;
@@ -40,6 +43,10 @@ public class Repository {
      */
     public Ship getMyShip() {return myShip;}
 
+    /**
+     * getter method for universe
+     * @return universe
+     */
     public Universe getMyUniverse() {
         return myUniverse;
     }
@@ -67,6 +74,11 @@ public class Repository {
      */
     public void setMyUniverse(Universe myUniverse) { this.myUniverse = myUniverse; }
 
+    /**
+     * gets the trade goods for a given planet
+     * @param planet planet
+     * @return list of goods
+     */
     public List<TradeGood> getTradeGoodsForPlanet(Planet planet) {
         List<TradeGood> toReturn = new ArrayList<>();
         for(TradeGood t : planet.getGoods()) {
@@ -75,6 +87,11 @@ public class Repository {
         return toReturn;
     }
 
+    /**
+     * gets the trade goods for a given player
+     * @param player player
+     * @return list of goods
+     */
     public List<TradeGood> getTradeGoodsForPlayer(Player player) {
         List<TradeGood> toReturn = new ArrayList<>();
         for (TradeGood t : player.getCargoHold()) {
@@ -83,6 +100,11 @@ public class Repository {
         return toReturn;
     }
 
+    /**
+     * gets a list of solar systems for a given universe
+     * @param universe universe
+     * @return list of solar systems
+     */
     public List<SolarSystem> getSolarSystemsForUniverse(Universe universe) {
         List<SolarSystem> toReturn = new ArrayList<>();
         for (SolarSystem s : universe.getSolarSystems()) {
@@ -91,6 +113,11 @@ public class Repository {
         return toReturn;
     }
 
+    /**
+     * gets a list of planets for a given solar system
+     * @param system solar system
+     * @return list of planets
+     */
     public List<Planet> getPlanetsForSystem(SolarSystem system) {
         List<Planet> toReturn = new ArrayList<>();
         for (Planet p : system.getPlanets()) {
@@ -99,10 +126,18 @@ public class Repository {
         return toReturn;
     }
 
+    /**
+     * player purchases a given good
+     * @param tradeGood good to be bought
+     */
     public void addPlayerGood(TradeGood tradeGood) {
         myPlayer.buy(tradeGood);
     }
 
+    /**
+     * player sells a good
+     * @param tradeGood good to be sold
+     */
     public void removePlayerGood(TradeGood tradeGood) {
         myPlayer.sell(tradeGood);
     }
