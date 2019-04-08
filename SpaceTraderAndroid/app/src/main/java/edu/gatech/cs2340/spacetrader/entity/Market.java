@@ -84,27 +84,6 @@ public class Market {
         }
     }
 
-    /**
-     * removed the good from the planet
-     * @param good good to be sold
-     * @return price of the good
-     */
-    public double sell(TradeGood good) {
-        double price = tradeGoods.get(tradeGoods.indexOf(good)).getFinalPrice();
-        tradeGoods.remove(good);
-        return price;
-    }
-
-    /**
-     * add the good to the planet
-     * @param good good to be bought
-     * @return price of the good
-     */
-    public double buy(TradeGood good) {
-        tradeGoods.add(good);
-        return good.getFinalPrice();
-    }
-
     public String toString() {
         String str = "";
         for (TradeGood i : tradeGoods) {

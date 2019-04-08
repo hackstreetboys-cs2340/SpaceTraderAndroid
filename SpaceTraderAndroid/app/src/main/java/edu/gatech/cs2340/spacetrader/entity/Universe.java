@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Object that represents the game's universe,
@@ -14,7 +15,7 @@ import java.util.Random;
  */
 public class Universe {
     private List<SolarSystem> solarSystems;
-    private HashSet<Pair<Integer, Integer>> coordinates;
+    private Set<Pair<Integer, Integer>> coordinates;
 
     /**
      * No arg constructor initializes solarSystems to an empty HashSet

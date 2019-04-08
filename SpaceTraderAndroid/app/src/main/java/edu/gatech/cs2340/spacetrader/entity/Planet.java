@@ -63,14 +63,6 @@ public class Planet {
     }
 
     /**
-     * Setter method for the Planet name
-     * @param name represents the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * Getter method for the Planet name
      * @return name of the Planet
      */
@@ -79,27 +71,11 @@ public class Planet {
     }
 
     /**
-     * Setter method for tech level of planet
-     * @param techLevel represents the tech level of the planet
-     */
-    public void setTechLevel(TechLevel techLevel) {
-        this.techLevel = techLevel;
-    }
-
-    /**
      * Getter method for tech level of planet
      * @return techLevel of the planet
      */
     public TechLevel getTechLevel() {
         return techLevel;
-    }
-
-    /**
-     * Setter method for resource of a planet
-     * @param resource represents the resource that the planet is known for
-     */
-    public void setResources(Resources resource) {
-        this.resources = resource;
     }
 
     /**

@@ -80,33 +80,6 @@ public class SolarSystem {
     }
 
     /**
-     * setter method for name
-     *
-     * @param name new name of solar system
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * setter method for coordinates
-     *
-     * @param coordinates new coordinates for solar system
-     */
-    public void setCoordinates(Pair coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    /**
-     * setter method for planets in solar system
-     *
-     * @param planets new list of planets for solar system
-     */
-    public void setPlanets(List<Planet> planets) {
-        this.planets = planets;
-    }
-
-    /**
      * populates the system with planets
      * @param numOfPlanets number of planets to be added
      * @param planetNames list of possible planet names

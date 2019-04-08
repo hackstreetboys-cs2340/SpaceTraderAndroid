@@ -1,7 +1,5 @@
 package edu.gatech.cs2340.spacetrader.model;
 
-import edu.gatech.cs2340.spacetrader.entity.Ship;
-
 /**
  * Ship Interactor Class
  */
@@ -16,12 +14,4 @@ public class ShipInteractor extends Interactor {
         super(repo);
     }
 
-    /**
-     * setter for ship to interact (accesses Repository's setter)
-     *
-     * @param ship ship
-     */
-    public void setMyShip(Ship ship) {
-        getRepository().setMyShip(ship);
-    }
 }

@@ -126,29 +126,12 @@ public class Player {
     }
 
     /**
-     * Getter for Difficulty.
-     *
-     * @return difficulty
-     */
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    /**
      * Getter for wallet
      *
       * @return wallet
      */
     public double getWallet() {
         return wallet;
-    }
-    
-    /**
-     * Getter for seed that generates universe.
-     * @return the seed
-     */
-    public long getSeed() {
-        return seed;
     }
 
     /**
