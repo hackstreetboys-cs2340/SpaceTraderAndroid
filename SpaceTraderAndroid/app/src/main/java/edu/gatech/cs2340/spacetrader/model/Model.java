@@ -48,15 +48,6 @@ public class Model {
     }
 
     /**
-     * getter method for ship's interactor
-     *
-     * @return ship interactor
-     */
-    public ShipInteractor getShipInteractor() {
-        return (ShipInteractor) interactorMap.get("Ship");
-    }
-
-    /**
      * Getter method for universe interactor
      * @return universe interactor
      */

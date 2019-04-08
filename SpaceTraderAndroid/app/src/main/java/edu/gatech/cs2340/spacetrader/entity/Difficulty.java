@@ -23,15 +23,6 @@ public enum Difficulty {
     }
 
     /**
-     * Getter method for attribute of enum
-     *
-     * @return diff String representation of attribute
-     */
-    public String getDiff() {
-        return diff;
-    }
-
-    /**
      * gets the initial wallet of player
      * @return available $ amount
      */

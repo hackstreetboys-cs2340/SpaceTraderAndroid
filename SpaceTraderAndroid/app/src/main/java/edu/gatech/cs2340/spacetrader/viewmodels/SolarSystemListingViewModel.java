@@ -16,7 +16,6 @@ import edu.gatech.cs2340.spacetrader.model.SolarSystemInteractor;
  */
 public class SolarSystemListingViewModel extends AndroidViewModel {
     private SolarSystemInteractor interactor;
-    private SolarSystem currentSystem;
     private Universe currentUniverse;
 
     /**

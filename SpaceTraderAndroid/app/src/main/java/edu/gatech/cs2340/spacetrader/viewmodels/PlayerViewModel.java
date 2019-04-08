@@ -2,7 +2,6 @@ package edu.gatech.cs2340.spacetrader.viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 
 import edu.gatech.cs2340.spacetrader.model.DatabaseInteractor;

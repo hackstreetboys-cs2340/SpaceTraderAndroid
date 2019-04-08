@@ -37,13 +37,6 @@ public class Repository {
     public Player getMyPlayer() {return myPlayer;}
 
     /**
-     * getter method for ship
-     *
-     * @return ship
-     */
-    public Ship getMyShip() {return myShip;}
-
-    /**
      * getter method for universe
      * @return universe
      */
