@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.views;
 
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import edu.gatech.cs2340.spacetrader.R;
+import edu.gatech.cs2340.spacetrader.entity.Player;
+import edu.gatech.cs2340.spacetrader.entity.Universe;
+import edu.gatech.cs2340.spacetrader.model.ResultHandler;
+import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
+import edu.gatech.cs2340.spacetrader.viewmodels.UniverseViewModel;
 
 
 import java.util.Arrays;
@@ -28,8 +35,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final int CONFIGURE_GAME = 1;
     public static final int RC_SIGN_IN = 2;
+    public static final int PLANET_ACTIVITY = 3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Test","TESTING");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -51,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 // Choose authentication providers
                 List<AuthUI.IdpConfig> providers = Arrays.asList(
                         new AuthUI.IdpConfig.EmailBuilder().build());
-
+                Log.d("TESTING", "Clicked");
                 // Create and launch sign-in intent
                 startActivityForResult(
                         AuthUI.getInstance()
@@ -69,11 +78,40 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if (resultCode == RESULT_OK) {
-                Intent intent = new Intent(MainActivity.this, ConfigureGameActivity.class);
-                startActivityForResult(intent, CONFIGURE_GAME);
+                Log.d("TESTING", "Logged in ");
+                String uid = FirebaseAuth.getInstance().getUid();
+                final PlayerViewModel playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
+                playerViewModel.setUID(uid);
+                Log.d("TESTING", uid);
+                playerViewModel.downloadPlayer(new ResultHandler<Player>() {
+                    @Override
+                    public void onSuccess(Player data) {
+                        Log.d("TESTING", "Success");
+                        if (data == null) {
+                            Intent intent = new Intent(MainActivity.this, ConfigureGameActivity.class);
+                            startActivityForResult(intent, CONFIGURE_GAME);
+                        } else {
+                            Log.d("TESTING", data.toString());
+                            playerViewModel.addPlayer(data);
+                            Intent intent = new Intent(MainActivity.this, PlanetActivity.class);
+                            startActivityForResult(intent, PLANET_ACTIVITY);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+                        Log.d("TESTING", e.getLocalizedMessage());
+                    }
+                });
+
+                long seed = playerViewModel.getPlayer().getSeed();
+                Universe universe = new Universe();
+                universe.generate(seed);
+                UniverseViewModel universeViewModel = ViewModelProviders.of(this).get(UniverseViewModel.class);
+                universeViewModel.addUniverse(universe);
             } else {
                 if (response != null) {
-                    Log.d("Login Error", "Error " + response.getError().getErrorCode());
+                    Log.d("TESTING", "Error " + response.getError().getErrorCode());
                 }
             }
         }

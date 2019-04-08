@@ -140,7 +140,7 @@ public class ConfigureGameActivity extends AppCompatActivity {
                 }
                 String uid = FirebaseAuth.getInstance().getUid();
                 playerViewModel.addPlayer(player);
-                playerViewModel.uploadPlayer(player, uid);
+                playerViewModel.uploadPlayer();
                 Intent intent = new Intent(ConfigureGameActivity.this, PlanetActivity.class);
                 startActivity(intent);
 

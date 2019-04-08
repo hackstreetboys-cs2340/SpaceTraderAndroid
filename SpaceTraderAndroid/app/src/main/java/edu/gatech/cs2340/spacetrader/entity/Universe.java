@@ -52,7 +52,7 @@ public class Universe {
             //creates coordinates
             int x = rand.nextInt(150);  //150x100 grid
             int y = rand.nextInt(100);
-            Pair<Integer, Integer> newCoordinates = new Pair<>(x, y);
+            CoordinatePair<Integer, Integer> newCoordinates = new CoordinatePair<>(x, y);
             //checks for duplicate coordinates
             if (coordinates.add(newCoordinates)) {
                 //random number of planets between 6 and 1

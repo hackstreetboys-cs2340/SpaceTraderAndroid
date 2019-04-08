@@ -9,17 +9,17 @@ import java.util.Random;
 public class SolarSystem {
 
     private String name;
-    private Pair<Integer, Integer> coordinates;
+    private CoordinatePair<Integer, Integer> coordinates;
     private List<Planet> planets;
 
     /**
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", new Pair<>(0, 0), new ArrayList<Planet>());
+        this("", new CoordinatePair<>(0, 0), new ArrayList<Planet>());
     }
 
-    public SolarSystem(String name, Pair coordinates) {
+    public SolarSystem(String name, CoordinatePair coordinates) {
         this(name, coordinates, new ArrayList<Planet>());
     }
 
@@ -30,7 +30,7 @@ public class SolarSystem {
      * @param coordinates coordinates of solar system
      * @param planets list of planets
      */
-    public SolarSystem(String name, Pair coordinates, List<Planet> planets){
+    public SolarSystem(String name, CoordinatePair coordinates, List<Planet> planets){
         this.name = name;
         this.coordinates = coordinates;
         this.planets = planets;
@@ -50,7 +50,7 @@ public class SolarSystem {
      *
      * @return solar system's coordinates
      */
-    public Pair getCoordinates() {
+    public CoordinatePair getCoordinates() {
         return coordinates;
     }
 
@@ -77,7 +77,7 @@ public class SolarSystem {
      *
      * @param coordinates new coordinates for solar system
      */
-    public void setCoordinates(Pair coordinates) {
+    public void setCoordinates(CoordinatePair coordinates) {
         this.coordinates = coordinates;
     }
 

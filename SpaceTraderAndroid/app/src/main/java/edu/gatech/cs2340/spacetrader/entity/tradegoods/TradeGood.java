@@ -6,7 +6,7 @@ import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 
-public abstract class TradeGood {
+public class TradeGood {
     private String name;
     private int MTLP, MTLU, TTP, IPL, variance;
     private int quantity;
@@ -113,7 +113,9 @@ public abstract class TradeGood {
      * @param res resources of planet
      * @return true if final price changed
      */
-    abstract boolean checkConditions(Resources res);
+    boolean checkConditions(Resources res) {
+        return false;
+    }
 
 
     public String toString() {

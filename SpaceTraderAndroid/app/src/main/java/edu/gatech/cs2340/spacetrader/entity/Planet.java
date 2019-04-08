@@ -18,7 +18,7 @@ public class Planet {
     private TechLevel techLevel;
     private Resources resources;
     private Market market;
-    private Pair<Integer, Integer> coordinates;
+    private CoordinatePair<Integer, Integer> coordinates;
 
     /**
      * No-arg constructor for the Planet class that uses constructor chaining
@@ -26,11 +26,11 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources, new Pair<Integer, Integer>(0,0));
+        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources, new CoordinatePair<>(0,0));
 
     }
 
-    public Planet(String name, Pair<Integer, Integer> coordinates) {
+    public Planet(String name, CoordinatePair<Integer, Integer> coordinates) {
         this(name, TechLevel.PreAgriculture, Resources.NoSpecialResources, coordinates);
     }
 
@@ -41,7 +41,7 @@ public class Planet {
      * @param techLevel represents the tech level of the planet
      * @param resource represents the resource that the planet is known for
      */
-    public Planet(String name, TechLevel techLevel, Resources resource, Pair<Integer, Integer> coordinates) {
+    public Planet(String name, TechLevel techLevel, Resources resource, CoordinatePair<Integer, Integer> coordinates) {
         this.name = name;
         this.techLevel = techLevel;
         this.resources = resource;
@@ -101,7 +101,7 @@ public class Planet {
      * Getter method for the planet's coordinates
      * @return the planet's coordinates
      */
-    public Pair<Integer, Integer> getCoordinates() {
+    public CoordinatePair<Integer, Integer> getCoordinates() {
         return coordinates;
     }
 
@@ -124,7 +124,7 @@ public class Planet {
         return toReturn;
     }
 
-    public int distanceTo(Pair<Integer, Integer> dest) {
+    public int distanceTo(CoordinatePair<Integer, Integer> dest) {
         int distance = (int)Math.sqrt((coordinates.first - dest.first) * (coordinates.first - dest.first)
                 + (coordinates.second - dest.second) * (coordinates.second - dest.second));
         return distance;

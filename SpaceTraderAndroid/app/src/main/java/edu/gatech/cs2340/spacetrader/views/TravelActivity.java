@@ -1,11 +1,13 @@
 package edu.gatech.cs2340.spacetrader.views;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.viewmodels.BuyGoodListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlanetListingViewModel;
+import edu.gatech.cs2340.spacetrader.viewmodels.PlayerViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.SellGoodListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.SolarSystemListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.UniverseViewModel;
@@ -27,6 +30,7 @@ public class TravelActivity extends AppCompatActivity {
     private SolarSystemListingViewModel systemViewModel;
     private SolarSystemItemAdapter solarSystemAdapter;
     private PlanetListingViewModel planetViewModel;
+    private PlayerViewModel playerViewModel;
     private PlanetItemAdapter planetAdapter;
     private UniverseViewModel universeViewModel;
     private Universe currentUniverse;
@@ -39,9 +43,8 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
 
-        Model model = Model.getInstance();
-        PlayerInteractor playerInteractor = model.getPlayerInteractor();
-        currentPlayer = playerInteractor.getMyPlayer();
+        playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel.class);
+        currentPlayer = playerViewModel.getPlayer();
         currentPlanet = currentPlayer.getLocation();
 
         RecyclerView solarSystemRecyclerView = findViewById(R.id.solar_systems_list);
@@ -86,11 +89,10 @@ public class TravelActivity extends AppCompatActivity {
                 distance.setText("Distance from " + currentPlanet.getName() + ": " + currentPlanet.distanceTo(system.getCoordinates()));
             }
         });
-
         planetAdapter.setOnPlanetClickListener(new PlanetItemAdapter.OnPlanetClickListener() {
             @Override
             public void onPlanetClicked(Planet planet) {
-                if (currentPlayer.travel(planet)) {
+                if (playerViewModel.travel(planet)) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Travelling to " + planet.getName(), Toast.LENGTH_LONG);
                     toast.show();
                     Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);

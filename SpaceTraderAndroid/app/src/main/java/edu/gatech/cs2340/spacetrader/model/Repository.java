@@ -18,6 +18,8 @@ public class Repository {
 
     private Universe myUniverse;
 
+    private String uid;
+
     /**
      * constructor for repository
      */
@@ -43,6 +45,8 @@ public class Repository {
     public Universe getMyUniverse() {
         return myUniverse;
     }
+
+    public String getUID() { return uid; }
 
     /**
      * setter method for ship
@@ -105,5 +109,9 @@ public class Repository {
 
     public void removePlayerGood(TradeGood tradeGood) {
         myPlayer.sell(tradeGood);
+    }
+
+    public void setUID(String uid) {
+        this.uid = uid;
     }
 }

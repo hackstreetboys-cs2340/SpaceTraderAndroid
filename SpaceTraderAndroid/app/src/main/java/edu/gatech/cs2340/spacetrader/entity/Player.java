@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.entity;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.List;
 import java.util.Random;
 
@@ -8,6 +10,7 @@ import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 /**
  * Player class including attributes of player for the game.
  */
+@IgnoreExtraProperties
 public class Player {
     private int pilotSkill, engSkill, tradeSkill, fightSkill;
     private String name;

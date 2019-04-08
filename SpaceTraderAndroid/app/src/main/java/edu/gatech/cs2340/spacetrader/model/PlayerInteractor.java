@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.model;
 
+import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 
 public class PlayerInteractor extends Interactor {
@@ -22,4 +23,7 @@ public class PlayerInteractor extends Interactor {
         getRepository().setMyPlayer(player);
     }
     public Player getMyPlayer() { return getRepository().getMyPlayer(); }
+    public boolean travel(Planet planet) {
+        return getRepository().getMyPlayer().travel(planet);
+    }
 }
