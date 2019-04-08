@@ -282,7 +282,6 @@ public class Player {
             else if (chance >= 20 && chance < 25) {
                 ship.setHealth((int) (ship.getHealth() * .33));
             }
-
             ship.setFuel(ship.getFuel() - this.location.distanceTo(location.getCoordinates()));
             setLocation(location);
             return true;
