@@ -2,8 +2,15 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
+/**
+ * Firearms Good Class
+ */
 public class Firearms extends TradeGood {
 
+    /**
+     * constructor for firearms
+     * numbers based on table given in Canvas
+     */
     public Firearms() {
         super("Firearms", 3, 1, 5, 1250, -75, 75);
     }

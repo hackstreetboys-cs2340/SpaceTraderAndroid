@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Solar System Class
+ */
 public class SolarSystem {
 
     private String name;
@@ -16,9 +19,22 @@ public class SolarSystem {
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", new Pair<>(0, 0), new ArrayList<Planet>());
+        this("");
     }
 
+    /**
+     * Single argument constructor
+     * @param name name of the system
+     */
+    public SolarSystem(String name) {
+        this(name, new Pair<>(0, 0), new ArrayList<Planet>());
+    }
+
+    /**
+     * 2 argument constructor
+     * @param name name of system
+     * @param coordinates coordinates of system
+     */
     public SolarSystem(String name, Pair coordinates) {
         this(name, coordinates, new ArrayList<Planet>());
     }
@@ -95,7 +111,6 @@ public class SolarSystem {
      * @param numOfPlanets number of planets to be added
      * @param planetNames list of possible planet names
      */
-
     public void generateSystem(int numOfPlanets, List<String> planetNames) {
         Random rnd = new Random();
         while (numOfPlanets > 0) {

@@ -11,9 +11,13 @@ import edu.gatech.cs2340.spacetrader.entity.tradegoods.Machines;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Medicine;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Narcotics;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Ore;
+import edu.gatech.cs2340.spacetrader.entity.tradegoods.Robots;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Water;
 
+/**
+ * Market Class
+ */
 public class Market {
     private List<TradeGood> tradeGoods;
     private TechLevel techLevel;
@@ -53,6 +57,10 @@ public class Market {
         this.resources = resources;
     }
 
+    /**
+     * get a list of tradegoods from the market
+     * @return list of goods
+     */
     public List<TradeGood> getTradeGoods() {
         return tradeGoods;
     }
@@ -70,6 +78,7 @@ public class Market {
         tradeGoods.add(new Medicine());
         tradeGoods.add(new Machines());
         tradeGoods.add(new Narcotics());
+        tradeGoods.add(new Robots());
         for (TradeGood i : tradeGoods) {
             i.calculatePrice(techLevel, resources);
         }

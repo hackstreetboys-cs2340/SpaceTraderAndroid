@@ -10,6 +10,9 @@ import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 
+/**
+ * Player View Model Class
+ */
 public class PlayerViewModel extends AndroidViewModel {
 
     private PlayerInteractor interactor;

@@ -16,12 +16,13 @@ import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
-import edu.gatech.cs2340.spacetrader.viewmodels.BuyGoodListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlanetListingViewModel;
-import edu.gatech.cs2340.spacetrader.viewmodels.SellGoodListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.SolarSystemListingViewModel;
 import edu.gatech.cs2340.spacetrader.viewmodels.UniverseViewModel;
 
+/**
+ * Travel Activity Class
+ */
 public class TravelActivity extends AppCompatActivity {
 
     private SolarSystemListingViewModel systemViewModel;

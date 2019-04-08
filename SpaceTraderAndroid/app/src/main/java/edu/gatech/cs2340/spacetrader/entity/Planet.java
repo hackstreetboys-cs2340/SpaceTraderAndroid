@@ -4,7 +4,6 @@ import android.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
@@ -26,10 +25,23 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources, new Pair<Integer, Integer>(0,0));
+        this("");
 
     }
 
+    /**
+     * single argument constructor
+     * @param name name of planet
+     */
+    public Planet(String name) {
+        this(name, new Pair<Integer, Integer>(0,0));
+    }
+
+    /**
+     * 2 argument constructor
+     * @param name name of planet
+     * @param coordinates coordinates of the planet
+     */
     public Planet(String name, Pair<Integer, Integer> coordinates) {
         this(name, TechLevel.PreAgriculture, Resources.NoSpecialResources, coordinates);
     }
@@ -40,6 +52,7 @@ public class Planet {
      * @param name represents the name of the planet
      * @param techLevel represents the tech level of the planet
      * @param resource represents the resource that the planet is known for
+     * @param coordinates represents the coordinates of the planet
      */
     public Planet(String name, TechLevel techLevel, Resources resource, Pair<Integer, Integer> coordinates) {
         this.name = name;
@@ -116,6 +129,10 @@ public class Planet {
         market.generateMarket();
     }
 
+    /**
+     * get goods of the planet
+     * @return list of goods
+     */
     public List<TradeGood> getGoods() {
         List<TradeGood> toReturn = new ArrayList<>();
         for (TradeGood t: market.getTradeGoods()) {
@@ -124,10 +141,14 @@ public class Planet {
         return toReturn;
     }
 
+    /**
+     * calculate distance from current planet to another set of coordinates
+     * @param dest set of coordinates for another planet
+     * @return integer value of distance
+     */
     public int distanceTo(Pair<Integer, Integer> dest) {
-        int distance = (int)Math.sqrt((coordinates.first - dest.first) * (coordinates.first - dest.first)
+        return (int)Math.sqrt((coordinates.first - dest.first) * (coordinates.first - dest.first)
                 + (coordinates.second - dest.second) * (coordinates.second - dest.second));
-        return distance;
     }
 
     @Override
