@@ -83,8 +83,6 @@ public abstract class TradeGood {
         this.quantity = q;
     }
 
-    public void setFinalPrice(int p) { this.finalPrice = p; }
-
     /**
      * calculates price given resources and tech
      * @param tech tech level of planet
@@ -125,6 +123,10 @@ public abstract class TradeGood {
      */
     abstract boolean checkConditions(Resources res);
 
+    /**
+     * Setter for price (used for testing).
+     * @param price price to set
+     */
     public void setFinalPrice(double price) {
         this.finalPrice = price;
     }
