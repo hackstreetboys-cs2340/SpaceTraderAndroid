@@ -142,7 +142,6 @@ public class Ship {
      * removes good from the cargo hold
      *
      * @param good good to be removed
-     * @return the cost of the good
      */
     public void remove(TradeGood good) {
         List<String> cargo = new ArrayList<>();

@@ -19,7 +19,7 @@ public class BuyGoodListingViewModel extends AndroidViewModel {
     private Planet currentPlanet;
 
     /**
-     * constructor for buy good listing viewmodel
+     * constructor for buy good listing view model
      * @param application app
      */
     public BuyGoodListingViewModel(@NonNull Application application) {

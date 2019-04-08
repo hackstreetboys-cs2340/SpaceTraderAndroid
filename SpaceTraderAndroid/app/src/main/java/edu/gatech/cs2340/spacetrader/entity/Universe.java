@@ -25,10 +25,6 @@ public class Universe {
     }
 
     /**
-     * method to generate the universe
-     */
-
-    /**
      * populates the universe with solar systems
      * @param seed seed for the player
      */

@@ -58,7 +58,7 @@ public class Market {
     }
 
     /**
-     * get a list of tradegoods from the market
+     * get a list of trade goods from the market
      * @return list of goods
      */
     public List<TradeGood> getTradeGoods() {
