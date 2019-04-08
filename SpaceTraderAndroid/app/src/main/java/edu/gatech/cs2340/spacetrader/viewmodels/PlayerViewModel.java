@@ -37,5 +37,11 @@ public class PlayerViewModel extends AndroidViewModel {
     public void addPlayer(Player player) {
         interactor.setMyPlayer(player);
     }
+
+    /**
+     * Uploads player to database.
+     * @param player player of game
+     * @param uid user id of player
+     */
     public void uploadPlayer(Player player, String uid) { databaseInteractor.uploadPlayer(player, uid); }
 }

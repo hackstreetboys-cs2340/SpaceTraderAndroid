@@ -94,6 +94,11 @@ public class Model {
         return (PlanetInteractor) interactorMap.get("Planets");
     }
 
+    /**
+     * Getter for Database Interactor.
+     *
+     * @return database interactor
+     */
     public DatabaseInteractor getDatabaseInteractor() {
         return (DatabaseInteractor) interactorMap.get("Database");
     }
