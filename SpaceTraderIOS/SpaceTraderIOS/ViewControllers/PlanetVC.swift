@@ -15,6 +15,7 @@ class PlanetVC: UIViewController {
     var universe: Universe?
     
     let planetNameLbl = UILabel()
+    let mapButton = UIButton()
     let marketButton = UIButton()
     
     override func viewDidLoad() {
@@ -35,17 +36,26 @@ class PlanetVC: UIViewController {
         marketButton.layer.cornerRadius = 5
         marketButton.addTarget(self, action: #selector(marketTapped(_:)), for: .touchUpInside)
         
+        pos = CGPoint(x: offset, y: marketButton.frame.minY - offset - size.height)
+        mapButton.frame = CGRect(origin: pos, size: size)
+        mapButton.setTitle("Map", for: .normal)
+        mapButton.backgroundColor = Colors.primaryColor
+        mapButton.setTitleColor(Colors.textColor, for: .normal)
+        mapButton.layer.cornerRadius = 5
+        mapButton.addTarget(self, action: #selector(mapTapped(_:)), for: .touchUpInside)
+        
         width = view.frame.width
-        height = 60
+        height = 70
         size = CGSize(width: width, height: height)
         pos = CGPoint(x: 0, y: offset * 4)
         planetNameLbl.frame = CGRect(origin: pos, size: size)
         planetNameLbl.textAlignment = .center
         planetNameLbl.text = planet?.name
         planetNameLbl.textColor = Colors.textColor
-        planetNameLbl.font = UIFont(name: planetNameLbl.font.fontName, size: height)
+        planetNameLbl.font = UIFont(name: planetNameLbl.font.fontName, size: height - 10)
         
         view.addSubview(marketButton)
+        view.addSubview(mapButton)
         view.addSubview(planetNameLbl)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,9 +75,18 @@ class PlanetVC: UIViewController {
             dest.market = market
             print("GOODS:\n\(market.goodsToSell)")
         }
+        
+        if let dest = segue.destination as? MapVC {
+            guard let systems = universe?.solarSystems else { return }
+            dest.solarSystems = systems
+        }
     }
     @objc private func marketTapped(_ sender: Any) {
         performSegue(withIdentifier: "PlanetToMarket", sender: sender)
+    }
+    
+    @objc private func mapTapped(_ sender: Any) {
+        performSegue(withIdentifier: "PlanetToMap", sender: sender)
     }
     
     private func setupTestData() {

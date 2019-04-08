@@ -2,6 +2,9 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.Random;
 
+/**
+ * Tech Levels for planet
+ */
 public enum TechLevel {
     PreAgriculture (0),
     Agriculture (1),

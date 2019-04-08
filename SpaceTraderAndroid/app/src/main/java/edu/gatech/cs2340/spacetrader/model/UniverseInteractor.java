@@ -2,6 +2,9 @@ package edu.gatech.cs2340.spacetrader.model;
 
 import edu.gatech.cs2340.spacetrader.entity.Universe;
 
+/**
+ * Universe Interactor Class
+ */
 public class UniverseInteractor extends Interactor{
     /**
      * constructor for player interactor
@@ -21,6 +24,10 @@ public class UniverseInteractor extends Interactor{
         getRepository().setMyUniverse(universe);
     }
 
+    /**
+     * gets the universe for the current player
+     * @return universe
+     */
     public Universe getMyUniverse() {
         return getRepository().getMyUniverse();
     }

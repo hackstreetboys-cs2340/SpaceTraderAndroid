@@ -6,16 +6,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.spacetrader.R;
-import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.TradeGood;
 
+/**
+ * Buy Market Item Adapter
+ */
 public class BuyMarketItemAdapter extends RecyclerView.Adapter<BuyMarketItemAdapter.BuyMarketItemViewHolder> {
 
     private List<TradeGood> goods = new ArrayList<>();
@@ -49,13 +50,13 @@ public class BuyMarketItemAdapter extends RecyclerView.Adapter<BuyMarketItemAdap
         return goods.size();
     }
 
+    /**
+     * set the goods of the class
+     * @param goods list of goods
+     */
     public void setGoods(List<TradeGood> goods) {
         this.goods = goods;
         notifyDataSetChanged();
-    }
-
-    public TradeGood getItem(int position) {
-        return goods.get(position);
     }
 
     class BuyMarketItemViewHolder extends RecyclerView.ViewHolder {
@@ -79,10 +80,19 @@ public class BuyMarketItemAdapter extends RecyclerView.Adapter<BuyMarketItemAdap
         }
     }
 
+
     public interface OnBuyGoodClickListener {
+        /**
+         * buy good click listener
+         * @param good good clicked
+         */
         void onBuyGoodClicked(TradeGood good);
     }
 
+    /**
+     * set the click listener
+     * @param listener click listener
+     */
     public void setOnBuyGoodClickListener(OnBuyGoodClickListener listener) {
         this.listener = listener;
     }
