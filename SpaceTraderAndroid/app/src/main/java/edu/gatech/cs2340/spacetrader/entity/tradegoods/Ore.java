@@ -2,8 +2,15 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
+/**
+ * Ore Good Class
+ */
 public class Ore extends TradeGood {
 
+    /**
+     * constructor for ore
+     * numbers based on table given in Canvas
+     */
     public Ore() {
         super("Ore", 2, 2, 3, 350, 20, 10);
     }

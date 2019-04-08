@@ -48,9 +48,14 @@ public enum ShipType {
      */
     public int getFuelCapacity() { return fuelCapacity; }
 
+    /**
+     * get the ship's health
+     * @return health
+     */
     public int getHealth() {
         return health;
     }
+
     @Override
     public String toString() {
         return name;

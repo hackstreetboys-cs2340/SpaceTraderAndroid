@@ -14,6 +14,9 @@ import java.util.List;
 import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 
+/**
+ * Planet Item Adapter
+ */
 public class PlanetItemAdapter  extends RecyclerView.Adapter<PlanetItemAdapter.PlanetItemViewHolder> {
 
     List<Planet> planets = new ArrayList<>();
@@ -44,13 +47,13 @@ public class PlanetItemAdapter  extends RecyclerView.Adapter<PlanetItemAdapter.P
         return planets.size();
     }
 
+    /**
+     * set list of planets to the list in params
+     * @param planets list of planets
+     */
     public void setPlanets(List<Planet> planets) {
         this.planets = planets;
         notifyDataSetChanged();
-    }
-
-    public Planet getPlanet(int position) {
-        return planets.get(position);
     }
 
     class PlanetItemViewHolder extends RecyclerView.ViewHolder {
@@ -76,9 +79,17 @@ public class PlanetItemAdapter  extends RecyclerView.Adapter<PlanetItemAdapter.P
         }
     }
     public interface OnPlanetClickListener {
+        /**
+         * listens for a planet in the list to be clicked
+         * @param planet planet clicked
+         */
         void onPlanetClicked(Planet planet);
     }
 
+    /**
+     * sets the on planet click listener
+     * @param listener planet click listener
+     */
     public void setOnPlanetClickListener(OnPlanetClickListener listener) {
         this.listener = listener;
     }

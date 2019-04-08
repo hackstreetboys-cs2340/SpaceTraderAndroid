@@ -2,8 +2,15 @@ package edu.gatech.cs2340.spacetrader.entity.tradegoods;
 
 import edu.gatech.cs2340.spacetrader.entity.Resources;
 
+/**
+ * Medicine Good Class
+ */
 public class Medicine extends TradeGood {
 
+    /**
+     * constructor for medicine
+     * numbers based on table given in Canvas
+     */
     public Medicine() {
         super("Medicine", 4, 1, 6, 650, -20, 10);
     }

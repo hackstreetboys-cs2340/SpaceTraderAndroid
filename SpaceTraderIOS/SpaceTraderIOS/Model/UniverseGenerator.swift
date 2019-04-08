@@ -87,7 +87,7 @@ class UniverseGenerator {
         var count = 0
         while !validCoords {
             if count == 1000 { break }
-            coords = Coordinates(latitude: Int.random(in: 0 ..< 100, using: &generator), longitude: Int.random(in: 0 ..< 150, using: &generator))
+            coords = Coordinates(latitude: Int.random(in: 0 ..< Constants.universeMaxLat, using: &generator), longitude: Int.random(in: 0 ..< Constants.universeMaxLong, using: &generator))
             validCoords = !coordinates.contains(where: { (badCoord) -> Bool in
                 return coords.latitude == badCoord.latitude && coords.longitude == badCoord.longitude
             })

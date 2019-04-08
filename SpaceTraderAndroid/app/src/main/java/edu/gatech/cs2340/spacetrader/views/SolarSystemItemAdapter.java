@@ -15,6 +15,9 @@ import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 
+/**
+ * Solar System Item Adapter Class
+ */
 public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItemAdapter.SolarSystemItemViewHolder> {
 
     private List<SolarSystem> systems = new ArrayList<>();
@@ -47,30 +50,32 @@ public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItem
         return systems.size();
     }
 
+    /**
+     * set the list of systems
+     * @param systems list of systems
+     */
     public void setSystems(List<SolarSystem> systems) {
         this.systems = systems;
         notifyDataSetChanged();
     }
 
+    /**
+     * set the current planet
+     * @param currPlanet current planet
+     */
     public void setCurrPlanet(Planet currPlanet) {
         this.currPlanet = currPlanet;
         notifyDataSetChanged();
     }
 
-    public SolarSystem getSystem(int position) {
-        return systems.get(position);
-    }
-
     class SolarSystemItemViewHolder extends RecyclerView.ViewHolder {
         private TextView systemName;
         private TextView location;
-        private TextView fuelCost;
 
         public SolarSystemItemViewHolder(@NonNull View itemView) {
             super(itemView);
             systemName = itemView.findViewById(R.id.text_solar_system_name);
             location = itemView.findViewById(R.id.text_location);
-            fuelCost = itemView.findViewById(R.id.text_fuel_cost);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -85,9 +90,17 @@ public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItem
     }
 
     public interface OnSolarSystemClickListener {
+        /**
+         * solar system clicked listener
+         * @param system system clicked
+         */
         void onSolarSystemClicked(SolarSystem system);
     }
 
+    /**
+     * sets the on solar system click listener
+     * @param listener solar system click listener
+     */
     public void setOnSolarSystemClickListener(OnSolarSystemClickListener listener) {
         this.listener = listener;
     }
