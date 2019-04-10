@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/carolinedevlin/cs2340/SpaceTraderAndroid/SpaceTraderAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/Users/abbystuart/Documents/Spring 2019/CS2340/SpaceTraderAndroid/SpaceTraderAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/carolinedevlin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/9e831ba223991e97eab0e72dfcca6361/res/values-v16/values-v16.xml",
+                    "source": "/Users/abbystuart/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/339c21a1995b0f61036e6f032608c3bb/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/carolinedevlin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/212005b634bcd791b219213abab70055/res/values-v16/values-v16.xml",
+                    "source": "/Users/abbystuart/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c8f0a0bde6dddf22251883d261cc7171/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

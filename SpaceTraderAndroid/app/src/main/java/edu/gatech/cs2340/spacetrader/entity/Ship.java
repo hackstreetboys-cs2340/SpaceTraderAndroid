@@ -40,18 +40,7 @@ public class Ship {
     public Ship(ShipType ship) {
         this.ship = ship;
         this.capacity = ship.getCapacity();
-        this.size = 0;
-        this.cargoHold = new ArrayList<>();
-        cargoHold.add(new Water());
-        cargoHold.add(new Furs());
-        cargoHold.add(new Food());
-        cargoHold.add(new Ore());
-        cargoHold.add(new Games());
-        cargoHold.add(new Firearms());
-        cargoHold.add(new Medicine());
-        cargoHold.add(new Machines());
-        cargoHold.add(new Narcotics());
-        cargoHold.add(new Robots());
+        this.cargoHold = new ArrayList<>(capacity);
         this.fuelCapacity = ship.getFuelCapacity();
         this.fuel = this.fuelCapacity;
         this.health = ship.getHealth();
@@ -125,15 +114,19 @@ public class Ship {
      *
      * @param good good to be removed
      */
-    public void remove(TradeGood good) {
-        List<String> cargo = new ArrayList<>();
-        for (TradeGood i : cargoHold) {
-            cargo.add(i.getName());
-        }
-        if (cargoHold.get(cargo.indexOf(good.getName())).getQuantity() > 0) {
-            cargoHold.get(cargo.indexOf(good.getName())).setQuantity(
-                    cargoHold.get(cargo.indexOf(good.getName())).getQuantity() - 1);
+    public double remove(TradeGood good) {
+        double price = cargoHold.get(cargoHold.indexOf(good)).getFinalPrice();
+        if (!cargoHold.contains(good)) {
+            return 0;
+        } else if (cargoHold.get(cargoHold.indexOf(good)).getQuantity() > 1) {
+            cargoHold.get(cargoHold.indexOf(good)).setQuantity(
+                    cargoHold.get(cargoHold.indexOf(good)).getQuantity() - 1);
             size--;
+            return price;
+        } else {
+            cargoHold.remove(good);
+            size--;
+            return price;
         }
     }
 
@@ -143,18 +136,14 @@ public class Ship {
      * @param good good to be added
      */
     public void add(TradeGood good) {
-        if (good.getFinalPrice() > 0) {
-            if (testCapacity()) {
-                List<String> cargo = new ArrayList<>();
-                for (TradeGood i : cargoHold) {
-                    cargo.add(i.getName());
-                }
-                if (good.getFinalPrice() > 0 && testCapacity()) {
-                    cargoHold.get(cargo.indexOf(good.getName())).setQuantity(
-                            cargoHold.get(cargo.indexOf(good.getName())).getQuantity() + 1);
-                    size++;
-                }
-            }
+        if (good.getFinalPrice() <= 0) {
+            return;
+        } else if (cargoHold.contains(good) && testCapacity()) {
+            cargoHold.get(cargoHold.indexOf(good)).setQuantity(good.getQuantity() + 1);
+            size++;
+        } else if (testCapacity()) {
+            cargoHold.add(good);
+            size++;
         }
     }
 

@@ -1,10 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/carolinedevlin/cs2340/SpaceTraderAndroid/SpaceTraderAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
+            "outputFile": "/Users/abbystuart/Documents/Spring 2019/CS2340/SpaceTraderAndroid/SpaceTraderAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/Users/carolinedevlin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/9e831ba223991e97eab0e72dfcca6361/res/values-v26/values-v26.xml",
+                    "source": "/Users/abbystuart/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-4.1.0.aar/952f08fe83b2d082f0f9991bb49c8aad/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,6,10,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,253,438,631",
+                        "endLines": "5,9,13,17",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "248,433,626,806"
+                    },
+                    "to": {
+                        "startLines": "17,21,25,29",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "989,1187,1372,1565",
+                        "endLines": "20,24,28,32",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "1182,1367,1560,1740"
+                    }
+                },
+                {
+                    "source": "/Users/abbystuart/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/339c21a1995b0f61036e6f032608c3bb/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",
