@@ -18,7 +18,6 @@ public class PlanetListingViewModel extends AndroidViewModel {
 
     private PlanetInteractor interactor;
     private SolarSystem currentSystem;
-    private Planet currentPlanet;
 
     /**
      * constructor for planet listing view model

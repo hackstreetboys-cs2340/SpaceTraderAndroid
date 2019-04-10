@@ -2,7 +2,6 @@ package edu.gatech.cs2340.spacetrader.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Firearms;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Food;
@@ -59,15 +58,6 @@ public class Ship {
     }
 
     /**
-     * Getter for ship.
-     *
-     * @return ship
-     */
-    public ShipType getShip() {
-        return ship;
-    }
-
-    /**
      * get the cargo hold of a ship
      * @return list of cargo
      */
@@ -89,14 +79,6 @@ public class Ship {
      */
     public int getSize() {
         return size;
-    }
-
-    /**
-     * get the max fuel capacity of the ship
-     * @return the ship's max fuel capacity
-     */
-    public int getFuelCapacity() {
-        return fuelCapacity;
     }
 
     /**
@@ -142,7 +124,6 @@ public class Ship {
      * removes good from the cargo hold
      *
      * @param good good to be removed
-     * @return the cost of the good
      */
     public void remove(TradeGood good) {
         List<String> cargo = new ArrayList<>();

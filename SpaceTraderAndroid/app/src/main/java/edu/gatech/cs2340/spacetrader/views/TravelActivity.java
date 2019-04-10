@@ -13,7 +13,6 @@ import edu.gatech.cs2340.spacetrader.R;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
 import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
-import edu.gatech.cs2340.spacetrader.entity.Universe;
 import edu.gatech.cs2340.spacetrader.model.Model;
 import edu.gatech.cs2340.spacetrader.model.PlayerInteractor;
 import edu.gatech.cs2340.spacetrader.viewmodels.PlanetListingViewModel;
@@ -30,8 +29,6 @@ public class TravelActivity extends AppCompatActivity {
     private PlanetListingViewModel planetViewModel;
     private PlanetItemAdapter planetAdapter;
     private UniverseViewModel universeViewModel;
-    private Universe currentUniverse;
-    private SolarSystem currentSystem;
     private Planet currentPlanet;
     private Player currentPlayer;
 

@@ -21,7 +21,6 @@ import edu.gatech.cs2340.spacetrader.entity.SolarSystem;
 public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItemAdapter.SolarSystemItemViewHolder> {
 
     private List<SolarSystem> systems = new ArrayList<>();
-    private Planet currPlanet;
     private OnSolarSystemClickListener listener;
 
     @NonNull
@@ -64,7 +63,6 @@ public class SolarSystemItemAdapter extends RecyclerView.Adapter<SolarSystemItem
      * @param currPlanet current planet
      */
     public void setCurrPlanet(Planet currPlanet) {
-        this.currPlanet = currPlanet;
         notifyDataSetChanged();
     }
 

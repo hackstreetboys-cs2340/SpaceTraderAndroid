@@ -40,15 +40,6 @@ public enum Resources {
     }
 
     /**
-     * getter method for resource level
-     *
-     * @return level
-     */
-    public int getLevel() {
-        return this.level;
-    }
-
-    /**
      * generates a random resource level
      *
      * @return random resource level

@@ -10,7 +10,10 @@ import edu.gatech.cs2340.spacetrader.entity.TechLevel;
  */
 public abstract class TradeGood {
     private String name;
-    private int MTLP, MTLU, TTP, IPL, variance;
+    private int MTLP;
+    private int MTLU;
+    private int IPL;
+    private int variance;
     private int quantity;
     double basePrice, finalPrice;
 
@@ -19,14 +22,6 @@ public abstract class TradeGood {
      */
     public TradeGood() {
         this("", 0, 0, 0, 0, 0, 0);
-    }
-
-    /**
-     * 1 arg constructor
-     * @param name given name for the good
-     */
-    public TradeGood(String name) {
-        this(name, 0, 0, 0, 0, 0, 0);
     }
 
     /**
@@ -43,7 +38,6 @@ public abstract class TradeGood {
         this.name = name;
         this.MTLP = MTLP;
         this.MTLU = MTLU;
-        this.TTP = TTP;
         this.basePrice = basePrice;
         this.IPL = IPL;
         this.variance = variance;
@@ -82,8 +76,6 @@ public abstract class TradeGood {
     public void setQuantity(int q) {
         this.quantity = q;
     }
-
-    public void setFinalPrice(int p) { this.finalPrice = p; }
 
     /**
      * calculates price given resources and tech
@@ -125,6 +117,10 @@ public abstract class TradeGood {
      */
     abstract boolean checkConditions(Resources res);
 
+    /**
+     * Setter for price (used for testing).
+     * @param price price to set
+     */
     public void setFinalPrice(double price) {
         this.finalPrice = price;
     }

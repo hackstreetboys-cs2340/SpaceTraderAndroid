@@ -48,15 +48,6 @@ public class Model {
     }
 
     /**
-     * getter method for ship's interactor
-     *
-     * @return ship interactor
-     */
-    public ShipInteractor getShipInteractor() {
-        return (ShipInteractor) interactorMap.get("Ship");
-    }
-
-    /**
      * Getter method for universe interactor
      * @return universe interactor
      */
@@ -94,6 +85,11 @@ public class Model {
         return (PlanetInteractor) interactorMap.get("Planets");
     }
 
+    /**
+     * Getter for Database Interactor.
+     *
+     * @return database interactor
+     */
     public DatabaseInteractor getDatabaseInteractor() {
         return (DatabaseInteractor) interactorMap.get("Database");
     }
