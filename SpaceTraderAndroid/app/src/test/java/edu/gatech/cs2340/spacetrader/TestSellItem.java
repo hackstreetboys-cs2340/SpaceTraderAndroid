@@ -1,7 +1,5 @@
 package edu.gatech.cs2340.spacetrader;
 
-import android.util.Pair;
-
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,10 +8,8 @@ import java.util.List;
 import edu.gatech.cs2340.spacetrader.entity.Difficulty;
 import edu.gatech.cs2340.spacetrader.entity.Planet;
 import edu.gatech.cs2340.spacetrader.entity.Player;
-import edu.gatech.cs2340.spacetrader.entity.Resources;
 import edu.gatech.cs2340.spacetrader.entity.Ship;
 import edu.gatech.cs2340.spacetrader.entity.ShipType;
-import edu.gatech.cs2340.spacetrader.entity.TechLevel;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Food;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Furs;
 import edu.gatech.cs2340.spacetrader.entity.tradegoods.Games;
@@ -32,7 +28,6 @@ public class TestSellItem {
         Ore ore = new Ore();
         Furs furs = new Furs();
         Games games = new Games();
-        Pair<Integer, Integer> coords = new Pair<>(0,0);
 
         Ship ship = new Ship(ShipType.Gnat);
         Player player = new Player("Abby",4,4,4,4, ship, Difficulty.E);
