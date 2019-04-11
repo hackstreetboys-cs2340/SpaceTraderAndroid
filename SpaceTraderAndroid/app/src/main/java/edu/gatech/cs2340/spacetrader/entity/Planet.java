@@ -95,6 +95,14 @@ public class Planet {
     }
 
     /**
+     * Getter method for the planet's market
+     * @return the planet's market
+     */
+    public Market getMarket() {
+        return market;
+    }
+
+    /**
      * assigns a random resource level and tech level and generates a market
      */
     public void generate() {
