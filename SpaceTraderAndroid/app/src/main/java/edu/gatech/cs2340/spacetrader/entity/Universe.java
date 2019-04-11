@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Object that represents the game's universe,
@@ -15,7 +16,7 @@ import java.util.Random;
  */
 public class Universe {
     private List<SolarSystem> solarSystems;
-    private HashSet<Pair<Integer, Integer>> coordinates;
+    private Set<Pair<Integer, Integer>> coordinates;
 
     /**
      * No arg constructor initializes solarSystems to an empty HashSet
@@ -50,11 +51,11 @@ public class Universe {
         int numSystems = rand.nextInt(10) + 10;
         while (numSystems > 0) {
             //creates coordinates
-            int x = rand.nextInt(150);  //150x100 grid
-            int y = rand.nextInt(100);
+            Integer x = rand.nextInt(150);  //150x100 grid
+            Integer y = rand.nextInt(100);
             Pair<Integer, Integer> newCoordinates = new Pair<>(x, y);
             //checks for duplicate coordinates
-            if (coordinates.add(newCoordinates)) {
+            if (coordinates.add(new Pair<>(x, y))) {
                 //random number of planets between 6 and 1
                 int numOfPlanets = rand.nextInt(5) + 1;
                 SolarSystem newSystem = new SolarSystem("Solar System " + numSystems, newCoordinates);
