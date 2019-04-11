@@ -26,16 +26,28 @@ public class Planet {
      *
      */
     public Planet() {
-        this("", TechLevel.PreAgriculture, Resources.NoSpecialResources, new Pair<Integer, Integer>(0,0));
-
+        this("");
     }
 
+    /**
+     * single arg constructor
+     * @param name name
+     */
+    public Planet(String name) {
+        this(name, new Pair<>(0,0));
+    }
+
+    /**
+     * double arg constructor
+     * @param name planet name
+     * @param coordinates planet coords
+     */
     public Planet(String name, Pair<Integer, Integer> coordinates) {
         this(name, TechLevel.PreAgriculture, Resources.NoSpecialResources, coordinates);
     }
 
     /**
-     * Second constructor for the Planet class that allows the Planet to be instantiated
+     * constructor for the Planet class that allows the Planet to be instantiated
      * by the Player.
      * @param name represents the name of the planet
      * @param techLevel represents the tech level of the planet

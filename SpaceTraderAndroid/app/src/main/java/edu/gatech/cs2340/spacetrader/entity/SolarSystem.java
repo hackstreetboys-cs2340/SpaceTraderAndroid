@@ -16,9 +16,22 @@ public class SolarSystem {
      * no-arg constructor for SolarSystem
      */
     public SolarSystem(){
-        this("", new Pair<>(0, 0), new ArrayList<Planet>());
+        this("");
     }
 
+    /**
+     * single arg constructor
+     * @param name system name
+     */
+    public SolarSystem(String name) {
+        this(name, new Pair<>(0,0));
+    }
+
+    /**
+     * double arg constructor
+     * @param name system name
+     * @param coordinates system coords
+     */
     public SolarSystem(String name, Pair coordinates) {
         this(name, coordinates, new ArrayList<Planet>());
     }
@@ -98,7 +111,7 @@ public class SolarSystem {
 
     public void generateSystem(int numOfPlanets, List<String> planetNames) {
         Random rnd = new Random();
-        while (numOfPlanets > 0) {
+        while (numOfPlanets > 0 && planetNames.size() != 0) {
             Planet newPlanet = new Planet(planetNames.remove(rnd.nextInt(planetNames.size())), this.coordinates);
             newPlanet.generate();
             planets.add(newPlanet);

@@ -58,7 +58,7 @@ public class PlanetActivity extends AppCompatActivity {
         String sStats = "";
         sStats += "Health : " + player.getShip().getHealth() + "\n";
         sStats += "Fuel : " + player.getShip().getFuel() + "\n";
-        sStats += "Cargo : " + player.getShip().getCargoHold().size() + " / "
+        sStats += "Cargo : " + player.getShip().getSize() + " / "
                 + player.getShip().getCapacity() + "\n";
         shipStats.setText(sStats);
 
