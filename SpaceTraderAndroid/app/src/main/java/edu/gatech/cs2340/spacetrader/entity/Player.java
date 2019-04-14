@@ -254,7 +254,9 @@ public class Player {
     public void buy(TradeGood good) {
         if (ship.testCapacity()) {
             ship.add(good);
-            wallet -= good.getFinalPrice();
+            if (good.getFinalPrice() >= 0) {
+                wallet -= good.getFinalPrice();
+            }
         }
     }
 

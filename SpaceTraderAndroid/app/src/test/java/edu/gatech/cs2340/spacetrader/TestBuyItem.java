@@ -46,4 +46,69 @@ public class TestBuyItem {
         assertTrue(player.getCargoHold().contains(goodToBuy));
     }
 
+    @Test
+    public void buyItemUnavailable() {
+        Ship ship = new Ship(ShipType.Gnat);
+        Player player = new Player("Abby",4,4,4,4, ship, Difficulty.E);
+        Planet planet = new Planet("Xerxes");
+        planet.generate();
+        player.setLocation(planet);
+
+        List<TradeGood> goods = new ArrayList<>();
+        for (int i = 0; i < planet.getMarket().getTradeGoods().size(); i++) {
+            if (planet.getMarket().getTradeGoods().get(i).getFinalPrice() >= 0) {
+                goods.add(planet.getMarket().getTradeGoods().get(i));
+            }
+        }
+
+        if (goods.size() == 10) {
+            return;
+        }
+
+        double walletBefore = player.getWallet();
+        TradeGood goodToTry = planet.getGoods().get(goods.size());
+
+        int quant = goodToTry.getQuantity();
+        player.buy(goodToTry);
+        int quant2 = goodToTry.getQuantity();
+
+        assertEquals(walletBefore, player.getWallet(), 0.01);
+        assertEquals(0, player.getCargoHold().size());
+        assertEquals(quant, quant2);
+        assertFalse(player.getCargoHold().contains(goodToTry));
+
+    }
+
+    @Test
+    public void testBuyNoRoom() {
+        Ship ship = new Ship(ShipType.Gnat);
+        Player player = new Player("Abby",4,4,4,4, ship, Difficulty.E);
+        Planet planet = new Planet("Xerxes");
+        planet.generate();
+        player.setLocation(planet);
+
+        List<TradeGood> goods = new ArrayList<>();
+        for (int i = 0; i < planet.getMarket().getTradeGoods().size(); i++) {
+            if (planet.getMarket().getTradeGoods().get(i).getFinalPrice() >= 0) {
+                goods.add(planet.getMarket().getTradeGoods().get(i));
+            }
+        }
+
+        Random rand = new Random();
+        int randIndex = rand.nextInt(goods.size());
+        TradeGood goodToBuy = goods.get(randIndex);
+
+        while (player.getShip().testCapacity()) {
+            player.buy(goodToBuy);
+        }
+
+        double walletBefore = player.getWallet();
+
+        player.buy(goodToBuy);
+
+        assertFalse(player.getShip().testCapacity());
+        assertEquals(walletBefore, player.getWallet(), 0.01);
+
+    }
+
 }
