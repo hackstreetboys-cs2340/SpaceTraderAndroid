@@ -27,7 +27,7 @@ public class SolarSystem {
      * @param name name of the system
      */
     public SolarSystem(String name) {
-        this(name, new Pair<>(0, 0), new ArrayList<Planet>());
+        this(name, new Pair<>(0, 0));
     }
 
     /**
@@ -86,7 +86,7 @@ public class SolarSystem {
      */
     public void generateSystem(int numOfPlanets, List<String> planetNames) {
         Random rnd = new Random();
-        while (numOfPlanets > 0) {
+        while (numOfPlanets > 0 && planetNames.size() != 0) {
             Planet newPlanet = new Planet(planetNames.remove(rnd.nextInt(planetNames.size())), this.coordinates);
             newPlanet.generate();
             planets.add(newPlanet);

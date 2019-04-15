@@ -27,7 +27,7 @@ public class Market {
      * no args constructor
      */
     public Market() {
-        this.tradeGoods = new ArrayList<>(10);
+        this(TechLevel.PreAgriculture, Resources.NoSpecialResources);
     }
 
     /**
