@@ -223,7 +223,13 @@ class PlayerConfigVC: UIViewController {
                 self.removeSpinner()
             }
         } else {
-            
+            let alertController = UIAlertController(title: "Please allocate all of your points", message: "You still have \(pointsAvailable) points remaining.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                alertController.dismiss(animated: true, completion: nil)
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            removeSpinner()
         }
     }
 }
