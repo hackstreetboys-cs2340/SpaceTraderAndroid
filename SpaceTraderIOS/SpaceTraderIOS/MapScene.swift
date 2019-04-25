@@ -56,7 +56,8 @@ class MapScene: SKScene {
         print(xScalar)
         print(yScalar)
         for solarSystem in solarSystems {
-            let solarSystemNode: SKSpriteNode = SKSpriteNode(imageNamed: Constants.solarSystemImgName)
+            let imageName = Constants.starTypes.randomElement()
+            let solarSystemNode: SKSpriteNode = SKSpriteNode(imageNamed: imageName!)
             let lat: CGFloat = CGFloat(solarSystem.coordinates.latitude)
             let long: CGFloat = CGFloat(solarSystem.coordinates.longitude)
             let pos: CGPoint = CGPoint(x: offset + xScalar * long, y: offset + yScalar * lat)
@@ -132,13 +133,15 @@ class MapScene: SKScene {
                 if let selectedNode = selectedNode {
                     
                 } else {
-                    makeLabel(with: nodeName, node: node)
+                    selectedNode = node;
                 }
             }
         } else {
             visibleLblNode?.removeFromParent()
             visibleLblNode = nil
+            selectedNode = nil
         }
+        print("\nNAME= \(selectedNode?.name)\n")
     }
     
     private func makeLabel(with name: String, node: SKSpriteNode) {

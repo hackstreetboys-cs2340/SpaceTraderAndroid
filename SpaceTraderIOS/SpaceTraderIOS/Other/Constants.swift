@@ -13,6 +13,6 @@ struct Constants {
     static let universeMaxLong: Int = 33
     static let solarSystemWidth = 30
     static let solarSystemHeight = 30
-    static let solarSystemImgName = ""
     static let mapOffset = 40
+    static let starTypes = ["yellow_star", "blue_star", "red_star"]
 }
