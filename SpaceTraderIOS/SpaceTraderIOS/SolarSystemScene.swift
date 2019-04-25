@@ -51,7 +51,7 @@ class SolarSystemScene: SKScene {
         let diff = sqrt(Double((destY - currY) * (destY - currY) + (destX - currX) * (destX - currX)))
         let velocity: Double = 10
         let duration = diff / velocity
-        let moveAction = SKAction.move(to: dest, duration: 2)
+        let moveAction = SKAction.move(to: dest, duration: duration)
         ufoSprite.run(moveAction)
         print("PENIS !")
     }
