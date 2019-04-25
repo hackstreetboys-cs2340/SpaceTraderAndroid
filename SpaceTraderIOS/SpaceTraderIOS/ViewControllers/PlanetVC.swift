@@ -19,6 +19,7 @@ class PlanetVC: UIViewController {
     let marketButton = UIButton()
     
     override func viewDidLoad() {
+        player?.location = planet
         layoutUI()
     }
     private func layoutUI() {

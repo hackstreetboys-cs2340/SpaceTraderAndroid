@@ -57,8 +57,23 @@ class MapVC: UIViewController {
     }
     
     @objc private func travel(_ sender: Any) {
-        if let _ = destination {
-            performSegue(withIdentifier: "MapToSystem", sender: nil)
+        if let dest = destination {
+            guard let player = self.player else { return }
+            guard let system = destination else { return }
+            guard let currLocation = player.location else { return }
+            let fuelCost = system.coordinates.distTo(coords: currLocation.solarSystem.coordinates)
+            if (fuelCost <= player.ship.fuelLevel) {
+                player.ship.fuelLevel -= fuelCost
+                print("\nCOSTED \(fuelCost) FUEL. \n\(player.ship.fuelLevel) FUEL REMAINING\n")
+                performSegue(withIdentifier: "MapToSystem", sender: nil)
+            } else {
+                let alertController = UIAlertController(title: "Insufficient Fuel", message: "You do not have enough fuel for this journey.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    alertController.dismiss(animated: true, completion: nil)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     

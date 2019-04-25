@@ -26,4 +26,9 @@ class Coordinates: CustomStringConvertible {
         self.latitude = latitude
         self.longitude = longitude
     }
+    func distTo(coords: Coordinates) -> Int {
+        let dx = latitude - coords.latitude
+        let dy = longitude - coords.longitude
+        return Int(sqrt(dx * dx + dy * dy))
+    }
 }

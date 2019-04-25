@@ -18,6 +18,7 @@ class Player: CustomStringConvertible {
     var difficulty: Difficulty
     var seed: UInt64
     var wallet: Int
+    var location: Planet?
     
     var description: String {return "Name: \(name)\nPilot Skill: \(pilotSkill)\nEngine Skill: \(engineSkill)\nTrade Skill: \(tradeSkill)\nFight Skill: \(fightSkill)\nShip Type: \(ship)\nDifficulty: \(difficulty)"}
     

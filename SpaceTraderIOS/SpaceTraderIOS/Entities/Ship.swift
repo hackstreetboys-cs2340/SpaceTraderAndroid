@@ -11,11 +11,20 @@ import Foundation
 class Ship {
     let type: ShipType
     let capacity: Int
+    var fuelLevel: Int
+    let fuelCapacity: Int
     var cargo: [Resource : Int]
     init(type: ShipType, cargo: [Resource : Int]) {
         self.type = type
         self.capacity = type.rawValue
         self.cargo = cargo
+        switch type {
+        case .Gnat:
+            fuelCapacity = 100
+        default:
+            fuelCapacity = 0
+        }
+        fuelLevel = fuelCapacity
     }
     convenience init(type: ShipType) {
         self.init(type: type, cargo: [:])
