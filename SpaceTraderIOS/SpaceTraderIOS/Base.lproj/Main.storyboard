@@ -75,10 +75,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uZA-8y-8kz"/>
                     </view>
+                    <connections>
+                        <segue destination="Xza-iF-8K7" kind="show" identifier="MapToSystem" id="tqp-3f-na9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dC-D5-CqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2918" y="-552"/>
+        </scene>
+        <!--Solar SystemVC-->
+        <scene sceneID="tay-tn-CLa">
+            <objects>
+                <viewController id="Xza-iF-8K7" customClass="SolarSystemVC" customModule="SpaceTraderIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bBd-WI-h0t" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9nP-UC-ctC"/>
+                    </view>
+                    <connections>
+                        <segue destination="or6-UJ-lSO" kind="show" identifier="SystemToPlanet" id="dfd-Do-8UK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gq9-ug-fGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3724" y="-553"/>
         </scene>
         <!--MarketVC-->
         <scene sceneID="ICc-L4-uOk">
@@ -96,4 +117,7 @@
             <point key="canvasLocation" x="2919" y="132"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dfd-Do-8UK"/>
+    </inferredMetricsTieBreakers>
 </document>

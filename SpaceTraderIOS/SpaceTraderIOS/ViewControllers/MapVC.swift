@@ -11,6 +11,9 @@ import UIKit
 import SpriteKit
 
 class MapVC: UIViewController {
+    var player: Player?
+    var universe: Universe?
+    
     var solarSystems: [SolarSystem] = []
     var mapScene: MapScene?
     var travelBtn: UIButton = UIButton()
@@ -54,8 +57,16 @@ class MapVC: UIViewController {
     }
     
     @objc private func travel(_ sender: Any) {
-        if let destination = destination {
-            print(destination)
+        if let _ = destination {
+            performSegue(withIdentifier: "MapToSystem", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? SolarSystemVC, let system = destination, let player = self.player, let universe = self.universe {
+            dest.solarSystem = system
+            dest.player = player
+            dest.universe = universe
         }
     }
     

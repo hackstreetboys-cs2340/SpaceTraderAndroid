@@ -78,7 +78,11 @@ class PlanetVC: UIViewController {
         
         if let dest = segue.destination as? MapVC {
             guard let systems = universe?.solarSystems else { return }
+            guard let player = self.player else { return }
+            guard let universe = self.universe else { return }
             dest.solarSystems = systems
+            dest.player = player
+            dest.universe = universe
         }
     }
     @objc private func marketTapped(_ sender: Any) {
