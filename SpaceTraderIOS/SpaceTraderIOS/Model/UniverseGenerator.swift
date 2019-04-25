@@ -22,7 +22,7 @@ class UniverseGenerator {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : Any]
                 guard var planetNames = json?["PlanetNames"] as? [String] else {return}
                 // 10 to 40 solar systems in a universe
-                var numSystems = Int.random(in: 10 ..< 40, using: &generator)
+                var numSystems = Int.random(in: Constants.minSystems ..< Constants.maxSystems, using: &generator)
                 var usedCoordinates: [Coordinates] = []
                 // Make each solar system
                 solarSystemLoop: for index in 0 ..< numSystems - 1 {
@@ -36,7 +36,7 @@ class UniverseGenerator {
                     
                     // 1 to 10 planets in a solar system
                     if planetNames.count >= 10 {
-                        numPlanets = Int.random(in: 1 ..< 10, using: &generator)
+                        numPlanets = Int.random(in: Constants.minPlanets ..< Constants.maxPlanets, using: &generator)
                     } else {
                         // unless there are less than 10 planets left
                         print(planetNames.count)

@@ -16,4 +16,8 @@ struct Constants {
     static let mapOffset = 40
     static let starTypes = ["yellow_star", "blue_star", "red_star"]
     static let planetTypes = ["blue_planet", "earth_planet", "red_planet"]
+    static let minSystems = 10
+    static let maxSystems = 40
+    static let minPlanets = 1
+    static let maxPlanets = 10
 }
