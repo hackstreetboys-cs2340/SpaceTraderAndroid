@@ -14,9 +14,11 @@ var mapNode: SKSpriteNode?
 class MapScene: SKScene {
     var solarSystemNodes: [SKSpriteNode] = []
     var solarSystems: [SolarSystem] = []
+    var player: Player?
     var selectedNode: SKSpriteNode?
     var visibleLblNode: SKLabelNode?
     var travelBtn: SKSpriteNode = SKSpriteNode()
+    let ufoSprite: SKSpriteNode = SKSpriteNode(imageNamed: "ufo")
     override func sceneDidLoad() {
         print("Scene loaded")
         scene?.anchorPoint = CGPoint.zero
@@ -27,6 +29,16 @@ class MapScene: SKScene {
         print("Did move to view")
         createSolarSystems()
         setupButtonSprites()
+        setupUFO()
+    }
+    private func setupUFO() {
+        guard let player = player, let location = player.location else { return }
+        ufoSprite.size = CGSize(width: 30, height: 15)
+        let systemPos: CGPoint = coords(for: location.solarSystem)
+        let xPos: CGFloat = systemPos.x - ufoSprite.size.width
+        let yPos: CGFloat = systemPos.y - ufoSprite.size.height
+        ufoSprite.position = CGPoint(x: xPos, y: yPos)
+        mapNode?.addChild(ufoSprite)
     }
     private func createTestingNodes() {
         let node: SKSpriteNode = SKSpriteNode(imageNamed: "")
@@ -50,19 +62,24 @@ class MapScene: SKScene {
     }
     private func createSolarSystems() {
         let offset: CGFloat = CGFloat(Constants.mapOffset)
+        /*
         let xScalar = (mapNode!.frame.width - 2 * offset) / CGFloat(Constants.universeMaxLong)
         let yScalar = (mapNode!.frame.height - 2 * offset) / CGFloat(Constants.universeMaxLat)
         print("Scalars:")
         print(xScalar)
         print(yScalar)
+         */
         for solarSystem in solarSystems {
             let imageName = Constants.starTypes.randomElement()
             let solarSystemNode: SKSpriteNode = SKSpriteNode(imageNamed: imageName!)
+            /*
             let lat: CGFloat = CGFloat(solarSystem.coordinates.latitude)
             let long: CGFloat = CGFloat(solarSystem.coordinates.longitude)
             let pos: CGPoint = CGPoint(x: offset + xScalar * long, y: offset + yScalar * lat)
+            */
             
-            solarSystemNode.position = pos
+            //solarSystemNode.position = pos
+            solarSystemNode.position = coords(for: solarSystem)
             let width = CGFloat(Constants.solarSystemWidth)
             let height = CGFloat(Constants.solarSystemHeight)
             solarSystemNode.size = CGSize(width: width, height: height)
@@ -70,6 +87,16 @@ class MapScene: SKScene {
             solarSystemNodes.append(solarSystemNode)
             mapNode!.addChild(solarSystemNode)
         }
+    }
+    private func coords(for solarSystem: SolarSystem) -> CGPoint {
+        let offset: CGFloat = CGFloat(Constants.mapOffset)
+        let xScalar = (mapNode!.frame.width - 2 * offset) / CGFloat(Constants.universeMaxLong)
+        let yScalar = (mapNode!.frame.height - 2 * offset) / CGFloat(Constants.universeMaxLat)
+        
+        let lat: CGFloat = CGFloat(solarSystem.coordinates.latitude)
+        let long: CGFloat = CGFloat(solarSystem.coordinates.longitude)
+        let pos: CGPoint = CGPoint(x: offset + xScalar * long, y: offset + yScalar * lat)
+        return pos
     }
     private func setupButtonSprites() {
         let offset: CGFloat = 20

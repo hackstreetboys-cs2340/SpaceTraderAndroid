@@ -23,6 +23,9 @@ class MapVC: UIViewController {
             if let scene = SKScene(fileNamed: "MapScene") as? MapScene {
                 mapScene = scene
                 scene.solarSystems = solarSystems
+                if let player = player {
+                    scene.player = player
+                }
                 skView.presentScene(scene)
                 setupButton()
             } else {
