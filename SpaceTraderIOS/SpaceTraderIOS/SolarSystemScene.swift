@@ -49,11 +49,10 @@ class SolarSystemScene: SKScene {
         let currY = ufoSprite.position.y
         let dest = CGPoint(x: destX, y: destY)
         let diff = sqrt(Double((destY - currY) * (destY - currY) + (destX - currX) * (destX - currX)))
-        let velocity: Double = 10
+        let velocity: Double = 100
         let duration = diff / velocity
         let moveAction = SKAction.move(to: dest, duration: duration)
         ufoSprite.run(moveAction)
-        print("PENIS !")
     }
     
     private func layoutPlanets() {
