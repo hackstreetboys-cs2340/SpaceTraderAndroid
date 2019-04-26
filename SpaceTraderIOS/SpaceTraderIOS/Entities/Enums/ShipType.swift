@@ -9,5 +9,5 @@
 import Foundation
 
 enum ShipType: Int, CaseIterable {
-    case Gnat = 100
+    case Gnat = 75
 }

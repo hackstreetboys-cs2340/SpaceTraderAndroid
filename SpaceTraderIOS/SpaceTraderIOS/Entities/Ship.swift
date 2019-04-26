@@ -20,7 +20,7 @@ class Ship {
         self.cargo = cargo
         switch type {
         case .Gnat:
-            fuelCapacity = 100
+            fuelCapacity = 75
         default:
             fuelCapacity = 0
         }

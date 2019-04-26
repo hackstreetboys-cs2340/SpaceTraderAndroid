@@ -30,6 +30,7 @@
 		5A99939022723EAE00A47F49 /* SolarSystemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99938F22723EAE00A47F49 /* SolarSystemVC.swift */; };
 		5A99939222723F6600A47F49 /* SolarSystemScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99939122723F6600A47F49 /* SolarSystemScene.swift */; };
 		5A9993942272456900A47F49 /* SolarSystemScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5A9993932272456900A47F49 /* SolarSystemScene.sks */; };
+		5A9993972273491400A47F49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A9993962273491400A47F49 /* GoogleService-Info.plist */; };
 		5AF5B14E2229764700715AA6 /* UniverseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */; };
 		5AF5B150222986BD00715AA6 /* PlanetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B14F222986BD00715AA6 /* PlanetVC.swift */; };
 		5AF5B1522229BDA800715AA6 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B1512229BDA800715AA6 /* MarketVC.swift */; };
@@ -89,6 +90,7 @@
 		5A99938F22723EAE00A47F49 /* SolarSystemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemVC.swift; sourceTree = "<group>"; };
 		5A99939122723F6600A47F49 /* SolarSystemScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemScene.swift; sourceTree = "<group>"; };
 		5A9993932272456900A47F49 /* SolarSystemScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SolarSystemScene.sks; sourceTree = "<group>"; };
+		5A9993962273491400A47F49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AF5B14D2229764700715AA6 /* UniverseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseGenerator.swift; sourceTree = "<group>"; };
 		5AF5B14F222986BD00715AA6 /* PlanetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetVC.swift; sourceTree = "<group>"; };
 		5AF5B1512229BDA800715AA6 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5A0AD8E8221CDD0C00E90E68 /* Main.storyboard */,
 				5A0AD8ED221CDD1200E90E68 /* LaunchScreen.storyboard */,
 				5A0AD8F0221CDD1200E90E68 /* Info.plist */,
+				5A9993962273491400A47F49 /* GoogleService-Info.plist */,
 			);
 			path = SpaceTraderIOS;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				5A0AD8DE221CDD0C00E90E68 /* Frameworks */,
 				5A0AD8DF221CDD0C00E90E68 /* Resources */,
 				220A47CE7BDFB3011D854439 /* [CP] Embed Pods Frameworks */,
+				1265D0A589FA56BC45D94481 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +369,7 @@
 				5A0AD8EC221CDD1200E90E68 /* Assets.xcassets in Resources */,
 				5A0AD8EA221CDD0C00E90E68 /* Main.storyboard in Resources */,
 				5A14E7BA225829CA00BCFCC3 /* MapScene.sks in Resources */,
+				5A9993972273491400A47F49 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +383,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1265D0A589FA56BC45D94481 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		220A47CE7BDFB3011D854439 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +414,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
@@ -394,6 +422,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);

@@ -20,10 +20,6 @@ class MarketVC: UIViewController {
     let walletLbl = UILabel()
     let separator = UIView()
     override func viewDidLoad() {
-        print("CARGO:")
-        print(player?.ship.cargo)
-        print(market?.goodsForSale)
-        print(market?.goodsToSell)
         layoutUI()
     }
     

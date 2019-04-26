@@ -22,6 +22,7 @@
                     </view>
                     <connections>
                         <segue destination="DMY-ze-AsU" kind="show" identifier="mainToConfig" id="PPh-gm-MUN"/>
+                        <segue destination="or6-UJ-lSO" kind="show" identifier="LoginToPlanet" id="Jy2-YJ-fQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -44,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n67-24-9oF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="134"/>
+            <point key="canvasLocation" x="1060" y="-218"/>
         </scene>
         <!--PlanetVC-->
         <scene sceneID="Vxu-nn-Tsm">
@@ -118,6 +119,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dfd-Do-8UK"/>
+        <segue reference="pPZ-JP-b0N"/>
     </inferredMetricsTieBreakers>
 </document>
