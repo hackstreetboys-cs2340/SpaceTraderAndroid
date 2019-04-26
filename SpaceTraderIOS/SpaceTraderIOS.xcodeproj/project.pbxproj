@@ -46,6 +46,8 @@
 		5AF5B16D222C8BED00715AA6 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16C222C8BED00715AA6 /* Ship.swift */; };
 		5AF5B16F222CC38900715AA6 /* MarketFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B16E222CC38900715AA6 /* MarketFailure.swift */; };
 		5AF5B171222CC91D00715AA6 /* CustomTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5B170222CC91D00715AA6 /* CustomTableViewCells.swift */; };
+		F5D485E6A347F050F5C9B4F5 /* Pods_SpaceTraderIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863034132C74E8C38CACC13D /* Pods_SpaceTraderIOSTests.framework */; };
+		FF5391452518542031B5079B /* Pods_SpaceTraderIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607BFC24272FA1893806F088 /* Pods_SpaceTraderIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		337DAB07FA646278E0F59449 /* Pods-SpaceTraderIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceTraderIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5A0AD8E1221CDD0C00E90E68 /* SpaceTraderIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTraderIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0AD8E4221CDD0C00E90E68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A0AD8E6221CDD0C00E90E68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +105,11 @@
 		5AF5B16C222C8BED00715AA6 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		5AF5B16E222CC38900715AA6 /* MarketFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFailure.swift; sourceTree = "<group>"; };
 		5AF5B170222CC91D00715AA6 /* CustomTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCells.swift; sourceTree = "<group>"; };
+		607BFC24272FA1893806F088 /* Pods_SpaceTraderIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceTraderIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		863034132C74E8C38CACC13D /* Pods_SpaceTraderIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceTraderIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15173BFE366027CA3101BE0 /* Pods-SpaceTraderIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceTraderIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceTraderIOSTests/Pods-SpaceTraderIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		C9E9D5D2DFF940C03CCDFD1C /* Pods-SpaceTraderIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceTraderIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS.release.xcconfig"; sourceTree = "<group>"; };
+		E3B834124E6A9E506A88A44C /* Pods-SpaceTraderIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceTraderIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceTraderIOSTests/Pods-SpaceTraderIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5391452518542031B5079B /* Pods_SpaceTraderIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +125,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D485E6A347F050F5C9B4F5 /* Pods_SpaceTraderIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09595EEC16E4FDD53DCACDEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				337DAB07FA646278E0F59449 /* Pods-SpaceTraderIOS.debug.xcconfig */,
+				C9E9D5D2DFF940C03CCDFD1C /* Pods-SpaceTraderIOS.release.xcconfig */,
+				E3B834124E6A9E506A88A44C /* Pods-SpaceTraderIOSTests.debug.xcconfig */,
+				C15173BFE366027CA3101BE0 /* Pods-SpaceTraderIOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5A0AD8D8221CDD0C00E90E68 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +150,8 @@
 				5A0AD8E3221CDD0C00E90E68 /* SpaceTraderIOS */,
 				5A0AD8F8221CDD1200E90E68 /* SpaceTraderIOSTests */,
 				5A0AD8E2221CDD0C00E90E68 /* Products */,
+				09595EEC16E4FDD53DCACDEE /* Pods */,
+				DE8E51A9DE73913BA684D26B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +266,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		DE8E51A9DE73913BA684D26B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				607BFC24272FA1893806F088 /* Pods_SpaceTraderIOS.framework */,
+				863034132C74E8C38CACC13D /* Pods_SpaceTraderIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A0AD8FE221CDD1200E90E68 /* Build configuration list for PBXNativeTarget "SpaceTraderIOS" */;
 			buildPhases = (
+				B9C7BF1CD891FFB2D9C8DBF9 /* [CP] Check Pods Manifest.lock */,
 				5A0AD8DD221CDD0C00E90E68 /* Sources */,
 				5A0AD8DE221CDD0C00E90E68 /* Frameworks */,
 				5A0AD8DF221CDD0C00E90E68 /* Resources */,
+				220A47CE7BDFB3011D854439 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A0AD901221CDD1200E90E68 /* Build configuration list for PBXNativeTarget "SpaceTraderIOSTests" */;
 			buildPhases = (
+				5F4CC65BC9635C373C1AF938 /* [CP] Check Pods Manifest.lock */,
 				5A0AD8F1221CDD1200E90E68 /* Sources */,
 				5A0AD8F2221CDD1200E90E68 /* Frameworks */,
 				5A0AD8F3221CDD1200E90E68 /* Resources */,
@@ -341,6 +376,77 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		220A47CE7BDFB3011D854439 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpaceTraderIOS/Pods-SpaceTraderIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F4CC65BC9635C373C1AF938 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceTraderIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9C7BF1CD891FFB2D9C8DBF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceTraderIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A0AD8DD221CDD0C00E90E68 /* Sources */ = {
@@ -538,6 +644,7 @@
 		};
 		5A0AD8FF221CDD1200E90E68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337DAB07FA646278E0F59449 /* Pods-SpaceTraderIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +663,7 @@
 		};
 		5A0AD900221CDD1200E90E68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E9D5D2DFF940C03CCDFD1C /* Pods-SpaceTraderIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +682,7 @@
 		};
 		5A0AD902221CDD1200E90E68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3B834124E6A9E506A88A44C /* Pods-SpaceTraderIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -595,6 +704,7 @@
 		};
 		5A0AD903221CDD1200E90E68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C15173BFE366027CA3101BE0 /* Pods-SpaceTraderIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

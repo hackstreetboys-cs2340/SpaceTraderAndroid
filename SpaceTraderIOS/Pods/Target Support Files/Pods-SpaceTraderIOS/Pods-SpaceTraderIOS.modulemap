@@ -1,0 +1,6 @@
+framework module Pods_SpaceTraderIOS {
+  umbrella header "Pods-SpaceTraderIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
